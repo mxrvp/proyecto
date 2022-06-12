@@ -138,12 +138,12 @@ public class frmPruebaClaseUsuario extends javax.swing.JFrame {
         Usuario objUsuario = new Usuario();
         
         objUsuario.setCedula(txtCedula.getText());
-        objUsuario.setContrasena(txtUserld.getText());
         objUsuario.setUserld( Integer.valueOf(txtUserld.getText()) );
         objUsuario.setContrasena(txtContrasena.getText());
-        objUsuario.setNombre(txtUserld.getText());
-        objUsuario.setApellido(txtUserld.getText());
-        objUsuario.setDireccion(txtUserld.getText());
+       
+        objUsuario.setNombre(txtNombre.getText());
+        objUsuario.setApellido(txtApellido.getText());
+        objUsuario.setDireccion(txtDireccion.getText());
         
         if(objUsuario.Insertar()){
             JOptionPane.showMessageDialog(null,"se inserto en el archivo");
