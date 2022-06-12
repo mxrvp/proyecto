@@ -17,7 +17,7 @@ import java.util.Scanner;
  */
 public class Usuario {
     private String cedula;
-    private int userld;
+    private int userld; //conteo
     private String contrasena;
     private String nombre;
     private String apellido;
