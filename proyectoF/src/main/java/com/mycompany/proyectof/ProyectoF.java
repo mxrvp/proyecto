@@ -8,10 +8,13 @@ package com.mycompany.proyectof;
 /**
  *
  * @author admin
+ * @author Efraín Batista
  */
 public class ProyectoF {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
+        frmPruebaClaseUsuario frm = new frmPruebaClaseUsuario(); //frm para probar la clase
+        frm.setVisible(true);
     }
 }
