@@ -188,7 +188,7 @@
                                   <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel17" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
-                                      <Component id="txtDriccion" alignment="0" min="-2" pref="410" max="-2" attributes="0"/>
+                                      <Component id="txtDireccion" alignment="0" min="-2" pref="410" max="-2" attributes="0"/>
                                       <Component id="jSeparator10" alignment="0" min="-2" pref="420" max="-2" attributes="0"/>
                                       <Component id="jLabel16" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
                                       <Component id="txtCedula" alignment="0" min="-2" pref="410" max="-2" attributes="0"/>
@@ -254,7 +254,7 @@
                           <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                           <Component id="jLabel17" min="-2" pref="20" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                          <Component id="txtDriccion" min="-2" pref="24" max="-2" attributes="0"/>
+                          <Component id="txtDireccion" min="-2" pref="24" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jSeparator10" min="-2" pref="10" max="-2" attributes="0"/>
                           <EmptySpace pref="53" max="32767" attributes="0"/>
@@ -414,7 +414,7 @@
                     <Property name="text" type="java.lang.String" value="Direccion"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtDriccion">
+                <Component class="javax.swing.JTextField" name="txtDireccion">
                   <Properties>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="99" green="99" red="99" type="rgb"/>
@@ -425,7 +425,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtDriccionMousePressed"/>
+                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtDireccionMousePressed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JSeparator" name="jSeparator10">

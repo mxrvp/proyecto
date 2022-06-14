@@ -17,28 +17,36 @@ import java.util.Scanner;
  */
 public class Usuario {
     private String cedula;
-    private int userld; //conteo
+    private String userId; //nombre de usuario de sistema
     private String contrasena;
     private String nombre;
     private String apellido;
     private String direccion;
     private int tipo; // 0 es usuario normal, 1 es admin
     
-    private final String Carpeta = "C:\\Users\\efrai\\OneDrive\\Documents\\NetBeansProjects\\proyecto"; // Intentare colocar el archivo en la misma carpeta de la clase
+    private final String Carpeta = "C:\\Users\\efrai\\OneDrive\\Documents\\NetBeansProjects\\proyecto\\src\\proyecto\\"; // Intentare colocar el archivo en la misma carpeta de la clase
     private final String ArchivoUsuario = "ArchivoUsuario.txt";
     //private final String ArchivoTrabajador = "archivoTrabajador";
     private final String Separador = "|";
     
     public Usuario(){};
 
-    public Usuario(String cedula, int userld, String contrasena, String nombre, String apellido, String direccion, int tipo) {
+    public Usuario(String cedula, String userId, String contrasena, String nombre, String apellido, String direccion, int tipo) {
         this.cedula = cedula;
-        this.userld = userld;
+        this.userId = userId;
         this.contrasena = contrasena;
         this.nombre = nombre;
         this.apellido = apellido;
         this.direccion = direccion;
         this.tipo = tipo;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getCedula() {
@@ -47,14 +55,6 @@ public class Usuario {
 
     public void setCedula(String cedula) {
         this.cedula = cedula;
-    }
-
-    public int getUserld() {
-        return userld;
-    }
-
-    public void setUserld(int userld) {
-        this.userld = userld;
     }
 
     public String getContrasena() {
@@ -105,7 +105,7 @@ public class Usuario {
         try{
             FileWriter fw = new FileWriter(Carpeta + ArchivoUsuario, true);
             PrintWriter pw = new PrintWriter(fw);
-            pw.println(this.cedula + this.Separador + this.userld + this.Separador + this.contrasena + this.Separador + this.nombre + this.Separador + this.apellido + this.Separador + this.direccion);
+            pw.println(this.cedula + this.Separador + this.userId + this.Separador + this.contrasena + this.Separador + this.nombre + this.Separador + this.apellido + this.Separador + this.direccion);
             pw.close();
             fw.close();
             return true;
@@ -130,7 +130,7 @@ public class Usuario {
                     String linea = scanner.nextLine();
                     String []arr = linea.split("\\|");
                     if(arr[0].equals(this.cedula)) //agarra todas las lineas menos la borrada
-                        pw.println(this.cedula + this.Separador + this.userld + this.Separador + this.contrasena + this.Separador + this.nombre + this.Separador + this.apellido + this.Separador + this.direccion);
+                        pw.println(this.cedula + this.Separador + this.userId + this.Separador + this.contrasena + this.Separador + this.nombre + this.Separador + this.apellido + this.Separador + this.direccion);
                     else
                         pw.println(linea);
                 }

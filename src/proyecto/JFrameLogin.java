@@ -40,7 +40,7 @@ public class JFrameLogin extends javax.swing.JFrame {
         txtCedula = new javax.swing.JTextField();
         jSeparator9 = new javax.swing.JSeparator();
         jLabel17 = new javax.swing.JLabel();
-        txtDriccion = new javax.swing.JTextField();
+        txtDireccion = new javax.swing.JTextField();
         jSeparator10 = new javax.swing.JSeparator();
         btnInSesion = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -179,12 +179,12 @@ public class JFrameLogin extends javax.swing.JFrame {
         jLabel17.setForeground(new java.awt.Color(51, 51, 51));
         jLabel17.setText("Direccion");
 
-        txtDriccion.setForeground(new java.awt.Color(153, 153, 153));
-        txtDriccion.setText("Ingrese su direccion");
-        txtDriccion.setBorder(null);
-        txtDriccion.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtDireccion.setForeground(new java.awt.Color(153, 153, 153));
+        txtDireccion.setText("Ingrese su direccion");
+        txtDireccion.setBorder(null);
+        txtDireccion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtDriccionMousePressed(evt);
+                txtDireccionMousePressed(evt);
             }
         });
 
@@ -260,7 +260,7 @@ public class JFrameLogin extends javax.swing.JFrame {
                         .addGap(105, 105, 105)
                         .addGroup(JpRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDriccion, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -320,7 +320,7 @@ public class JFrameLogin extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
-                .addComponent(txtDriccion, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
@@ -456,19 +456,32 @@ public class JFrameLogin extends javax.swing.JFrame {
             txtCedula.setText("Ingrese su cedula");
             txtCedula.setForeground(Color.gray);
         }
-        if(txtDriccion.getText().equals(""))
+        if(txtDireccion.getText().equals(""))
         {
-            txtDriccion.setText("Ingrese su direccion");
-            txtDriccion.setForeground(Color.gray);
+            txtDireccion.setText("Ingrese su direccion");
+            txtDireccion.setForeground(Color.gray);
         }
     }//GEN-LAST:event_txtPaswordMousePressed
 
     private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
-        JFrameConfirmarContra obj = new JFrameConfirmarContra();
-        
-        obj.setVisible(true);
-        this.setVisible(false);
+        //JFrameConfirmarContra obj = new JFrameConfirmarContra();
+                
+        // obj.setVisible(true);
+        // this.setVisible(false);
         // codigo de archivo
+        
+        Usuario objUsuario = new Usuario(); 
+        objUsuario.setUserId(txtUsuario.getText());
+        objUsuario.setContrasena(txtPasword.getText());
+        objUsuario.setNombre(txtNombre.getText());
+        objUsuario.setApellido(txtApellido.getText());
+        objUsuario.setCedula(txtCedula.getText());
+        objUsuario.setDireccion(txtDireccion.getText());
+        
+        if(objUsuario.Insertar())
+            JOptionPane.showMessageDialog(rootPane,"se creo el usuario");
+        else
+            JOptionPane.showMessageDialog(rootPane,"No se creo");
     }//GEN-LAST:event_jLabel4MousePressed
 
     private void jLabel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseExited
@@ -511,10 +524,10 @@ public class JFrameLogin extends javax.swing.JFrame {
             txtCedula.setText("Ingrese su cedula");
             txtCedula.setForeground(Color.gray);
         }
-        if(txtDriccion.getText().equals(""))
+        if(txtDireccion.getText().equals(""))
         {
-            txtDriccion.setText("Ingrese su direccion");
-            txtDriccion.setForeground(Color.gray);
+            txtDireccion.setText("Ingrese su direccion");
+            txtDireccion.setForeground(Color.gray);
         }
 
     }//GEN-LAST:event_txtNombreMousePressed
@@ -545,10 +558,10 @@ public class JFrameLogin extends javax.swing.JFrame {
             txtCedula.setText("Ingrese su cedula");
             txtCedula.setForeground(Color.gray);
         }
-        if(txtDriccion.getText().equals(""))
+        if(txtDireccion.getText().equals(""))
         {
-            txtDriccion.setText("Ingrese su direccion");
-            txtDriccion.setForeground(Color.gray);
+            txtDireccion.setText("Ingrese su direccion");
+            txtDireccion.setForeground(Color.gray);
         }
     }//GEN-LAST:event_txtApellidoMousePressed
 
@@ -578,10 +591,10 @@ public class JFrameLogin extends javax.swing.JFrame {
             txtCedula.setText("Ingrese su cedula");
             txtCedula.setForeground(Color.gray);
         }
-        if(txtDriccion.getText().equals(""))
+        if(txtDireccion.getText().equals(""))
         {
-            txtDriccion.setText("Ingrese su direccion");
-            txtDriccion.setForeground(Color.gray);
+            txtDireccion.setText("Ingrese su direccion");
+            txtDireccion.setForeground(Color.gray);
         }
     }//GEN-LAST:event_txtUsuarioMousePressed
 
@@ -611,18 +624,18 @@ public class JFrameLogin extends javax.swing.JFrame {
             txtApellido.setText("Ingrese su apellido");
             txtApellido.setForeground(Color.gray);
         }
-        if(txtDriccion.getText().equals(""))
+        if(txtDireccion.getText().equals(""))
         {
-            txtDriccion.setText("Ingrese su direccion");
-            txtDriccion.setForeground(Color.gray);
+            txtDireccion.setText("Ingrese su direccion");
+            txtDireccion.setForeground(Color.gray);
         }
     }//GEN-LAST:event_txtCedulaMousePressed
 
-    private void txtDriccionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDriccionMousePressed
-        if(txtDriccion.getText().equals("Ingrese su direccion"))
+    private void txtDireccionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDireccionMousePressed
+        if(txtDireccion.getText().equals("Ingrese su direccion"))
         {
-            txtDriccion.setText("");
-            txtDriccion.setForeground(Color.black);
+            txtDireccion.setText("");
+            txtDireccion.setForeground(Color.black);
         }
         if(txtCedula.getText().equals(""))
         {
@@ -649,7 +662,7 @@ public class JFrameLogin extends javax.swing.JFrame {
             txtApellido.setText("Ingrese su apellido");
             txtApellido.setForeground(Color.gray);
         }
-    }//GEN-LAST:event_txtDriccionMousePressed
+    }//GEN-LAST:event_txtDireccionMousePressed
 
     private void jLabel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MousePressed
         JFrameInSesion obj = new JFrameInSesion();
@@ -725,7 +738,7 @@ public class JFrameLogin extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtCedula;
-    private javax.swing.JTextField txtDriccion;
+    private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JPasswordField txtPasword;
     private javax.swing.JTextField txtUsuario;
