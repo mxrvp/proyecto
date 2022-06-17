@@ -46,7 +46,7 @@ public class JFrameLogin extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         btnnCrear = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        JPanelCerrar = new javax.swing.JPanel();
+        btnCerrar = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -90,10 +90,10 @@ public class JFrameLogin extends javax.swing.JFrame {
                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(59, 59, 59)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(485, Short.MAX_VALUE))
+                .addContainerGap(405, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 890));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 810));
 
         JPanelBarra2.setBackground(new java.awt.Color(255, 255, 255));
         JPanelBarra2.setPreferredSize(new java.awt.Dimension(1041, 780));
@@ -259,7 +259,7 @@ public class JFrameLogin extends javax.swing.JFrame {
             .addGroup(JpRegistroLayout.createSequentialGroup()
                 .addGroup(JpRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JpRegistroLayout.createSequentialGroup()
-                        .addGap(105, 105, 105)
+                        .addGap(121, 121, 121)
                         .addGroup(JpRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtDriccion, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -332,8 +332,8 @@ public class JFrameLogin extends javax.swing.JFrame {
                 .addGap(15, 15, 15))
         );
 
-        JPanelCerrar.setBackground(new java.awt.Color(255, 255, 255));
-        JPanelCerrar.setPreferredSize(new java.awt.Dimension(45, 40));
+        btnCerrar.setBackground(new java.awt.Color(255, 255, 255));
+        btnCerrar.setPreferredSize(new java.awt.Dimension(45, 40));
 
         jLabel10.setBackground(new java.awt.Color(51, 51, 255));
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -354,17 +354,17 @@ public class JFrameLogin extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout JPanelCerrarLayout = new javax.swing.GroupLayout(JPanelCerrar);
-        JPanelCerrar.setLayout(JPanelCerrarLayout);
-        JPanelCerrarLayout.setHorizontalGroup(
-            JPanelCerrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelCerrarLayout.createSequentialGroup()
+        javax.swing.GroupLayout btnCerrarLayout = new javax.swing.GroupLayout(btnCerrar);
+        btnCerrar.setLayout(btnCerrarLayout);
+        btnCerrarLayout.setHorizontalGroup(
+            btnCerrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCerrarLayout.createSequentialGroup()
                 .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        JPanelCerrarLayout.setVerticalGroup(
-            JPanelCerrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelCerrarLayout.createSequentialGroup()
+        btnCerrarLayout.setVerticalGroup(
+            btnCerrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCerrarLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -374,17 +374,17 @@ public class JFrameLogin extends javax.swing.JFrame {
         JPanelBarra2Layout.setHorizontalGroup(
             JPanelBarra2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelBarra2Layout.createSequentialGroup()
-                .addContainerGap(408, Short.MAX_VALUE)
+                .addContainerGap(392, Short.MAX_VALUE)
                 .addComponent(JpRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelBarra2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(JPanelCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         JPanelBarra2Layout.setVerticalGroup(
             JPanelBarra2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelBarra2Layout.createSequentialGroup()
-                .addComponent(JPanelCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JpRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -400,7 +400,7 @@ public class JFrameLogin extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 804, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -423,11 +423,11 @@ public class JFrameLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void jLabel10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseEntered
-       JPanelCerrar.setBackground(Color.red);
+       btnCerrar.setBackground(Color.red);
     }//GEN-LAST:event_jLabel10MouseEntered
 
     private void jLabel10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseExited
-        JPanelCerrar.setBackground(Color.white);
+        btnCerrar.setBackground(Color.white);
     }//GEN-LAST:event_jLabel10MouseExited
 
     private void txtPaswordMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPaswordMousePressed
@@ -701,8 +701,8 @@ public class JFrameLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JPanelBarra2;
-    private javax.swing.JPanel JPanelCerrar;
     private javax.swing.JPanel JpRegistro;
+    private javax.swing.JPanel btnCerrar;
     private javax.swing.JPanel btnInSesion;
     private javax.swing.JPanel btnnCrear;
     private javax.swing.JLabel jLabel10;
