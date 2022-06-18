@@ -1,2 +1,0 @@
-# proyectoF
-proyecto en netbeans
