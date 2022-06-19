@@ -1,0 +1,5 @@
+8-940-1121|charles|albert|monaco|ortega|2022-06-17|Monaco|68234567|30.0|10.0
+8-940-1121|Abril|Camaño|chacon|ortega|2022-06-17|el Carrizal|68236059|20.0|5.0
+8-940-1121|Abril|Camaño|chacon|ortega|2022-06-17|el Carrizal|68236059|20.0|5.0
+8-940-1121|Abril|Camaño|chacon|ortega|2022-06-17|el Carrizal|68236059|20.0|5.0
+8-940-1121|Abril|Camaño|chacon|ortega|2022-06-17|el Carrizal|68236059|20.0|5.0
