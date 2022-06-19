@@ -26,5 +26,12 @@ public class planillaModel {
     private Scanner lc;
     
      private ArrayList<Empleado> empleados = new ArrayList<Empleado>();
+     
+     
+     public Empleado buscar(int index){
+        return empleados.get(index);
+    }
+     
+     
     
 }

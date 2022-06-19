@@ -130,6 +130,23 @@ public class EmpleadosModel {
           return true;
    
      }
+      
+      public Empleado buscarCedula(String ced){
+          String cedula=ced.trim();
+         Empleado empleadoNulo=null;
+           for(int i=0;i<=this.getNumEmpleados()-1;i++){
+              Empleado em=this.empleados.get(i);
+              
+              if(em.getCedula().equals(cedula)){
+                   return em;
+                 }
+         
+           }
+          
+          return empleadoNulo;
+   
+     }
+      
 
     public int getQueryType() {
         return this.queryType;
