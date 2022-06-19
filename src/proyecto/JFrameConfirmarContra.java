@@ -32,6 +32,7 @@ public class JFrameConfirmarContra extends javax.swing.JFrame {
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(153, 153, 153)));
 
         JPanelBarra2.setBackground(new java.awt.Color(255, 255, 255));
         JPanelBarra2.setPreferredSize(new java.awt.Dimension(1041, 780));
