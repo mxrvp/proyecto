@@ -2,32 +2,15 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
-        <group/>
-=======
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/admin/Documents/NetBeansProjects/proyecto/src/proyecto/JFrameInSesion.java</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/proyecto/src/proyecto/JFrameMenu.java</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/proyecto/src/planilla/planillaModel.java</file>
             <file>file:/C:/Users/admin/Documents/NetBeansProjects/proyecto/src/empleados/main.java</file>
-            <file>file:/C:/Users/admin/Documents/NetBeansProjects/proyecto/src/empleados/Modelo.java</file>
             <file>file:/C:/Users/admin/Documents/NetBeansProjects/proyecto/src/empleados/empleados.txt</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/proyecto/src/empleados/EmpleadosModel.java</file>
             <file>file:/C:/Users/admin/Documents/NetBeansProjects/proyecto/src/proyecto/Pag2.java</file>
-            <file>file:/C:/Users/admin/Documents/NetBeansProjects/proyecto/src/proyecto/Proyecto.java</file>
-            <file>file:/C:/Users/admin/Documents/NetBeansProjects/proyecto/src/proyecto/JFrameConfirmarContra.java</file>
-            <file>file:/C:/Users/admin/Documents/NetBeansProjects/proyecto/src/proyecto/Pag1.java</file>
+            <file>file:/C:/Users/admin/Documents/NetBeansProjects/proyecto/src/utilmax/Utilitario.java</file>
             <file>file:/C:/Users/admin/Documents/NetBeansProjects/proyecto/src/empleados/Empleado.java</file>
-=======
-            <file>file:/C:/Users/Anelx/OneDrive/Documents/NetBeansProjects/proyecto/src/proyecto/JFrameMenu.java</file>
-            <file>file:/C:/Users/Anelx/OneDrive/Documents/NetBeansProjects/proyecto/src/proyecto/JFrameInSesion.java</file>
-            <file>file:/C:/Users/Anelx/OneDrive/Documents/NetBeansProjects/proyecto/src/proyecto/Pag4.java</file>
-            <file>file:/C:/Users/Anelx/OneDrive/Documents/NetBeansProjects/proyecto/src/proyecto/Proyecto.java</file>
-            <file>file:/C:/Users/Anelx/OneDrive/Documents/NetBeansProjects/proyecto/src/proyecto/Pag2.java</file>
-            <file>file:/C:/Users/Anelx/OneDrive/Documents/NetBeansProjects/proyecto/src/proyecto/Pag3.java</file>
-            <file>file:/C:/Users/Anelx/OneDrive/Documents/NetBeansProjects/proyecto/src/proyecto/JFrameLogin.java</file>
-            <file>file:/C:/Users/Anelx/OneDrive/Documents/NetBeansProjects/proyecto/src/proyecto/Admin.java</file>
-            <file>file:/C:/Users/Anelx/OneDrive/Documents/NetBeansProjects/proyecto/src/proyecto/Pag1.java</file>
->>>>>>> main
         </group>
->>>>>>> 5dd00bab95ebcb3e64ba6229309875ead69756ff
     </open-files>
 </project-private>

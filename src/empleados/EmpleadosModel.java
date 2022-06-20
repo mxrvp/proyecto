@@ -17,9 +17,8 @@ import java.util.*;
 public class EmpleadosModel {
     
     //empleados
-   //si el query type es 0 se hace insert,1update y 2 delete
+   //si el query type es 0 se hace busqueda,1insert,2 update y 3 delete
     public int queryType;
-    private int lastId;
     private String path="C:\\Users\\admin\\Documents\\NetBeansProjects\\proyecto\\src\\empleados\\empleados.txt";
     private String delimiter="|";
     private File db=new File(path);
@@ -100,6 +99,26 @@ public class EmpleadosModel {
               this.refreshFile();
         return true;
     }
+    
+     public boolean modificar(int index,String nom,String nom2,String ape,String ape2,Date d,String dir,String tel){
+         //todo del update
+         //la fecha debe estar formateada
+     
+       
+      
+     //primero guardamos en el arraylist y despues escribir al txt
+      this.empleados.get(index).setNombre(nom);
+       this.empleados.get(index).setNombre2(nom2);    
+       this.empleados.get(index).setApellido(ape);    
+        this.empleados.get(index).setApellido(ape2);
+         this.empleados.get(index).setFechaNacimiento(d);   
+          this.empleados.get(index).setDireccion(dir); 
+           this.empleados.get(index).setTelefono(tel);   
+          
+              this.refreshFile();
+        return true;
+    }
+    
      public boolean eliminar(int index){
         //todo del insert 
      //mediante el index borrar del txt
@@ -133,18 +152,19 @@ public class EmpleadosModel {
       
       public Empleado buscarCedula(String ced){
           String cedula=ced.trim();
-         Empleado empleadoNulo=null;
+         Empleado empleado=null;
            for(int i=0;i<=this.getNumEmpleados()-1;i++){
               Empleado em=this.empleados.get(i);
-              
+             
               if(em.getCedula().equals(cedula)){
-                   return em;
+                  return em;  
                  }
+                
          
            }
           
-          return empleadoNulo;
-   
+       
+       return empleado;
      }
       
 
@@ -155,14 +175,7 @@ public class EmpleadosModel {
     public void setQueryType(int queryType) {
         this.queryType = queryType;
     }
-
-    public int getLastId() {
-        return this.lastId;
-    }
-
-    public void setLastId(int lastId) {
-        this.lastId = lastId;
-    }
+ 
      
      public void refreshFile(){
      
@@ -176,6 +189,8 @@ public class EmpleadosModel {
                   pw.println(em.getCedula()+delimiter+em.getNombre()+delimiter+em.getNombre2()+delimiter+em.getApellido()+delimiter+em.getApellido2()+delimiter+fechaVen+delimiter+em.getDireccion()+delimiter+em.getTelefono()+delimiter+em.getHorasTrabajadas()+delimiter+em.getSalarioHora());
            
            }
+           
+           
             
              fw.close();
           }
@@ -200,7 +215,7 @@ public class EmpleadosModel {
                   
                 Date date = formatter.parse(row[5]);  
               }catch (ParseException e) {e.printStackTrace();}  
-           this.empleados.add(new Empleado(row[0],row[1],row[2],row[3],row[4],fecha,row[6],row[7],Double.parseDouble(row[8]),Double.parseDouble(row[9])));
+           this.empleados.add(new Empleado(row[0],row[1],row[2],row[3],row[4],fecha,row[6],row[7]));
           
       }
         

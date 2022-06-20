@@ -4,6 +4,9 @@
  */
 package utilmax;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 
 
 /**
@@ -67,6 +70,12 @@ public class Utilitario {
     }
     
 
+      public static void exi(String msg,JFrame jd){
+     JOptionPane.showMessageDialog(jd,msg,"exito",JOptionPane.INFORMATION_MESSAGE);
+    }
+    public static void erro(String msg,JFrame jd){
+     JOptionPane.showMessageDialog(jd,msg,"error",JOptionPane.ERROR_MESSAGE);
+    }
     
     
     

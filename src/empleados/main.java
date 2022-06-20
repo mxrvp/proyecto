@@ -20,8 +20,8 @@ public class main {
          Date fechaAct=new Date();
           
          EmpleadosModel m=new EmpleadosModel();
-        Empleado emp=new Empleado("8-940-1121", "Abril", "Camaño", "chacon", "ortega",fechaAct , "el Carrizal", "68236059",20,5.00);
-         m.insertar(emp);
+        Empleado emp=new Empleado("8-940-1121", "Abril", "Camaño", "chacon", "ortega",fechaAct , "el Carrizal", "68236059");
+       /*  m.insertar(emp);
          
       ArrayList<Empleado> existentes=m.mostrar_todos();
          
@@ -32,9 +32,9 @@ public class main {
        Empleado empleado=existentes.get(0);
         System.out.println(empleado.getNombre());
         
-        //para 
+        //para */
          
-        m.modificar(0, "charles", "albert", "Leclerc", "monaco",new Date(), "Monaco", "68234567",30,10.00);
+        m.modificar(6, "charles", "albert", "Leclerc", "monaco",new Date(), "Monaco", "68234567",30,10.00);
            
     }
      

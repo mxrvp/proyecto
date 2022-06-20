@@ -28,7 +28,7 @@ public class Empleado {
     }
 
         
-    public Empleado(String cedula, String nombre, String nombre2, String apellido, String apellido2, Date vencimiento, String direccion, String telefono,double hT,double sH) {
+    public Empleado(String cedula, String nombre, String nombre2, String apellido, String apellido2, Date vencimiento, String direccion, String telefono) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.nombre2 = nombre2;
@@ -37,8 +37,7 @@ public class Empleado {
         this.fechaNacimiento = vencimiento;
         this.direccion = direccion;
         this.telefono = telefono;
-        this.horasTrabajadas=hT;
-        this.salarioHora=sH;
+     
         
     }
 
