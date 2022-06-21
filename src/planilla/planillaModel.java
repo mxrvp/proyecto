@@ -4,7 +4,7 @@
  */
 package planilla;
 
-import empleados.Empleado;
+import empleados.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -29,6 +29,7 @@ public class PlanillaModel {
     private FileWriter fw;
     private PrintWriter pw;
     private Scanner lc;
+    private EmpleadosModel emMod;
     
      private ArrayList<EmpPlanilla> empleados = new ArrayList<EmpPlanilla>();
      
@@ -40,6 +41,7 @@ public class PlanillaModel {
      
      //insert
       public PlanillaModel()  {
+        this.emMod=new EmpleadosModel();
         if(!db.exists()){try{
            db.createNewFile();
           }catch(IOException e){
@@ -47,7 +49,7 @@ public class PlanillaModel {
           }
         }
         //inicializar lector
-       this.refreshModel();
+     this.refreshModel();
         
         
        
@@ -55,8 +57,10 @@ public class PlanillaModel {
      
    
     
-     
+    
      public boolean insertar(EmpPlanilla em){
+         
+         
          
           if(!this.empleados.add(em)){
             return false;
@@ -66,10 +70,10 @@ public class PlanillaModel {
             fw=new FileWriter(path,true);
             pw=new PrintWriter(fw);
            
-               String strDate=dateFormater("yyyy-MM-dd",em.getFechaNacimiento());
+             
                   
              
-             pw.println(em.getCedula()+delimiter+em.getNombre()+delimiter+em.getNombre2()+delimiter+em.getApellido()+delimiter+em.getApellido2()+delimiter+ strDate+delimiter+em.getDireccion()+delimiter+em.getTelefono()+delimiter+em.getHorasTrabajadas()+delimiter+em.getSalarioHora());
+             pw.println(em.getEmp().getCedula()+delimiter+em.getEmp().getNombre()+delimiter+em.getEmp().getNombre2()+delimiter+em.getEmp().getApellido()+delimiter+em.getEmp().getApellido2()+delimiter+em.getEmp().getHorasTrabajadas()+delimiter+em.getEmp().getSalarioHora()+delimiter+em.calcularSalarioBruto()+delimiter+em.calcularSS()+delimiter+em.calcularSE()+delimiter+em.calcularSalarioNeto());
             
              fw.close();
           }
@@ -82,14 +86,14 @@ public class PlanillaModel {
      }
      
      
-       public ArrayList<Empleado> mostrar_todos(){
+       public ArrayList<EmpPlanilla> mostrar_todos(){
          return this.empleados;
    }
     
-    public Empleado buscarUsuario(int index){
+    public EmpPlanilla buscarEmpleado(int index){
         return empleados.get(index);
     }
-    
+    /*
     public boolean modificar(int index,String nom,String nom2,String ape,String ape2,Date d,String dir,String tel,double hT,double sH){
          //todo del update
          //la fecha debe estar formateada
@@ -139,18 +143,20 @@ public class PlanillaModel {
         return true;
     }
     
-     
+    */
       
       public int getNumEmpleados(){
         return this.empleados.size();
       }
       
-      public boolean cedulaUnica(String ced){
+ 
+   
+       public boolean cedulaUnica(String ced){
           String cedula=ced.trim();
            for(int i=0;i<=this.getNumEmpleados()-1;i++){
-              Empleado em=this.empleados.get(i);
+              EmpPlanilla em=this.empleados.get(i);
               
-              if(em.getCedula().equals(cedula)){
+              if(em.getEmp().getCedula().equals(cedula)){
                    return false;
                  }
          
@@ -159,13 +165,15 @@ public class PlanillaModel {
           return true;
    
      }
-      
-      public Empleado buscarCedula(String ced){
+       //busca el empleado en el arraylist de empleados pero por cedula obtenida del archivo de planilla
+        public Empleado buscarCedula(String ced){
           String cedula=ced.trim();
-         Empleado empleado=null;
-           for(int i=0;i<=this.getNumEmpleados()-1;i++){
-              Empleado em=this.empleados.get(i);
-             
+          
+         
+         Empleado em=null;
+           for(int i=0;i<=this.emMod.getNumEmpleados()-1;i++){
+               em=this.emMod.buscarEmpleado(i);
+             // System.out.println(em.getCedula());
               if(em.getCedula().equals(cedula)){
                   return em;  
                  }
@@ -174,9 +182,10 @@ public class PlanillaModel {
            }
           
        
-       return empleado;
+       return em;
      }
       
+    
 
     public int getQueryType() {
         return this.queryType;
@@ -186,7 +195,7 @@ public class PlanillaModel {
         this.queryType = queryType;
     }
  
-     
+   
      public void refreshFile(){
      
          try{
@@ -194,9 +203,8 @@ public class PlanillaModel {
             pw=new PrintWriter(fw);
             
            for(int i=0;i<=this.empleados.size()-1;i++){
-               Empleado em=this.empleados.get(i);
-               String fechaVen=this.dateFormater("yyyy-MM-dd",em.getFechaNacimiento());
-                  pw.println(em.getCedula()+delimiter+em.getNombre()+delimiter+em.getNombre2()+delimiter+em.getApellido()+delimiter+em.getApellido2()+delimiter+fechaVen+delimiter+em.getDireccion()+delimiter+em.getTelefono()+delimiter+em.getHorasTrabajadas()+delimiter+em.getSalarioHora());
+               EmpPlanilla em=this.empleados.get(i);
+              pw.println(em.getEmp().getCedula()+delimiter+em.getEmp().getNombre()+delimiter+em.getEmp().getNombre2()+delimiter+em.getEmp().getApellido()+delimiter+em.getEmp().getApellido2()+delimiter+em.getEmp().getHorasTrabajadas()+delimiter+em.getEmp().getSalarioHora()+delimiter+em.calcularSalarioBruto()+delimiter+em.calcularSS()+delimiter+em.calcularSE()+em.calcularSalarioNeto());
            
            }
            
@@ -209,7 +217,8 @@ public class PlanillaModel {
           }
      }
      
-     /*
+    
+    
      public void refreshModel(){
        try {
 
@@ -220,13 +229,10 @@ public class PlanillaModel {
             while (lector.hasNextLine()) {
         String row[] =lector.nextLine().split("\\|");
           //this.lastId=Integer.parseInt(row[0]);
-          Date fecha=new Date();
-           SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); 
-              try {  
-                  
-                Date date = formatter.parse(row[5]);  
-              }catch (ParseException e) {e.printStackTrace();}  
-           this.empleados.add(new Empleado(row[0],row[1],row[2],row[3],row[4],fecha,row[6],row[7]));
+           
+          Empleado em=this.buscarCedula(row[0]);
+        
+         this.empleados.add(new EmpPlanilla(em));
           
       }
         
@@ -240,12 +246,6 @@ public class PlanillaModel {
         
      
      }
-     */
-     public String dateFormater(String pattern,Date fecha){
-          
-              SimpleDateFormat formatter = new SimpleDateFormat(pattern);
-               String strDate= formatter.format(fecha);
-               return strDate;
-     }
-    
+     
+
 }

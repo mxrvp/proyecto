@@ -13,7 +13,7 @@ import empleados.Empleado;
 public class EmpPlanilla {
       private Empleado em;
       //horas trabajadas
-      private double HT;
+      public double HT;
       //salario por hora
       private double SxH;
      
@@ -27,22 +27,26 @@ public class EmpPlanilla {
     public EmpPlanilla() {
     }
 
-    public EmpPlanilla(Empleado em, double HT, double SxH, double SalarioBruto, double SS, double SE, double salarioNeto) {
+    public EmpPlanilla(Empleado em) {
         this.em = em;
-        this.HT = HT;
-        this.SxH = SxH;
-        this.SalarioBruto = SalarioBruto;
-        this.SS = SS;
-        this.SE = SE;
-        this.SalarioNeto = salarioNeto;
+        this.HT = em.getHorasTrabajadas();
+        this.SxH = em.getSalarioHora();
+        
+    
+    }
+    
+     public void setEmp(Empleado emp){
+          this.em=emp;  
     }
 
    public Empleado getEmp(){
          return this.em;  
     }
    
-   public double calcularSalarioBruto(){
    
+   
+   public double calcularSalarioBruto(){
+        
         this.SalarioBruto=this.HT*SxH;
         return this.SalarioBruto;
    }

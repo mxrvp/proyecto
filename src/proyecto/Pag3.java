@@ -3,12 +3,19 @@ package proyecto;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import planilla.EmpPlanilla;
+import planilla.PlanillaModel;
 
 
 public class Pag3 extends javax.swing.JPanel {
-
+     public  DefaultTableModel tableModel;
+   PlanillaModel pMod=new PlanillaModel();
     public Pag3() {
+       
         initComponents();
+        genTablePlanilla();
     }
 
 
@@ -23,8 +30,8 @@ public class Pag3 extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel4 = new javax.swing.JLabel();
+        tablePlanilla = new javax.swing.JTable();
+        btnEliminar = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
         JpBase.setBackground(new java.awt.Color(244, 244, 244));
@@ -87,7 +94,7 @@ public class Pag3 extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("CALCULO DE PLANILLA");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablePlanilla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -95,13 +102,13 @@ public class Pag3 extends javax.swing.JPanel {
                 "CEDULA", "NOMBRE 1", "NOMBRE 2", "APELLIDO 1", "APELLIDO 2", "HT", "SxH", "SAL. BRUTO", "SS", "SE", "SAL. NETO"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablePlanilla);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/remove userr.png"))); // NOI18N
-        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/remove userr.png"))); // NOI18N
+        btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel4MousePressed(evt);
+                btnEliminarMousePressed(evt);
             }
         });
 
@@ -129,11 +136,11 @@ public class Pag3 extends javax.swing.JPanel {
                         .addGap(324, 324, 324)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(348, 348, 348)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(JpBaseLayout.createSequentialGroup()
-                        .addGap(47, 47, 47)
+                        .addGap(64, 64, 64)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1115, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(219, Short.MAX_VALUE))
+                .addContainerGap(202, Short.MAX_VALUE))
         );
         JpBaseLayout.setVerticalGroup(
             JpBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,7 +151,7 @@ public class Pag3 extends javax.swing.JPanel {
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(JpBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 642, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -186,22 +193,52 @@ public class Pag3 extends javax.swing.JPanel {
         JpBase.repaint();
     }//GEN-LAST:event_jLabel5MousePressed
 
-    private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
+    private void btnEliminarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMousePressed
         JFrameAviso2 obj = new JFrameAviso2();
         obj.setVisible(true);
-    }//GEN-LAST:event_jLabel4MousePressed
+    }//GEN-LAST:event_btnEliminarMousePressed
 
+    
+    //manejo de la tabla
+       public void  genTablePlanilla(){
+        destroyPlanilla();
+     tableModel=(DefaultTableModel)tablePlanilla.getModel();
+
+     
+  
+    
+    ArrayList<EmpPlanilla>registros=pMod.mostrar_todos();
+    
+ 
+       
+      for(int i=0;i<=registros.size()-1;i++){
+          EmpPlanilla registro=registros.get(i);
+          
+          System.out.println(registro.HT);
+        String cols[]={String.valueOf(registro.getEmp().getCedula()),registro.getEmp().getNombre(),registro.getEmp().getNombre2(),registro.getEmp().getApellido(),registro.getEmp().getApellido2(),String.valueOf(registro.getEmp().getHorasTrabajadas())};
+        tableModel.addRow(cols);
+      }
+       
+    }
+    
+    public void destroyPlanilla(){
+        tableModel=(DefaultTableModel)tablePlanilla.getModel();
+       int c= tableModel.getRowCount();
+        for(int i=0;i<=c-1;i++){
+         tableModel.removeRow(0);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JpBase;
     private javax.swing.JPanel btnCerrar;
+    private javax.swing.JLabel btnEliminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tablePlanilla;
     // End of variables declaration//GEN-END:variables
 }

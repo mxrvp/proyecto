@@ -131,7 +131,7 @@ public class Empleado {
     
      public boolean evalSalario(){
     
-       if(this.salarioHora<5.00 || this.horasTrabajadas>20.00){
+       if(this.salarioHora<5.00 || this.salarioHora>20.00){
            return false;
        }
        return true;

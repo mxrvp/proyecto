@@ -7,11 +7,15 @@ import planilla.PlanillaModel;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.util.Date;
+import javax.swing.table.DefaultTableModel;
+import planilla.EmpPlanilla;
 import utilmax.Utilitario;
 
 
 public class Pag4 extends javax.swing.JPanel {
+     
   EmpleadosModel emMod=new EmpleadosModel();
+  Empleado emSel;
  PlanillaModel pMod=new PlanillaModel();
     public Pag4() {
         initComponents();
@@ -490,7 +494,7 @@ public class Pag4 extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBuscarCedulaMouseExited
 
     private void btnBuscarCedulaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarCedulaMousePressed
-    
+           
              limpiarForm();
             String c=txtBuscarCedula.getText();
            Empleado resBus=emMod.buscarCedula(c);
@@ -514,9 +518,12 @@ public class Pag4 extends javax.swing.JPanel {
            
         
            
-            enableTxt();
+            disableTxt();
           
            //ajustes del form
+           //se encuentra el empleado
+           emSel=resBus;
+           //se carga la data
            cargarForm(arr);
             
              //set del queryType para estar lista para el update
@@ -589,7 +596,33 @@ public class Pag4 extends javax.swing.JPanel {
 
     private void btnAddMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMousePressed
         //modifca sus datos
+         emMod.setQueryType(1);
+         
         
+           if(emMod.getQueryType()==1){
+             
+             String errors=verificarTodos();
+          
+         if(errors.length()>0){   
+             String msg="Se han encontrado los siguientes errores:\n";
+             msg+=errors;
+             Utilitario.erro(msg,null);
+         }
+         else{
+            
+             EmpPlanilla emp=new EmpPlanilla(emSel);
+                //System.out.println(emSel.getCedula());
+             emp.calcularSalarioBruto();
+             emp.calcularSS();
+             emp.calcularSE();
+             emp.calcularSalarioNeto();
+             
+            pMod.insertar(emp);
+              Utilitario.exi("registrado con exito",null);
+             
+               
+          }
+         }
         
     }//GEN-LAST:event_btnAddMousePressed
 //utilidades
@@ -636,7 +669,10 @@ public class Pag4 extends javax.swing.JPanel {
                      }
                 }
         
-            
+            if(!pMod.cedulaUnica(emSel.getCedula())){
+                 err+="El empleado ya se ha añadido al sistema de planilla";
+                      err+="\n";
+            }
             //campos numerios
             if(pN.matches(".*[0-9].*")){
                  err+="el primer Nombre no puede ser numérico";
@@ -656,15 +692,47 @@ public class Pag4 extends javax.swing.JPanel {
                  err+="el segundo Apellido no puede ser numérico";
                       err+="\n";
             }
-             
+             //necesito sabersi el salario hora y horas trabajadas están correctas para modificar el file
+           int hs=0;
           if(!Utilitario.esNumero(hT)){
                err+="las horas trabajadas debe ser de tipo numérico";
                       err+="\n";
+               
+          }else{
+              
+              System.out.println(getEmpIndex());
+              
+              Empleado empleadoSel=emMod.buscarEmpleado(getEmpIndex());
+            empleadoSel.setHorasTrabajadas(Double.parseDouble(hT));
+           
+              if(!emSel.evalHoras()){
+                    err+="las horas trabajadas no pueden ser menos de 4 ni \n" +
+                   "mayor a 12";
+                      err+="\n";
+              
+              }
+            
           }
            if(!Utilitario.esNumero(sH)){
                err+="El salario por hora debe ser de tipo numérico";
                       err+="\n";
           }
+           else{
+                Empleado empleadoSel=emMod.buscarEmpleado(getEmpIndex());
+                 empleadoSel.setSalarioHora(Double.parseDouble(sH));
+             if(!emSel.evalSalario()){
+                    err+="el salario por hora no sea menor de 5.00 ni mayor \n" +
+                   "a 20.00";
+                      err+="\n";
+                  
+              }
+           }
+           
+              if(Utilitario.esNumero(hT) && Utilitario.esNumero(sH)){
+                  emMod.modificar(getEmpIndex(), Double.parseDouble(hT), Double.parseDouble(sH));
+              }
+         
+           
           break;
          
          
@@ -797,13 +865,14 @@ public class Pag4 extends javax.swing.JPanel {
                 txtSegundoNombre.setEnabled(false);
                  txtPrimerApellido.setEnabled(false);
                   txtSegundoApellido.setEnabled(false);
-                      txtHrsTrabajadas.setEnabled(false);
-                   txtSalxHora.setEnabled(false);
+                      
         }
-  
-          public int getEmpIndex(String c){
-            Empleado em=emMod.buscarCedula(c);
-             int index=emMod.mostrar_todos().indexOf(em);
+          
+          
+   //retorna el indice del objeto seleccionado el empleado
+          public int getEmpIndex(){
+            
+             int index=emMod.mostrar_todos().indexOf(emSel);
              return index;
           }
 

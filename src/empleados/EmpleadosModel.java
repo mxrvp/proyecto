@@ -76,7 +76,7 @@ public class EmpleadosModel {
          return this.empleados;
    }
     
-    public Empleado buscarUsuario(int index){
+    public Empleado buscarEmpleado(int index){
         return empleados.get(index);
     }
     
@@ -114,6 +114,21 @@ public class EmpleadosModel {
          this.empleados.get(index).setFechaNacimiento(d);   
           this.empleados.get(index).setDireccion(dir); 
            this.empleados.get(index).setTelefono(tel);   
+          
+              this.refreshFile();
+        return true;
+    }
+     
+     
+      public boolean modificar(int index,double hT,double sH){
+         //todo del update
+         //la fecha debe estar formateada
+     
+       
+      
+     //primero guardamos en el arraylist y despues escribir al txt
+      this.empleados.get(index).setHorasTrabajadas(hT);
+         this.empleados.get(index).setSalarioHora(sH);
           
               this.refreshFile();
         return true;
