@@ -40,6 +40,21 @@ public class Empleado {
      
         
     }
+    
+            
+    public Empleado(String cedula, String nombre, String nombre2, String apellido, String apellido2, Date vencimiento, String direccion, String telefono,double hT,double sH) {
+        this.cedula = cedula;
+        this.nombre = nombre;
+        this.nombre2 = nombre2;
+        this.apellido = apellido;
+        this.apellido2 = apellido2;
+        this.fechaNacimiento = vencimiento;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.horasTrabajadas=hT;
+        this.salarioHora=sH;
+        
+    }
 
     public String getCedula() {
         return this.cedula;

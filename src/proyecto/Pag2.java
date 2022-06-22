@@ -615,6 +615,7 @@ public class Pag2 extends javax.swing.JPanel {
              Empleado em=emMod.buscarCedula(txtCedula.getText());
              int index=emMod.mostrar_todos().indexOf(em);
              
+             
               emMod.modificar(index,txtPrimerNombre.getText(),txtSegundoNombre.getText(),txtPrimerApellido.getText(),txtSegundoApellido.getText(),selectorFechaVec.getDate(),txtDireccion.getText(),txtTelefono.getText());
               Utilitario.exi("Actualizado con éxito",null);
              
@@ -779,6 +780,7 @@ public class Pag2 extends javax.swing.JPanel {
           txtPrimerNombre.setText("");
           txtSegundoNombre.setText("");
           txtPrimerApellido.setText("");
+          txtSegundoApellido.setText("");
           txtDireccion.setText("");
           txtTelefono.setText("");
     }

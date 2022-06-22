@@ -4,6 +4,7 @@ package proyecto;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import planilla.EmpPlanilla;
 import planilla.PlanillaModel;
@@ -194,8 +195,26 @@ public class Pag3 extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel5MousePressed
 
     private void btnEliminarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMousePressed
-        JFrameAviso2 obj = new JFrameAviso2();
-        obj.setVisible(true);
+      String options[]={"Si","No"};
+        int response= JOptionPane.showOptionDialog(
+               null,
+               "¿Está seguro que desea eliminar este registro?", 
+               "confirmacion",            
+               JOptionPane.YES_NO_OPTION,
+               JOptionPane.QUESTION_MESSAGE,
+               null,     //no custom icon
+             options,  //button titles
+               options[0] //default button
+            );
+            if(response == JOptionPane.YES_OPTION){
+             int selected=tablePlanilla.getSelectedRow();
+            if(selected>=0){
+             pMod.eliminar(selected);
+                }
+            }
+       genTablePlanilla();
+        
+       
     }//GEN-LAST:event_btnEliminarMousePressed
 
     
@@ -213,12 +232,12 @@ public class Pag3 extends javax.swing.JPanel {
        
       for(int i=0;i<=registros.size()-1;i++){
           EmpPlanilla registro=registros.get(i);
-          
-          System.out.println(registro.HT);
-        String cols[]={String.valueOf(registro.getEmp().getCedula()),registro.getEmp().getNombre(),registro.getEmp().getNombre2(),registro.getEmp().getApellido(),registro.getEmp().getApellido2(),String.valueOf(registro.getEmp().getHorasTrabajadas())};
-        tableModel.addRow(cols);
+        
+      
+       String cols[]={String.valueOf(registro.getEmp().getCedula()),registro.getEmp().getNombre(),registro.getEmp().getNombre2(),registro.getEmp().getApellido(),registro.getEmp().getApellido2(),String.valueOf(registro.getEmp().getHorasTrabajadas()),String.valueOf(registro.getEmp().getSalarioHora()),String.valueOf(registro.calcularSalarioBruto()),String.valueOf(registro.calcularSS()),String.valueOf(registro.calcularSE()),String.valueOf(registro.calcularSalarioNeto())};
+       tableModel.addRow(cols);
       }
-       
+      
     }
     
     public void destroyPlanilla(){

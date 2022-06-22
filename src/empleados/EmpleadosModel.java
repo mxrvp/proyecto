@@ -90,7 +90,7 @@ public class EmpleadosModel {
       this.empleados.get(index).setNombre(nom);
        this.empleados.get(index).setNombre2(nom2);    
        this.empleados.get(index).setApellido(ape);    
-        this.empleados.get(index).setApellido(ape2);
+        this.empleados.get(index).setApellido2(ape2);
          this.empleados.get(index).setFechaNacimiento(d);   
           this.empleados.get(index).setDireccion(dir); 
            this.empleados.get(index).setTelefono(tel);   
@@ -110,7 +110,7 @@ public class EmpleadosModel {
       this.empleados.get(index).setNombre(nom);
        this.empleados.get(index).setNombre2(nom2);    
        this.empleados.get(index).setApellido(ape);    
-        this.empleados.get(index).setApellido(ape2);
+        this.empleados.get(index).setApellido2(ape2);
          this.empleados.get(index).setFechaNacimiento(d);   
           this.empleados.get(index).setDireccion(dir); 
            this.empleados.get(index).setTelefono(tel);   
@@ -170,7 +170,7 @@ public class EmpleadosModel {
          Empleado empleado=null;
            for(int i=0;i<=this.getNumEmpleados()-1;i++){
               Empleado em=this.empleados.get(i);
-             
+            
               if(em.getCedula().equals(cedula)){
                   return em;  
                  }
@@ -200,6 +200,8 @@ public class EmpleadosModel {
             
            for(int i=0;i<=this.empleados.size()-1;i++){
                Empleado em=this.empleados.get(i);
+               System.out.println(em.getApellido());
+                System.out.println(em.getApellido2());
                String fechaVen=this.dateFormater("yyyy-MM-dd",em.getFechaNacimiento());
                   pw.println(em.getCedula()+delimiter+em.getNombre()+delimiter+em.getNombre2()+delimiter+em.getApellido()+delimiter+em.getApellido2()+delimiter+fechaVen+delimiter+em.getDireccion()+delimiter+em.getTelefono()+delimiter+em.getHorasTrabajadas()+delimiter+em.getSalarioHora());
            
@@ -224,13 +226,14 @@ public class EmpleadosModel {
             while (lector.hasNextLine()) {
         String row[] =lector.nextLine().split("\\|");
           //this.lastId=Integer.parseInt(row[0]);
-          Date fecha=new Date();
-           SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); 
+    
+        
               try {  
-                  
-                Date date = formatter.parse(row[5]);  
+                    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); 
+                Date fecha = formatter.parse(row[5]);  
+                 this.empleados.add(new Empleado(row[0],row[1],row[2],row[3],row[4],fecha,row[6],row[7],Double.parseDouble(row[8]),Double.parseDouble(row[9])));
               }catch (ParseException e) {e.printStackTrace();}  
-           this.empleados.add(new Empleado(row[0],row[1],row[2],row[3],row[4],fecha,row[6],row[7]));
+          
           
       }
         

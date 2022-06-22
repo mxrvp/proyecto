@@ -5,10 +5,11 @@ import java.awt.Color;
 
 
 public class JFrameAviso2 extends javax.swing.JFrame {
-
+    int confirm=0;
     int xMouse, yMouse;
     public JFrameAviso2() {
         initComponents();
+        
     }
 
  
@@ -20,7 +21,7 @@ public class JFrameAviso2 extends javax.swing.JFrame {
         JPanelBarra2 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         btnSi = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        confirmDel = new javax.swing.JLabel();
         JPanelCerrar = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -54,19 +55,19 @@ public class JFrameAviso2 extends javax.swing.JFrame {
         btnSi.setBackground(new java.awt.Color(255, 255, 255));
         btnSi.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 81, 152)));
 
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Si");
-        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        confirmDel.setForeground(new java.awt.Color(0, 0, 0));
+        confirmDel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        confirmDel.setText("Si");
+        confirmDel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        confirmDel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel4MouseEntered(evt);
+                confirmDelMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel4MouseExited(evt);
+                confirmDelMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel4MousePressed(evt);
+                confirmDelMousePressed(evt);
             }
         });
 
@@ -74,12 +75,12 @@ public class JFrameAviso2 extends javax.swing.JFrame {
         btnSi.setLayout(btnSiLayout);
         btnSiLayout.setHorizontalGroup(
             btnSiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
+            .addComponent(confirmDel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
         );
         btnSiLayout.setVerticalGroup(
             btnSiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnSiLayout.createSequentialGroup()
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(confirmDel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -225,22 +226,22 @@ public class JFrameAviso2 extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseEntered
+    private void confirmDelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmDelMouseEntered
         btnSi.setBackground(new Color(52, 152, 219));
-    }//GEN-LAST:event_jLabel4MouseEntered
+    }//GEN-LAST:event_confirmDelMouseEntered
 
-    private void jLabel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseExited
+    private void confirmDelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmDelMouseExited
         btnSi.setBackground(new Color(255,255,255));
-    }//GEN-LAST:event_jLabel4MouseExited
+    }//GEN-LAST:event_confirmDelMouseExited
 
-    private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
+    private void confirmDelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmDelMousePressed
         // codigo para eliminar al empleado
         
-        
+        setConfirm(1);
         
         // y luego se cierra este mensaje
         this.setVisible(false);
-    }//GEN-LAST:event_jLabel4MousePressed
+    }//GEN-LAST:event_confirmDelMousePressed
 
     private void jLabel10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseEntered
         JPanelCerrar.setBackground(Color.red);
@@ -309,15 +310,25 @@ public class JFrameAviso2 extends javax.swing.JFrame {
             }
         });
     }
+    
+    
+    public void setConfirm(int c){
+          this.confirm=c;
+    }
+    
+        
+    public int getConfirm(){
+          return this.confirm;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JPanelBarra2;
     private javax.swing.JPanel JPanelCerrar;
     private javax.swing.JPanel btnNo;
     private javax.swing.JPanel btnSi;
+    private javax.swing.JLabel confirmDel;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

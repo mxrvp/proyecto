@@ -22,7 +22,6 @@ import java.util.Scanner;
  */
 public class PlanillaModel {
      public int queryType;
-    private int lastId;
     private String path="C:\\Users\\admin\\Documents\\NetBeansProjects\\proyecto\\src\\planilla\\planilla.txt";
     private String delimiter="|";
     private File db=new File(path);
@@ -34,9 +33,7 @@ public class PlanillaModel {
      private ArrayList<EmpPlanilla> empleados = new ArrayList<EmpPlanilla>();
      
      
-     public EmpPlanilla buscar(int index){
-        return empleados.get(index);
-    }
+  
      
      
      //insert
@@ -90,49 +87,8 @@ public class PlanillaModel {
          return this.empleados;
    }
     
-    public EmpPlanilla buscarEmpleado(int index){
-        return empleados.get(index);
-    }
-    /*
-    public boolean modificar(int index,String nom,String nom2,String ape,String ape2,Date d,String dir,String tel,double hT,double sH){
-         //todo del update
-         //la fecha debe estar formateada
-     
-       
-      
-     //primero guardamos en el arraylist y despues escribir al txt
-      this.empleados.get(index).setNombre(nom);
-       this.empleados.get(index).setNombre2(nom2);    
-       this.empleados.get(index).setApellido(ape);    
-        this.empleados.get(index).setApellido(ape2);
-         this.empleados.get(index).setFechaNacimiento(d);   
-          this.empleados.get(index).setDireccion(dir); 
-           this.empleados.get(index).setTelefono(tel);   
-            this.empleados.get(index).setHorasTrabajadas(hT); 
-           this.empleados.get(index).setSalarioHora(sH);  
-              this.refreshFile();
-        return true;
-    }
-    
-     public boolean modificar(int index,String nom,String nom2,String ape,String ape2,Date d,String dir,String tel){
-         //todo del update
-         //la fecha debe estar formateada
-     
-       
-      
-     //primero guardamos en el arraylist y despues escribir al txt
-      this.empleados.get(index).setNombre(nom);
-       this.empleados.get(index).setNombre2(nom2);    
-       this.empleados.get(index).setApellido(ape);    
-        this.empleados.get(index).setApellido(ape2);
-         this.empleados.get(index).setFechaNacimiento(d);   
-          this.empleados.get(index).setDireccion(dir); 
-           this.empleados.get(index).setTelefono(tel);   
-          
-              this.refreshFile();
-        return true;
-    }
-    
+
+
      public boolean eliminar(int index){
         //todo del insert 
      //mediante el index borrar del txt
@@ -143,7 +99,7 @@ public class PlanillaModel {
         return true;
     }
     
-    */
+  
       
       public int getNumEmpleados(){
         return this.empleados.size();
@@ -204,7 +160,7 @@ public class PlanillaModel {
             
            for(int i=0;i<=this.empleados.size()-1;i++){
                EmpPlanilla em=this.empleados.get(i);
-              pw.println(em.getEmp().getCedula()+delimiter+em.getEmp().getNombre()+delimiter+em.getEmp().getNombre2()+delimiter+em.getEmp().getApellido()+delimiter+em.getEmp().getApellido2()+delimiter+em.getEmp().getHorasTrabajadas()+delimiter+em.getEmp().getSalarioHora()+delimiter+em.calcularSalarioBruto()+delimiter+em.calcularSS()+delimiter+em.calcularSE()+em.calcularSalarioNeto());
+              pw.println(em.getEmp().getCedula()+delimiter+em.getEmp().getNombre()+delimiter+em.getEmp().getNombre2()+delimiter+em.getEmp().getApellido()+delimiter+em.getEmp().getApellido2()+delimiter+em.getEmp().getHorasTrabajadas()+delimiter+em.getEmp().getSalarioHora()+delimiter+em.calcularSalarioBruto()+delimiter+em.calcularSS()+delimiter+em.calcularSE()+delimiter+em.calcularSalarioNeto());
            
            }
            
@@ -230,7 +186,10 @@ public class PlanillaModel {
         String row[] =lector.nextLine().split("\\|");
           //this.lastId=Integer.parseInt(row[0]);
            
+          
           Empleado em=this.buscarCedula(row[0]);
+          em.setHorasTrabajadas(Double.parseDouble(row[5]));
+          em.setSalarioHora(Double.parseDouble(row[6]));
         
          this.empleados.add(new EmpPlanilla(em));
           
