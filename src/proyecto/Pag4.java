@@ -1,12 +1,22 @@
 
 package proyecto;
 
+import empleados.Empleado;
+import empleados.EmpleadosModel;
+import planilla.PlanillaModel;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.util.Date;
+import javax.swing.table.DefaultTableModel;
+import planilla.EmpPlanilla;
+import utilmax.Utilitario;
 
 
 public class Pag4 extends javax.swing.JPanel {
-
+     
+  EmpleadosModel emMod=new EmpleadosModel();
+  Empleado emSel;
+ PlanillaModel pMod=new PlanillaModel();
     public Pag4() {
         initComponents();
     }
@@ -25,7 +35,7 @@ public class Pag4 extends javax.swing.JPanel {
         txtBuscarCedula = new javax.swing.JTextField();
         jSeparator9 = new javax.swing.JSeparator();
         btnBuscar = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        btnBuscarCedula = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         txtPrimerNombre = new javax.swing.JTextField();
         jSeparator11 = new javax.swing.JSeparator();
@@ -47,9 +57,9 @@ public class Pag4 extends javax.swing.JPanel {
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         btnInsertar = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        btnRegresar = new javax.swing.JLabel();
         btnGuardar = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        btnAdd = new javax.swing.JLabel();
 
         JpBase.setBackground(new java.awt.Color(244, 244, 244));
 
@@ -126,19 +136,19 @@ public class Pag4 extends javax.swing.JPanel {
 
         btnBuscar.setBackground(new java.awt.Color(244, 244, 244));
 
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lupa.png"))); // NOI18N
-        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnBuscarCedula.setForeground(new java.awt.Color(0, 0, 0));
+        btnBuscarCedula.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnBuscarCedula.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lupa.png"))); // NOI18N
+        btnBuscarCedula.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscarCedula.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel4MouseEntered(evt);
+                btnBuscarCedulaMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel4MouseExited(evt);
+                btnBuscarCedulaMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel4MousePressed(evt);
+                btnBuscarCedulaMousePressed(evt);
             }
         });
 
@@ -146,12 +156,12 @@ public class Pag4 extends javax.swing.JPanel {
         btnBuscar.setLayout(btnBuscarLayout);
         btnBuscarLayout.setHorizontalGroup(
             btnBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnBuscarCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         btnBuscarLayout.setVerticalGroup(
             btnBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnBuscarLayout.createSequentialGroup()
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnBuscarCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -248,19 +258,19 @@ public class Pag4 extends javax.swing.JPanel {
         btnInsertar.setBackground(new java.awt.Color(255, 255, 255));
         btnInsertar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 81, 152)));
 
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Regresar");
-        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnRegresar.setForeground(new java.awt.Color(0, 0, 0));
+        btnRegresar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnRegresar.setText("Regresar");
+        btnRegresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegresar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel3MouseEntered(evt);
+                btnRegresarMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel3MouseExited(evt);
+                btnRegresarMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel3MousePressed(evt);
+                btnRegresarMousePressed(evt);
             }
         });
 
@@ -270,30 +280,30 @@ public class Pag4 extends javax.swing.JPanel {
             btnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnInsertarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
+                .addComponent(btnRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
                 .addContainerGap())
         );
         btnInsertarLayout.setVerticalGroup(
             btnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+            .addComponent(btnRegresar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
         );
 
         btnGuardar.setBackground(new java.awt.Color(255, 255, 255));
         btnGuardar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 81, 152)));
 
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Agregar");
-        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnAdd.setForeground(new java.awt.Color(0, 0, 0));
+        btnAdd.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnAdd.setText("Agregar");
+        btnAdd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAdd.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel5MouseEntered(evt);
+                btnAddMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel5MouseExited(evt);
+                btnAddMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel5MousePressed(evt);
+                btnAddMousePressed(evt);
             }
         });
 
@@ -302,12 +312,12 @@ public class Pag4 extends javax.swing.JPanel {
         btnGuardarLayout.setHorizontalGroup(
             btnGuardarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnGuardarLayout.createSequentialGroup()
-                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
+                .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
                 .addContainerGap())
         );
         btnGuardarLayout.setVerticalGroup(
             btnGuardarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout JpBaseLayout = new javax.swing.GroupLayout(JpBase);
@@ -475,30 +485,51 @@ public class Pag4 extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtBuscarCedulaMousePressed
 
-    private void jLabel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseEntered
+    private void btnBuscarCedulaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarCedulaMouseEntered
         btnBuscar.setBackground(new Color(52, 152, 219));
-    }//GEN-LAST:event_jLabel4MouseEntered
+    }//GEN-LAST:event_btnBuscarCedulaMouseEntered
 
-    private void jLabel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseExited
+    private void btnBuscarCedulaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarCedulaMouseExited
         btnBuscar.setBackground(new Color(244,244,244));
-    }//GEN-LAST:event_jLabel4MouseExited
+    }//GEN-LAST:event_btnBuscarCedulaMouseExited
 
-    private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
-        Admin obj = new Admin();
-        
-        txtBuscarCedula.setText(txtBuscarCedula.getText());
-        
-        if(obj.getCedula().equals(txtBuscarCedula.getText()) )
-        {
-            // despliega los datos de ese empleado en sus respectivos campos
-        }
-        else //si no encontro la cedula, mandar mensaje
-        {
+    private void btnBuscarCedulaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarCedulaMousePressed
+           
+             limpiarForm();
+            String c=txtBuscarCedula.getText();
+           Empleado resBus=emMod.buscarCedula(c);
+        if(Utilitario.estaVacia(c) || resBus==null ){
+           JFrameAviso1 obj = new JFrameAviso1();
+            obj.setVisible(true);
+      
             
-            JFrameAviso1 objj = new JFrameAviso1();
-            objj.setVisible(true);
+       
+        }else{
+          
+          
+           String arr[]=new String[7];
+           arr[0]=resBus.getCedula();
+           arr[1]=resBus.getNombre();
+           arr[2]=resBus.getNombre2();
+           arr[3]=resBus.getApellido();
+           arr[4]=resBus.getApellido2();
+           arr[5]=String.valueOf(resBus.getHorasTrabajadas());
+           arr[6]=String.valueOf(resBus.getSalarioHora());
+           
+        
+           
+            disableTxt();
+          
+           //ajustes del form
+           //se encuentra el empleado
+           emSel=resBus;
+           //se carga la data
+           cargarForm(arr);
+            
+             //set del queryType para estar lista para el update
+             emMod.setQueryType(1);
         }
-    }//GEN-LAST:event_jLabel4MousePressed
+    }//GEN-LAST:event_btnBuscarCedulaMousePressed
 
     private void txtHrsTrabajadasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtHrsTrabajadasMousePressed
         if(txtHrsTrabajadas.getText().equals("Ingrese las horas trabajadas"))
@@ -536,15 +567,15 @@ public class Pag4 extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtSalxHoraMousePressed
 
-    private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
+    private void btnRegresarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseEntered
         btnInsertar.setBackground(new Color(52, 152, 219));
-    }//GEN-LAST:event_jLabel3MouseEntered
+    }//GEN-LAST:event_btnRegresarMouseEntered
 
-    private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
+    private void btnRegresarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseExited
         btnInsertar.setBackground(new Color(255,255,255));
-    }//GEN-LAST:event_jLabel3MouseExited
+    }//GEN-LAST:event_btnRegresarMouseExited
 
-    private void jLabel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MousePressed
+    private void btnRegresarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMousePressed
         Pag3 p3 = new Pag3();
         p3.setSize(1210, 830);
         p3.setLocation(0,0);
@@ -553,27 +584,307 @@ public class Pag4 extends javax.swing.JPanel {
         JpBase.add(p3,BorderLayout.CENTER);
         JpBase.revalidate();;
         JpBase.repaint();
-    }//GEN-LAST:event_jLabel3MousePressed
+    }//GEN-LAST:event_btnRegresarMousePressed
 
-    private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
+    private void btnAddMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMouseEntered
         btnGuardar.setBackground(new Color(52, 152, 219));
-    }//GEN-LAST:event_jLabel5MouseEntered
+    }//GEN-LAST:event_btnAddMouseEntered
 
-    private void jLabel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseExited
+    private void btnAddMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMouseExited
         btnGuardar.setBackground(new Color(255,255,255));
-    }//GEN-LAST:event_jLabel5MouseExited
+    }//GEN-LAST:event_btnAddMouseExited
 
-    private void jLabel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MousePressed
+    private void btnAddMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMousePressed
         //modifca sus datos
-    }//GEN-LAST:event_jLabel5MousePressed
+         emMod.setQueryType(1);
+         
+        
+           if(emMod.getQueryType()==1){
+             
+             String errors=verificarTodos();
+          
+         if(errors.length()>0){   
+             String msg="Se han encontrado los siguientes errores:\n";
+             msg+=errors;
+             Utilitario.erro(msg,null);
+         }
+         else{
+            
+             EmpPlanilla emp=new EmpPlanilla(emSel);
+                //System.out.println(emSel.getCedula());
+             emp.calcularSalarioBruto();
+             emp.calcularSS();
+             emp.calcularSE();
+             emp.calcularSalarioNeto();
+             
+            pMod.insertar(emp);
+              Utilitario.exi("registrado con exito",null);
+             
+               
+          }
+         }
+        
+    }//GEN-LAST:event_btnAddMousePressed
+//utilidades
+     public String verificarTodos(){
+         String err="";
+          String pN=txtPrimerNombre.getText();
+          String sN=txtSegundoNombre.getText();
+          String pA=txtPrimerApellido.getText();
+          String sA=txtSegundoApellido.getText();
+          String hT=txtHrsTrabajadas.getText();
+        String sH=txtSalxHora.getText();
+          String ar[]={
+           
+             pN,
+             sN,
+             pA,
+             sA,
+             hT,
+             sH
+            
+          };
+          
+          String def[]={
+              "el campo primer Nombre esta vacio",
+               "el campo segundo Nombre esta vacio",
+                "el campo primer Apellido esta vacio",
+                 "el campo segundo Apellido esta vacio",
+                  "el campo horasTrabajadas esta vacio",
+                   "el campo salario por hora esta vacio"
+                 
+          };
+        
+        switch(emMod.getQueryType()){
+            
+            //chequeo general
+            case 1:
+        
+           for(int i=0;i<=ar.length-1;i++){
+                   if(Utilitario.estaVacia(ar[i])){
+                       
+                           err+=def[i];
+                           err+="\n";
+                          
+                     }
+                }
+        
+            if(!pMod.cedulaUnica(emSel.getCedula())){
+                 err+="El empleado ya se ha añadido al sistema de planilla";
+                      err+="\n";
+            }
+            //campos numerios
+            if(pN.matches(".*[0-9].*")){
+                 err+="el primer Nombre no puede ser numérico";
+                      err+="\n";
+            }
+            
+            if(sN.matches(".*[0-9].*")){
+                 err+="el segundo Nombre no puede ser numérico";
+                      err+="\n";
+            }
+            
+              if(pA.matches(".*[0-9].*")){
+                 err+="el primer Apellido no puede ser numérico";
+                      err+="\n";
+            }
+             if(sA.matches(".*[0-9].*")){
+                 err+="el segundo Apellido no puede ser numérico";
+                      err+="\n";
+            }
+             //necesito sabersi el salario hora y horas trabajadas están correctas para modificar el file
+           int hs=0;
+          if(!Utilitario.esNumero(hT)){
+               err+="las horas trabajadas debe ser de tipo numérico";
+                      err+="\n";
+               
+          }else{
+              
+              System.out.println(getEmpIndex());
+              
+              Empleado empleadoSel=emMod.buscarEmpleado(getEmpIndex());
+            empleadoSel.setHorasTrabajadas(Double.parseDouble(hT));
+           
+              if(!emSel.evalHoras()){
+                    err+="las horas trabajadas no pueden ser menos de 4 ni \n" +
+                   "mayor a 12";
+                      err+="\n";
+              
+              }
+            
+          }
+           if(!Utilitario.esNumero(sH)){
+               err+="El salario por hora debe ser de tipo numérico";
+                      err+="\n";
+          }
+           else{
+                Empleado empleadoSel=emMod.buscarEmpleado(getEmpIndex());
+                 empleadoSel.setSalarioHora(Double.parseDouble(sH));
+             if(!emSel.evalSalario()){
+                    err+="el salario por hora no sea menor de 5.00 ni mayor \n" +
+                   "a 20.00";
+                      err+="\n";
+                  
+              }
+           }
+           
+              if(Utilitario.esNumero(hT) && Utilitario.esNumero(sH)){
+                  emMod.modificar(getEmpIndex(), Double.parseDouble(hT), Double.parseDouble(sH));
+              }
+         
+           
+          break;
+         
+         
+          case 2:
+        
+           for(int i=0;i<=ar.length-1;i++){
+                   if(Utilitario.estaVacia(ar[i])){
+                       
+                           err+=def[i];
+                           err+="\n";
+                          
+                     }
+                }
+        
+        
+            //campos numerios
+            if(pN.matches(".*[0-9].*")){
+                 err+="el primer Nombre no puede ser numérico";
+                      err+="\n";
+            }
+            
+            if(sN.matches(".*[0-9].*")){
+                 err+="el segundo Nombre no puede ser numérico";
+                      err+="\n";
+            }
+            
+              if(pA.matches(".*[0-9].*")){
+                 err+="el primer Apellido no puede ser numérico";
+                      err+="\n";
+            }
+             if(sA.matches(".*[0-9].*")){
+                 err+="el segundo Apellido no puede ser numérico";
+                      err+="\n";
+            }
+             
+            
+           
+            
+         break;
+        }
+        
+        
+        return err;
+    
+    }
+    
+    public void cargarForm(String vals[]){
+        
+        
+          txtPrimerNombre.setText(vals[1]);
+          txtSegundoNombre.setText(vals[2]);
+          txtPrimerApellido.setText(vals[3]);
+          txtSegundoApellido.setText(vals[4]);
+          txtHrsTrabajadas.setText(vals[5]);
+           txtSalxHora.setText(vals[6]);
+    }
+    
+    
+    public void limpiarForm(){
+        
+          txtPrimerNombre.setText("");
+          txtSegundoNombre.setText("");
+          txtPrimerApellido.setText("");
+          txtSegundoApellido.setText("");
+          txtHrsTrabajadas.setText("");
+           txtSalxHora.setText("");
+    }
+    
 
+    
+    
+
+      public void onPn(){
+        txtPrimerNombre.setEnabled(true);
+    }
+      
+        public void offPn(){
+        txtPrimerNombre.setEnabled(false);
+    }
+
+        public void onSn(){
+        txtSegundoNombre.setEnabled(true);
+    }
+      
+        public void offSn(){
+        txtSegundoNombre.setEnabled(false);
+    }
+        
+        public void onPa(){
+        txtPrimerApellido.setEnabled(true);
+    }
+      
+        public void offPa(){
+        txtPrimerApellido.setEnabled(false);
+    }
+        
+        public void onSa(){
+        txtSegundoApellido.setEnabled(true);
+    }
+      
+        public void offSa(){
+        txtSegundoApellido.setEnabled(false);
+    }
+        
+        
+        //btn insertar
+        public void onBtnAdd(){
+        btnAdd.setEnabled(true);
+    }
+       
+        public void offBtnIns(){
+            btnAdd.setEnabled(false);
+    }
+      
+        
+        public void enableTxt(){
+           
+              txtPrimerNombre.setEnabled(true);
+                txtSegundoNombre.setEnabled(true);
+                 txtPrimerApellido.setEnabled(true);
+                  txtSegundoApellido.setEnabled(true);
+                  txtHrsTrabajadas.setEnabled(true);
+                   txtSalxHora.setEnabled(true);
+                 
+        }
+        
+          public void disableTxt(){
+           
+              txtPrimerNombre.setEnabled(false);
+                txtSegundoNombre.setEnabled(false);
+                 txtPrimerApellido.setEnabled(false);
+                  txtSegundoApellido.setEnabled(false);
+                      
+        }
+          
+          
+   //retorna el indice del objeto seleccionado el empleado
+          public int getEmpIndex(){
+            
+             int index=emMod.mostrar_todos().indexOf(emSel);
+             return index;
+          }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JpBase;
+    private javax.swing.JLabel btnAdd;
     private javax.swing.JPanel btnBuscar;
+    private javax.swing.JLabel btnBuscarCedula;
     private javax.swing.JPanel btnCerrar;
     private javax.swing.JPanel btnGuardar;
     private javax.swing.JPanel btnInsertar;
+    private javax.swing.JLabel btnRegresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -585,9 +896,6 @@ public class Pag4 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator12;

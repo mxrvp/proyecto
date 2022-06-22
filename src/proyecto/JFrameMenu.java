@@ -4,7 +4,14 @@ package proyecto;
 import java.awt.BorderLayout;
 import java.awt.Color;
 
+
+//max 
+import empleados.*;
 public class JFrameMenu extends javax.swing.JFrame {
+    
+    
+    
+    
 
     int xMouse,yMouse;
     public JFrameMenu() {
@@ -84,7 +91,7 @@ public class JFrameMenu extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Craer Usuario");
+        jLabel2.setText("Crear Usuario");
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel2MouseEntered(evt);
@@ -409,7 +416,7 @@ public class JFrameMenu extends javax.swing.JFrame {
         Pag2 p2 = new Pag2();
         p2.setSize(1210, 830);
         p2.setLocation(0,0);
-
+      
         JpContenido3.removeAll();
         JpContenido3.add(p2,BorderLayout.CENTER);
         JpContenido3.revalidate();;

@@ -1,20 +1,23 @@
 
 package proyecto;
 
+import empleados.Empleado;
+import empleados.EmpleadosModel;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.util.Date;
 import javax.swing.JOptionPane;
+import utilmax.Utilitario;
 
 
 public class Pag2 extends javax.swing.JPanel {
 
-
+  EmpleadosModel emMod=new EmpleadosModel();
     public Pag2() {
         initComponents();
         
     }
 
- 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -28,7 +31,7 @@ public class Pag2 extends javax.swing.JPanel {
         jSeparator9 = new javax.swing.JSeparator();
         jLabel18 = new javax.swing.JLabel();
         btnBuscar = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        btnFind = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         txtPrimerNombre = new javax.swing.JTextField();
@@ -52,10 +55,10 @@ public class Pag2 extends javax.swing.JPanel {
         txtTelefono = new javax.swing.JTextField();
         jSeparator16 = new javax.swing.JSeparator();
         btnInsertar = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        btnInsert = new javax.swing.JLabel();
         btnGuardar = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        btnSave = new javax.swing.JLabel();
+        selectorFechaVec = new com.toedter.calendar.JDateChooser();
         txtSegundoNombre = new javax.swing.JTextField();
 
         jPanel1.setBackground(new java.awt.Color(244, 244, 244));
@@ -113,7 +116,7 @@ public class Pag2 extends javax.swing.JPanel {
         );
         btnCerrarLayout.setVerticalGroup(
             btnCerrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
         );
 
         txtBuscarCedula.setBackground(new java.awt.Color(244, 244, 244));
@@ -135,19 +138,19 @@ public class Pag2 extends javax.swing.JPanel {
 
         btnBuscar.setBackground(new java.awt.Color(244, 244, 244));
 
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lupa.png"))); // NOI18N
-        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnFind.setForeground(new java.awt.Color(0, 0, 0));
+        btnFind.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnFind.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lupa.png"))); // NOI18N
+        btnFind.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnFind.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel4MouseEntered(evt);
+                btnFindMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel4MouseExited(evt);
+                btnFindMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel4MousePressed(evt);
+                btnFindMousePressed(evt);
             }
         });
 
@@ -155,12 +158,12 @@ public class Pag2 extends javax.swing.JPanel {
         btnBuscar.setLayout(btnBuscarLayout);
         btnBuscarLayout.setHorizontalGroup(
             btnBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnFind, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         btnBuscarLayout.setVerticalGroup(
             btnBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnBuscarLayout.createSequentialGroup()
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnFind, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -176,11 +179,6 @@ public class Pag2 extends javax.swing.JPanel {
         txtPrimerNombre.setForeground(new java.awt.Color(153, 153, 153));
         txtPrimerNombre.setBorder(null);
         txtPrimerNombre.setEnabled(false);
-        txtPrimerNombre.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtPrimerNombreMousePressed(evt);
-            }
-        });
 
         jSeparator7.setBackground(new java.awt.Color(133, 133, 201));
         jSeparator7.setForeground(new java.awt.Color(133, 133, 201));
@@ -196,11 +194,6 @@ public class Pag2 extends javax.swing.JPanel {
         txtCedula.setForeground(new java.awt.Color(153, 153, 153));
         txtCedula.setBorder(null);
         txtCedula.setEnabled(false);
-        txtCedula.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtCedulaMousePressed(evt);
-            }
-        });
 
         jLabel17.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(51, 51, 51));
@@ -217,11 +210,6 @@ public class Pag2 extends javax.swing.JPanel {
         txtPrimerApellido.setForeground(new java.awt.Color(153, 153, 153));
         txtPrimerApellido.setBorder(null);
         txtPrimerApellido.setEnabled(false);
-        txtPrimerApellido.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtPrimerApellidoMousePressed(evt);
-            }
-        });
 
         jSeparator13.setBackground(new java.awt.Color(133, 133, 201));
         jSeparator13.setForeground(new java.awt.Color(133, 133, 201));
@@ -234,11 +222,6 @@ public class Pag2 extends javax.swing.JPanel {
         txtSegundoApellido.setForeground(new java.awt.Color(153, 153, 153));
         txtSegundoApellido.setBorder(null);
         txtSegundoApellido.setEnabled(false);
-        txtSegundoApellido.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtSegundoApellidoMousePressed(evt);
-            }
-        });
 
         jSeparator14.setBackground(new java.awt.Color(133, 133, 201));
         jSeparator14.setForeground(new java.awt.Color(133, 133, 201));
@@ -255,11 +238,6 @@ public class Pag2 extends javax.swing.JPanel {
         txtDireccion.setForeground(new java.awt.Color(153, 153, 153));
         txtDireccion.setBorder(null);
         txtDireccion.setEnabled(false);
-        txtDireccion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtDireccionMousePressed(evt);
-            }
-        });
 
         jSeparator15.setBackground(new java.awt.Color(133, 133, 201));
         jSeparator15.setForeground(new java.awt.Color(133, 133, 201));
@@ -272,11 +250,6 @@ public class Pag2 extends javax.swing.JPanel {
         txtTelefono.setForeground(new java.awt.Color(153, 153, 153));
         txtTelefono.setBorder(null);
         txtTelefono.setEnabled(false);
-        txtTelefono.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtTelefonoMousePressed(evt);
-            }
-        });
 
         jSeparator16.setBackground(new java.awt.Color(133, 133, 201));
         jSeparator16.setForeground(new java.awt.Color(133, 133, 201));
@@ -284,19 +257,20 @@ public class Pag2 extends javax.swing.JPanel {
         btnInsertar.setBackground(new java.awt.Color(255, 255, 255));
         btnInsertar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 81, 152)));
 
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Insertar");
-        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnInsert.setForeground(new java.awt.Color(0, 0, 0));
+        btnInsert.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnInsert.setText("Insertar");
+        btnInsert.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnInsert.setEnabled(false);
+        btnInsert.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel3MouseEntered(evt);
+                btnInsertMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel3MouseExited(evt);
+                btnInsertMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel3MousePressed(evt);
+                btnInsertMousePressed(evt);
             }
         });
 
@@ -306,30 +280,31 @@ public class Pag2 extends javax.swing.JPanel {
             btnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnInsertarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
+                .addComponent(btnInsert, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
                 .addContainerGap())
         );
         btnInsertarLayout.setVerticalGroup(
             btnInsertarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+            .addComponent(btnInsert, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
         );
 
         btnGuardar.setBackground(new java.awt.Color(255, 255, 255));
         btnGuardar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 81, 152)));
 
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Guardar");
-        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnSave.setForeground(new java.awt.Color(0, 0, 0));
+        btnSave.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnSave.setText("Guardar");
+        btnSave.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSave.setEnabled(false);
+        btnSave.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel5MouseEntered(evt);
+                btnSaveMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel5MouseExited(evt);
+                btnSaveMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel5MousePressed(evt);
+                btnSaveMousePressed(evt);
             }
         });
 
@@ -338,23 +313,20 @@ public class Pag2 extends javax.swing.JPanel {
         btnGuardarLayout.setHorizontalGroup(
             btnGuardarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnGuardarLayout.createSequentialGroup()
-                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
+                .addComponent(btnSave, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
                 .addContainerGap())
         );
         btnGuardarLayout.setVerticalGroup(
             btnGuardarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        selectorFechaVec.setEnabled(false);
 
         txtSegundoNombre.setBackground(new java.awt.Color(244, 244, 244));
         txtSegundoNombre.setForeground(new java.awt.Color(153, 153, 153));
         txtSegundoNombre.setBorder(null);
         txtSegundoNombre.setEnabled(false);
-        txtSegundoNombre.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtSegundoNombreMousePressedd(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -401,7 +373,7 @@ public class Pag2 extends javax.swing.JPanel {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel22)
                                 .addGap(18, 18, 18)
-                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(selectorFechaVec, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(101, 101, 101))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -414,7 +386,7 @@ public class Pag2 extends javax.swing.JPanel {
                             .addComponent(txtBuscarCedula, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 458, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 326, Short.MAX_VALUE)
                 .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -461,7 +433,7 @@ public class Pag2 extends javax.swing.JPanel {
                         .addGap(107, 107, 107)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(selectorFechaVec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
@@ -493,18 +465,24 @@ public class Pag2 extends javax.swing.JPanel {
                 .addComponent(txtSegundoApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator14, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 78, Short.MAX_VALUE))
+                .addGap(0, 66, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(126, 126, 126)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -533,404 +511,375 @@ public class Pag2 extends javax.swing.JPanel {
         // No se usa pero no me deja borrarlo como que se bugueo xd
     }//GEN-LAST:event_txtBuscarCedulaMousePressed
 
-    private void jLabel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseEntered
+    private void btnFindMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFindMouseEntered
         btnBuscar.setBackground(new Color(52, 152, 219));
-    }//GEN-LAST:event_jLabel4MouseEntered
+    }//GEN-LAST:event_btnFindMouseEntered
 
-    private void jLabel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseExited
+    private void btnFindMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFindMouseExited
         btnBuscar.setBackground(new Color(244,244,244));
-    }//GEN-LAST:event_jLabel4MouseExited
+    }//GEN-LAST:event_btnFindMouseExited
 
-    private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
-        // codigo de archivo
-        Admin obj = new Admin();
-        
-        txtBuscarCedula.setText(txtBuscarCedula.getText());
-        
-        if(obj.getCedula().equals(txtBuscarCedula.getText()) )
-        {
-            // despliega los datos de ese empleado en sus respectivos campos
-        }
-        else//si no encontro la cedula, activar los campos para que lo ingrese
-        {
+    private void btnFindMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFindMousePressed
+         //primero limpiar todos los inputs
+         limpiarForm();
+            String c=txtBuscarCedula.getText();
+           Empleado resBus=emMod.buscarCedula(c);
+        if(Utilitario.estaVacia(c) || resBus==null ){
+           JFrameAviso1 obj = new JFrameAviso1();
+            obj.setVisible(true);
+            enableTxt();
+             onBtnIns();
+            offBtnSave();
             
-            JFrameAviso1 objj = new JFrameAviso1();
-            objj.setVisible(true);
-            
-            txtCedula.setEnabled(true);
-            txtPrimerNombre.setEnabled(true);
-            txtSegundoNombre.setEnabled(true);
-            txtPrimerApellido.setEnabled(true);        // habilitando los campos txt
-            txtSegundoApellido.setEnabled(true);
-            txtDireccion.setEnabled(true);
-            txtTelefono.setEnabled(true);
-  
-            // no borrar, efecto placeholder
-            if(txtCedula.isEnabled())
-            {
-                txtCedula.setText("Ingrese la cedula");
-                txtCedula.setForeground(new Color(153,153,153));
-            }
-            if(txtPrimerNombre.isEnabled())
-            {
-                txtPrimerNombre.setText("Ingrese el primer nombre");
-                txtPrimerNombre.setForeground(new Color(153,153,153));
-            }
-            if(txtSegundoNombre.isEnabled())
-            {
-                txtSegundoNombre.setText("Ingrese el segundo nombre");
-                txtSegundoNombre.setForeground(new Color(153,153,153));
-            }
-            if(txtPrimerApellido.isEnabled())
-            {
-                txtPrimerApellido.setText("Ingrese el primer apellido");
-                txtPrimerApellido.setForeground(new Color(153,153,153));
-            }
-            if(txtSegundoApellido.isEnabled())
-            {
-                txtSegundoApellido.setText("Ingrese el segundo apellido");
-                txtSegundoApellido.setForeground(new Color(153,153,153));
-            }
-            if(txtDireccion.isEnabled())
-            {
-                txtDireccion.setText("Ingrese la direccion");
-                txtDireccion.setForeground(new Color(153,153,153));
-            }    
-            if(txtTelefono.isEnabled())
-            {
-                txtTelefono.setText("Ingrese el numero de telefono");
-                txtTelefono.setForeground(new Color(153,153,153));
-            }       
-        }
-            
-    }//GEN-LAST:event_jLabel4MousePressed
-
-    private void txtPrimerNombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPrimerNombreMousePressed
-        if(txtPrimerNombre.isEnabled())
-        {
-            if(txtPrimerNombre.getText().equals("Ingrese el primer nombre"))
-            {
-                txtPrimerNombre.setText("");
-                txtPrimerNombre.setForeground(Color.black);
-            }
-            if(txtSegundoNombre.getText().equals(""))
-            {
-                txtSegundoNombre.setText("Ingrese el segundo nombre");
-                txtSegundoNombre.setForeground(Color.gray);
-            }
-            if(txtCedula.getText().equals(""))
-            {
-                txtCedula.setText("Ingrese la cedula");
-                txtCedula.setForeground(Color.gray);
-            }
-            if(txtPrimerApellido.getText().equals(""))
-            {
-                txtPrimerApellido.setText("Ingrese el primer apellido");
-                txtPrimerApellido.setForeground(Color.gray);
-            }
-            if(txtSegundoApellido.getText().equals(""))
-            {
-                txtSegundoApellido.setText("Ingrese el segundo apellido");
-                txtSegundoApellido.setForeground(Color.gray);
-            }
-            if(txtDireccion.getText().equals(""))
-            {
-                txtDireccion.setText("Ingrese la direccion");
-                txtDireccion.setForeground(Color.gray);
-            }    
-            if(txtTelefono.getText().equals(""))
-            {
-                txtTelefono.setText("Ingrese el numero de telefono");
-                txtTelefono.setForeground(Color.gray);
-            }
-        }
-        
-    }//GEN-LAST:event_txtPrimerNombreMousePressed
-
-    private void txtCedulaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCedulaMousePressed
-        if(txtCedula.isEnabled())
-        {
-            if(txtCedula.getText().equals("Ingrese la cedula"))
-            {
-                txtCedula.setText("");
-                txtCedula.setForeground(Color.black);
-            }
-            if(txtPrimerNombre.getText().equals(""))
-            {
-                txtPrimerNombre.setText("Ingrese el primer nombre");
-                txtPrimerNombre.setForeground(Color.gray);
-            }
-            if(txtSegundoNombre.getText().equals(""))
-            {
-                txtSegundoNombre.setText("Ingrese el segundo nombre");
-                txtSegundoNombre.setForeground(Color.gray);
-            }
-            if(txtPrimerApellido.getText().equals(""))
-            {
-                txtPrimerApellido.setText("Ingrese el primer apellido");
-                txtPrimerApellido.setForeground(Color.gray);
-            }
-            if(txtSegundoApellido.getText().equals(""))
-            {
-                txtSegundoApellido.setText("Ingrese el segundo apellido");
-                txtSegundoApellido.setForeground(Color.gray);
-            }
-            if(txtDireccion.getText().equals(""))
-            {
-                txtDireccion.setText("Ingrese la direccion");
-                txtDireccion.setForeground(Color.gray);
-            }    
-            if(txtTelefono.getText().equals(""))
-            {
-                txtTelefono.setText("Ingrese el numero de telefono");
-                txtTelefono.setForeground(Color.gray);
-            }    
-        }
-        
+            //set del queryType para estar lista para el insertt
+            emMod.setQueryType(1);
            
-    }//GEN-LAST:event_txtCedulaMousePressed
-
-    private void txtPrimerApellidoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPrimerApellidoMousePressed
-        if(txtPrimerApellido.isEnabled())
-        {
-            if(txtPrimerApellido.getText().equals("Ingrese el primer apellido"))
-            {
-                txtPrimerApellido.setText("");
-                txtPrimerApellido.setForeground(Color.black);
-            }
-            if(txtSegundoNombre.getText().equals(""))
-            {
-                txtSegundoNombre.setText("Ingrese el segundo nombre");
-                txtSegundoNombre.setForeground(Color.gray);
-            }
-            if(txtPrimerNombre.getText().equals(""))
-            {
-                txtPrimerNombre.setText("Ingrese el primer nombre");
-                txtPrimerNombre.setForeground(Color.gray);
-            }
-            if(txtCedula.getText().equals(""))
-            {
-                txtCedula.setText("Ingrese la cedula");
-                txtCedula.setForeground(Color.gray);
-            }
-            if(txtSegundoApellido.getText().equals(""))
-            {
-                txtSegundoApellido.setText("Ingrese el segundo apellido");
-                txtSegundoApellido.setForeground(Color.gray);
-            }
-            if(txtDireccion.getText().equals(""))
-            {
-                txtDireccion.setText("Ingrese la direccion");
-                txtDireccion.setForeground(Color.gray);
-            }    
-            if(txtTelefono.getText().equals(""))
-            {
-                txtTelefono.setText("Ingrese el numero de telefono");
-                txtTelefono.setForeground(Color.gray);
-            } 
+        }else{
+          
+          
+           String arr[]=new String[7];
+           arr[0]=resBus.getCedula();
+           arr[1]=resBus.getNombre();
+           arr[2]=resBus.getNombre2();
+           arr[3]=resBus.getApellido();
+           arr[4]=resBus.getApellido2();
+           arr[5]=resBus.getDireccion();
+           arr[6]=resBus.getTelefono();
+           
+            enableTxt();
+           //ajustes especiales de fecha y cedula
+           selectorFechaVec.setDate(resBus.getFechaNacimiento());
+           
+            this.offCedula();
+           //ajustes del form
+           cargarForm(arr);
+             offBtnIns();
+            onBtnSave();
+             //set del queryType para estar lista para el update
+             emMod.setQueryType(2);
         }
-    }//GEN-LAST:event_txtPrimerApellidoMousePressed
+            
+    }//GEN-LAST:event_btnFindMousePressed
 
-    private void txtSegundoApellidoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSegundoApellidoMousePressed
-        if(txtSegundoApellido.isEnabled())
-        {
-            if(txtSegundoApellido.getText().equals("Ingrese el segundo apellido"))
-            {
-                txtSegundoApellido.setText("");
-                txtSegundoApellido.setForeground(Color.black);
-            }
-            if(txtPrimerApellido.getText().equals(""))
-            {
-                txtPrimerApellido.setText("Ingrese el primer apellido");
-                txtPrimerApellido.setForeground(Color.gray);
-            }
-            if(txtSegundoNombre.getText().equals(""))
-            {
-                txtSegundoNombre.setText("Ingrese el segundo nombre");
-                txtSegundoNombre.setForeground(Color.gray);
-            }
-            if(txtPrimerNombre.getText().equals(""))
-            {
-                txtPrimerNombre.setText("Ingrese el primer nombre");
-                txtPrimerNombre.setForeground(Color.gray);
-            }
-            if(txtCedula.getText().equals(""))
-            {
-                txtCedula.setText("Ingrese la cedula");
-                txtCedula.setForeground(Color.gray);
-            }
-            if(txtDireccion.getText().equals(""))
-            {
-                txtDireccion.setText("Ingrese la direccion");
-                txtDireccion.setForeground(Color.gray);
-            }    
-            if(txtTelefono.getText().equals(""))
-            {
-                txtTelefono.setText("Ingrese el numero de telefono");
-                txtTelefono.setForeground(Color.gray);
-            }
-        }
-        
-        
-    }//GEN-LAST:event_txtSegundoApellidoMousePressed
-
-    private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
+    private void btnInsertMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInsertMouseEntered
         btnInsertar.setBackground(new Color(52, 152, 219));
-    }//GEN-LAST:event_jLabel3MouseEntered
+    }//GEN-LAST:event_btnInsertMouseEntered
 
-    private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
+    private void btnInsertMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInsertMouseExited
         btnInsertar.setBackground(new Color(255,255,255));
-    }//GEN-LAST:event_jLabel3MouseExited
+    }//GEN-LAST:event_btnInsertMouseExited
 
-    private void jLabel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MousePressed
+    private void btnInsertMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInsertMousePressed
         //insertar en archivs empleado
-    }//GEN-LAST:event_jLabel3MousePressed
+        
+         if(emMod.getQueryType()==1){
+             
+             String errors=verificarTodos();
+          
+         if(errors.length()>0){   
+             String msg="Se han encontrado los siguientes errores:\n";
+             msg+=errors;
+             Utilitario.erro(msg,null);
+         }
+         else{
+             Empleado em=new Empleado(txtCedula.getText(),txtPrimerNombre.getText(),txtSegundoNombre.getText(),txtPrimerApellido.getText(),txtSegundoApellido.getText(),selectorFechaVec.getDate(),txtDireccion.getText(),txtTelefono.getText());
+            emMod.insertar(em);
+              Utilitario.exi("registrado con exito",null);
+             
+               
+          }
+         }
+        
+    }//GEN-LAST:event_btnInsertMousePressed
 
-    private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
+    private void btnSaveMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSaveMouseEntered
         btnGuardar.setBackground(new Color(52, 152, 219));
-    }//GEN-LAST:event_jLabel5MouseEntered
+    }//GEN-LAST:event_btnSaveMouseEntered
 
-    private void jLabel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseExited
+    private void btnSaveMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSaveMouseExited
         btnGuardar.setBackground(new Color(255,255,255));
-    }//GEN-LAST:event_jLabel5MouseExited
+    }//GEN-LAST:event_btnSaveMouseExited
 
-    private void jLabel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MousePressed
+    private void btnSaveMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSaveMousePressed
         //modifca sus datos 
-
-    }//GEN-LAST:event_jLabel5MousePressed
-
-    private void txtTelefonoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTelefonoMousePressed
-        if(txtTelefono.isEnabled())
-        {
-            if(txtTelefono.getText().equals("Ingrese el numero de telefono"))
-            {
-                txtTelefono.setText("");
-                txtTelefono.setForeground(Color.black);
-            }
-            if(txtDireccion.getText().equals(""))
-            {
-                txtDireccion.setText("Ingrese la direccion");
-                txtDireccion.setForeground(Color.gray);
-            }
-            if(txtSegundoApellido.getText().equals(""))
-            {
-                txtSegundoApellido.setText("Ingrese el segundo apellido");
-                txtSegundoApellido.setForeground(Color.gray);
-            }
-            if(txtPrimerApellido.getText().equals(""))
-            {
-                txtPrimerApellido.setText("ngrese el primer apellido");
-                txtPrimerApellido.setForeground(Color.gray);
-            }
-
-            if(txtSegundoNombre.getText().equals(""))
-            {
-                txtSegundoNombre.setText("Ingrese el segundo nombre");
-                txtSegundoNombre.setForeground(Color.gray);
-            }
-            if(txtPrimerNombre.getText().equals(""))
-            {
-                txtPrimerNombre.setText("Ingrese el primer nombre");
-                txtPrimerNombre.setForeground(Color.gray);
-            }
-
-            if(txtCedula.getText().equals(""))
-            {
-                txtCedula.setText("Ingrese la cedula");
-                txtCedula.setForeground(Color.gray);
-            }
+        
+        if(emMod.getQueryType()==2){
+               String errors=verificarTodos();
+          
+         if(errors.length()>0){   
+             String msg="Se han encontrado los siguientes errores:\n";
+             msg+=errors;
+             Utilitario.erro(msg,null);
+         }
+         else{
+             Empleado em=emMod.buscarCedula(txtCedula.getText());
+             int index=emMod.mostrar_todos().indexOf(em);
+             
+             
+              emMod.modificar(index,txtPrimerNombre.getText(),txtSegundoNombre.getText(),txtPrimerApellido.getText(),txtSegundoApellido.getText(),selectorFechaVec.getDate(),txtDireccion.getText(),txtTelefono.getText());
+              Utilitario.exi("Actualizado con éxito",null);
+             
+          }
+        
         }
-    }//GEN-LAST:event_txtTelefonoMousePressed
+      
+    }//GEN-LAST:event_btnSaveMousePressed
 
-    private void txtDireccionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDireccionMousePressed
-        if(txtDireccion.isEnabled())
-        {
-            if(txtDireccion.getText().equals("Ingrese la direccion"))
-            {
-                txtDireccion.setText("");
-                txtDireccion.setForeground(Color.black);
+    
+    //utilidades 
+    public String verificarTodos(){
+         String err="";
+          String ced=txtCedula.getText();
+          String pN=txtPrimerNombre.getText();
+          String sN=txtSegundoNombre.getText();
+          String pA=txtPrimerApellido.getText();
+          String sA=txtSegundoApellido.getText();
+          String dir=txtDireccion.getText();
+          String tel=txtTelefono.getText();
+          Date fV=selectorFechaVec.getDate();
+          
+          String ar[]={
+             ced,
+             pN,
+             sN,
+             pA,
+             sA,
+             dir,
+             tel
+          };
+          
+          String def[]={
+             "el campo cedula esta vacio",
+              "el campo primer Nombre esta vacio",
+               "el campo segundo Nombre esta vacio",
+                "el campo primer Apellido esta vacio",
+                 "el campo segundo Apellido esta vacio",
+                  "el campo direccion esta vacio",
+                   "el campo telefono esta vacio"
+                 
+          };
+        
+        switch(emMod.getQueryType()){
+            
+            //chequeo general
+            case 1:
+        
+           for(int i=0;i<=ar.length-1;i++){
+                   if(Utilitario.estaVacia(ar[i])){
+                       
+                           err+=def[i];
+                           err+="\n";
+                          
+                     }
+                }
+        
+            if(fV==null){
+                err+="La fecha no ha sido seleccionada";
+                     err+="\n";
+              }
+            if(!emMod.cedulaUnica(ced)){
+                    err+="La cedula ya existe";
+                      err+="\n";
+                    }
+            
+            //campos numerios
+            if(pN.matches(".*[0-9].*")){
+                 err+="el primer Nombre no puede ser numérico";
+                      err+="\n";
             }
-            if(txtSegundoApellido.getText().equals(""))
-            {
-                txtSegundoApellido.setText("Ingrese el segundo apellido");
-                txtSegundoApellido.setForeground(Color.gray);
+            
+            if(sN.matches(".*[0-9].*")){
+                 err+="el segundo Nombre no puede ser numérico";
+                      err+="\n";
             }
-            if(txtPrimerApellido.getText().equals(""))
-            {
-                txtPrimerApellido.setText("ngrese el primer apellido");
-                txtPrimerApellido.setForeground(Color.gray);
-            }  
-            if(txtSegundoNombre.getText().equals(""))
-            {
-                txtSegundoNombre.setText("Ingrese el segundo nombre");
-                txtSegundoNombre.setForeground(Color.gray);
+            
+              if(pA.matches(".*[0-9].*")){
+                 err+="el primer Apellido no puede ser numérico";
+                      err+="\n";
             }
-            if(txtPrimerNombre.getText().equals(""))
-            {
-                txtPrimerNombre.setText("Ingrese el primer nombre");
-                txtPrimerNombre.setForeground(Color.gray);
+             if(sA.matches(".*[0-9].*")){
+                 err+="el segundo Apellido no puede ser numérico";
+                      err+="\n";
             }
-            if(txtCedula.getText().equals(""))
-            {
-                txtCedula.setText("Ingrese la cedula");
-                txtCedula.setForeground(Color.gray);
+             
+             if(dir.matches(".*[0-9].*")){
+                 err+="el primer Apellido no puede ser numérico";
+                      err+="\n";
             }
-            if(txtTelefono.getText().equals(""))
-            {
-                txtTelefono.setText("Ingrese el numero de telefono");
-                txtTelefono.setForeground(Color.gray);
+           
+            
+           break;
+         
+         
+          case 2:
+        
+           for(int i=0;i<=ar.length-1;i++){
+                   if(Utilitario.estaVacia(ar[i])){
+                       
+                           err+=def[i];
+                           err+="\n";
+                          
+                     }
+                }
+        
+            if(fV==null){
+                err+="La fecha no ha sido seleccionada";
+                     err+="\n";
+              }
+         
+
+            //campos numerios
+            if(pN.matches(".*[0-9].*")){
+                 err+="el primer Nombre no puede ser numérico";
+                      err+="\n";
             }
+            
+            if(sN.matches(".*[0-9].*")){
+                 err+="el segundo Nombre no puede ser numérico";
+                      err+="\n";
+            }
+            
+              if(pA.matches(".*[0-9].*")){
+                 err+="el primer Apellido no puede ser numérico";
+                      err+="\n";
+            }
+             if(sA.matches(".*[0-9].*")){
+                 err+="el segundo Apellido no puede ser numérico";
+                      err+="\n";
+            }
+             
+             if(dir.matches(".*[0-9].*")){
+                 err+="el primer Apellido no puede ser numérico";
+                      err+="\n";
+            }
+           
+            
+         break;
         }
-    }//GEN-LAST:event_txtDireccionMousePressed
+        
+        
+        return err;
+    
+    }
+    
+    public void cargarForm(String vals[]){
+        
+          txtCedula.setText(vals[0]);
+          txtPrimerNombre.setText(vals[1]);
+          txtSegundoNombre.setText(vals[2]);
+          txtPrimerApellido.setText(vals[3]);
+          txtSegundoApellido.setText(vals[4]);
+          txtDireccion.setText(vals[5]);
+          txtTelefono.setText(vals[6]);
+    }
+    
+    
+    public void limpiarForm(){
+        
+          txtCedula.setText("");
+          txtPrimerNombre.setText("");
+          txtSegundoNombre.setText("");
+          txtPrimerApellido.setText("");
+          txtSegundoApellido.setText("");
+          txtDireccion.setText("");
+          txtTelefono.setText("");
+    }
+    
+    public void onCedula(){
+        txtCedula.setEnabled(true);
+    }
+    
+      public void offCedula(){
+        txtCedula.setEnabled(false);
+    }
 
-    private void txtSegundoNombreMousePressedd(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSegundoNombreMousePressedd
-        if(txtSegundoNombre.isEnabled())
-        {
-            if(txtSegundoNombre.getText().equals("Ingrese el segundo nombre"))
-            {
-                txtSegundoNombre.setText("");
-                txtSegundoNombre.setForeground(Color.black);
-            }
-            if(txtPrimerNombre.getText().equals(""))
-            {
-                txtPrimerNombre.setText("Ingrese el primer nombre");
-                txtPrimerNombre.setForeground(Color.gray);
-            }
-            if(txtCedula.getText().equals(""))
-            {
-                txtCedula.setText("Ingrese la cedula");
-                txtCedula.setForeground(Color.gray);
-            }
-            if(txtPrimerApellido.getText().equals(""))
-            {
-                txtPrimerApellido.setText("Ingrese el primer apellido");
-                txtPrimerApellido.setForeground(Color.gray);
-            }
-            if(txtSegundoApellido.getText().equals(""))
-            {
-                txtSegundoApellido.setText("Ingrese el segundo apellido");
-                txtSegundoApellido.setForeground(Color.gray);
-            }
-            if(txtDireccion.getText().equals(""))
-            {
-                txtDireccion.setText("Ingrese la direccion");
-                txtDireccion.setForeground(Color.gray);
-            }    
-            if(txtTelefono.getText().equals(""))
-            {
-                txtTelefono.setText("Ingrese el numero de telefono");
-                txtTelefono.setForeground(Color.gray);
-            }
+      public void onPn(){
+        txtPrimerNombre.setEnabled(true);
+    }
+      
+        public void offPn(){
+        txtPrimerNombre.setEnabled(false);
+    }
+
+        public void onSn(){
+        txtSegundoNombre.setEnabled(true);
+    }
+      
+        public void offSn(){
+        txtSegundoNombre.setEnabled(false);
+    }
+        
+        public void onPa(){
+        txtPrimerApellido.setEnabled(true);
+    }
+      
+        public void offPa(){
+        txtPrimerApellido.setEnabled(false);
+    }
+        
+        public void onSa(){
+        txtSegundoApellido.setEnabled(true);
+    }
+      
+        public void offSa(){
+        txtSegundoApellido.setEnabled(false);
+    }
+        
+          public void onDir(){
+        txtDireccion.setEnabled(true);
+    }
+      
+        public void offDir(){
+         txtDireccion.setEnabled(false);
+    }
+        //btn insertar
+        public void onBtnIns(){
+        btnInsert.setEnabled(true);
+    }
+       
+        public void offBtnIns(){
+           btnInsert.setEnabled(false);
+    }
+        //btn guardar
+           public void onBtnSave(){
+        btnSave.setEnabled(true);
+    }
+      
+        public void offBtnSave(){
+           btnSave.setEnabled(false);
+    }
+        
+        
+        public void enableTxt(){
+             txtCedula.setEnabled(true);
+              txtPrimerNombre.setEnabled(true);
+                txtSegundoNombre.setEnabled(true);
+                 txtPrimerApellido.setEnabled(true);
+                  txtSegundoApellido.setEnabled(true);
+                  txtDireccion.setEnabled(true);
+                   txtTelefono.setEnabled(true);
+                   selectorFechaVec.setEnabled(true);
         }
-    }//GEN-LAST:event_txtSegundoNombreMousePressedd
-
+        
+          public void disableTxt(){
+             txtCedula.setEnabled(false);
+              txtPrimerNombre.setEnabled(false);
+                txtSegundoNombre.setEnabled(false);
+                 txtPrimerApellido.setEnabled(false);
+                  txtSegundoApellido.setEnabled(false);
+                   txtDireccion.setEnabled(false);
+                    txtTelefono.setEnabled(false);
+                    selectorFechaVec.setEnabled(false);
+        }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btnBuscar;
     private javax.swing.JPanel btnCerrar;
+    private javax.swing.JLabel btnFind;
     private javax.swing.JPanel btnGuardar;
+    private javax.swing.JLabel btnInsert;
     private javax.swing.JPanel btnInsertar;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JLabel btnSave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -943,9 +892,6 @@ public class Pag2 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator11;
@@ -956,6 +902,7 @@ public class Pag2 extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator16;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator9;
+    private com.toedter.calendar.JDateChooser selectorFechaVec;
     private javax.swing.JTextField txtBuscarCedula;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtDireccion;
