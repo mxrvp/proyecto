@@ -19,7 +19,7 @@ public class EmpleadosModel {
     //empleados
    //si el query type es 0 se hace busqueda,1insert,2 update y 3 delete
     public int queryType;
-    private String path="C:\\Users\\admin\\Documents\\NetBeansProjects\\proyecto\\src\\empleados\\empleados.txt";
+    private String path="C:\\archivojavautp\\empleados.txt";
     private String delimiter="|";
     private File db=new File(path);
     private FileWriter fw;

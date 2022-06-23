@@ -20,9 +20,10 @@ import java.util.Scanner;
  *
  * @author admin
  */
+
 public class PlanillaModel {
-     public int queryType;
-    private String path="C:\\Users\\admin\\Documents\\NetBeansProjects\\proyecto\\src\\planilla\\planilla.txt";
+    public int queryType;
+    private String path="C:\\archivojavautp\\planilla.txt";
     private String delimiter="|";
     private File db=new File(path);
     private FileWriter fw;
@@ -53,7 +54,6 @@ public class PlanillaModel {
     }
      
    
-    
     
      public boolean insertar(EmpPlanilla em){
          
@@ -99,8 +99,7 @@ public class PlanillaModel {
         return true;
     }
     
-  
-      
+    
       public int getNumEmpleados(){
         return this.empleados.size();
       }

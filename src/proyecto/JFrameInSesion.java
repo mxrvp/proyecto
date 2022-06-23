@@ -9,7 +9,25 @@ public class JFrameInSesion extends javax.swing.JFrame {
     public JFrameInSesion() {
         initComponents();
     }
+    
+public void limpiar(){
+    txtUsuario.setText("");
+    txtPasword.setText("");
+}
 
+public void FocoEnUsuario(){
+      
+        if(txtUsuario.getText().equals("Ingrese su nombre de usuario"))
+        {   
+            txtUsuario.setText("");
+            txtUsuario.setForeground(Color.black);
+        }
+        if(String.valueOf(txtPasword.getPassword()).isEmpty())
+        {
+            txtPasword.setText("1234567890");
+            txtPasword.setForeground(Color.gray);
+        }
+}
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -366,21 +384,30 @@ public class JFrameInSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel1MousePressed
 
     private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
-        Admin obj = new Admin();
+          
+        Usuario obj = new Usuario();
+        
         txtUsuario.setText(txtUsuario.getText().trim());
         txtPasword.setText(txtPasword.getText().trim());
         
-        if(obj.getUsuario().equals(txtUsuario.getText()) && obj.getContrasena().equals(String.valueOf(txtPasword.getPassword())))
-        {
+        obj.setUserId(txtUsuario.getText());
+        obj.setContrasena(txtPasword.getText());
+        
+        if( obj.ValidarUsuario() ){
+        
             JFrameMenu obj_frm = new JFrameMenu();
             obj_frm.setVisible(true);
             this.setVisible(false);
+            
         }
         else
         {
             JOptionPane.showMessageDialog(rootPane, "Usuario o contraseña Incorrecto");
+            txtUsuario.requestFocus();
+            limpiar();
+            FocoEnUsuario();
         }
-        
+                                       
     }//GEN-LAST:event_jLabel4MousePressed
 
     private void jLabel10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MousePressed
