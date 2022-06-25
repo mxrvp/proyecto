@@ -10,13 +10,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
-import javax.swing.JOptionPane;
+
 
 /**
  *
  * @author efrai
  */
 public class Usuario {
+    public static String usuarioInicio;
     private String cedula;
     private String userId; //nombre de usuario de sistema
     private String contrasena;
@@ -24,6 +25,8 @@ public class Usuario {
     private String apellido;
     private String direccion;
     private int tipo; // 0 es usuario normal, 1 es admin
+
+   
     
     private final String Carpeta = "C:\\archivojavautp\\";
     private final String ArchivoUsuario = "ArchivoUsuario.txt";
@@ -202,6 +205,7 @@ public class Usuario {
         }
     }//fin metodo Eliminar
      
+     
        public boolean UsuarioRepetido(String usuario){
         boolean confirmacion = false;      
         File fFile = new File(Carpeta+ArchivoUsuario);
@@ -244,8 +248,9 @@ public class Usuario {
             while(scanner.hasNextLine()){
                 String[] linea = scanner.nextLine().split("\\|");
                 if ( linea[1].equals(this.userId) && (linea[2].equals(utilmax.Util_Encrypt.cifrar(this.contrasena))) ){
-                    
+                    usuarioInicio = linea[3].concat(" ").concat(linea[4]);
                     scanner.close();
+                    
                     return true;
                 }
             }
@@ -256,5 +261,4 @@ public class Usuario {
             return false;
         }
     }//fin metodo ValidarUsuario
-        
 }//fin de la clase Usuario

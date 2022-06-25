@@ -1,4 +1,4 @@
-
+ 
 package proyecto;
 
 import java.awt.BorderLayout;
@@ -10,6 +10,7 @@ import java.time.format.DateTimeFormatter;
 import empleados.*;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import javax.swing.JOptionPane;
 public class JFrameMenu extends javax.swing.JFrame {
     
     
@@ -18,6 +19,12 @@ public class JFrameMenu extends javax.swing.JFrame {
         initComponents();
         String timeStamp = new SimpleDateFormat("yyyy/MMMM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
         jLabel1.setText(timeStamp);
+        
+        Usuario obj = new Usuario();
+        jLabel18.setText(obj.usuarioInicio);
+       
+        //JOptionPane.showMessageDialog(rootPane, String.valueOf(obj.usuarioInicio));
+    
         
     }
 

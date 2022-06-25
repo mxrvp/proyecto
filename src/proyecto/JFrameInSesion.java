@@ -3,12 +3,17 @@ package proyecto;
 
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 public class JFrameInSesion extends javax.swing.JFrame {
     int Xmouse, Ymouse;
+
     public JFrameInSesion() {
         initComponents();
+       
     }
+
+   
     
 public void limpiar(){
     txtUsuario.setText("");
@@ -398,7 +403,7 @@ public void FocoEnUsuario(){
             JFrameMenu obj_frm = new JFrameMenu();
             obj_frm.setVisible(true);
             this.setVisible(false);
-            
+           
         }
         else
         {
