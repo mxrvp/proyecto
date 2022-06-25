@@ -1,31 +1,24 @@
- 
 package proyecto;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
-//max 
-import empleados.*;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import javax.swing.JOptionPane;
+
 public class JFrameMenu extends javax.swing.JFrame {
-    
-    
-    int xMouse,yMouse;
+
+    int xMouse, yMouse;
+
     public JFrameMenu() {
         initComponents();
-        String timeStamp = new SimpleDateFormat("yyyy/MMMM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
+        String timeStamp = new SimpleDateFormat("yyyy/MMMM/dd").format(Calendar.getInstance().getTime());
         jLabel1.setText(timeStamp);
-        
+
         Usuario obj = new Usuario();
         jLabel18.setText(obj.usuarioInicio);
-       
+
         //JOptionPane.showMessageDialog(rootPane, String.valueOf(obj.usuarioInicio));
-    
-        
     }
 
     @SuppressWarnings("unchecked")
@@ -83,7 +76,6 @@ public class JFrameMenu extends javax.swing.JFrame {
 
         jLabel18.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setText("Edwin");
 
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -191,7 +183,7 @@ public class JFrameMenu extends javax.swing.JFrame {
             .addGroup(btnSalirLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         btnCrearPlanilla.setBackground(new java.awt.Color(51, 51, 255));
@@ -240,14 +232,15 @@ public class JFrameMenu extends javax.swing.JFrame {
                     .addGroup(JpMenu2Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(JpMenu2Layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(JpMenu2Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(JpMenu2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(JpMenu2Layout.createSequentialGroup()
+                            .addGap(42, 42, 42)
+                            .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, JpMenu2Layout.createSequentialGroup()
+                            .addGap(24, 24, 24)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addComponent(btnCrearUsr2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
@@ -257,13 +250,14 @@ public class JFrameMenu extends javax.swing.JFrame {
             .addGroup(JpMenu2Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(29, 29, 29)
                 .addGroup(JpMenu2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel18)
                     .addGroup(JpMenu2Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(83, 83, 83)
+                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(86, 86, 86))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JpMenu2Layout.createSequentialGroup()
+                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(75, 75, 75)))
                 .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45)
                 .addComponent(btnCrearUsr2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -273,7 +267,7 @@ public class JFrameMenu extends javax.swing.JFrame {
                 .addComponent(btnCrearPlanilla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(114, Short.MAX_VALUE))
         );
 
         JpBase2.add(JpMenu2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 830));
@@ -317,7 +311,7 @@ public class JFrameMenu extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(51, 51, 255));
         jLabel1.setFont(new java.awt.Font("Bahnschrift", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Lunes 13 de Mayo de 2022");
+        jLabel1.setText("2022/06/27");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -325,8 +319,8 @@ public class JFrameMenu extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(329, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -374,7 +368,7 @@ public class JFrameMenu extends javax.swing.JFrame {
     private void JPanelBarra2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPanelBarra2MouseDragged
         int X = evt.getXOnScreen();
         int Y = evt.getYOnScreen();
-        this.setLocation( X - xMouse, Y - yMouse);
+        this.setLocation(X - xMouse, Y - yMouse);
     }//GEN-LAST:event_JPanelBarra2MouseDragged
 
     private void JPanelBarra2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPanelBarra2MousePressed
@@ -387,16 +381,16 @@ public class JFrameMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel2MouseEntered
 
     private void jLabel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseExited
-        btnCrearUsr2.setBackground(new Color(51,51,255));
+        btnCrearUsr2.setBackground(new Color(51, 51, 255));
     }//GEN-LAST:event_jLabel2MouseExited
 
     private void jLabel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MousePressed
         Pag1 p1 = new Pag1();
         p1.setSize(1210, 830);
-        p1.setLocation(0,0);
+        p1.setLocation(0, 0);
 
         JpContenido3.removeAll();
-        JpContenido3.add(p1,BorderLayout.CENTER);
+        JpContenido3.add(p1, BorderLayout.CENTER);
         JpContenido3.revalidate();
         JpContenido3.repaint();
     }//GEN-LAST:event_jLabel2MousePressed
@@ -406,16 +400,16 @@ public class JFrameMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel3MouseEntered
 
     private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
-        btnVerEmpleado.setBackground(new Color(51,51,255));
+        btnVerEmpleado.setBackground(new Color(51, 51, 255));
     }//GEN-LAST:event_jLabel3MouseExited
 
     private void jLabel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MousePressed
         Pag2 p2 = new Pag2();
         p2.setSize(1210, 830);
-        p2.setLocation(0,0);
-      
+        p2.setLocation(0, 0);
+
         JpContenido3.removeAll();
-        JpContenido3.add(p2,BorderLayout.CENTER);
+        JpContenido3.add(p2, BorderLayout.CENTER);
         JpContenido3.revalidate();;
         JpContenido3.repaint();
     }//GEN-LAST:event_jLabel3MousePressed
@@ -425,7 +419,7 @@ public class JFrameMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel21MouseEntered
 
     private void jLabel21MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel21MouseExited
-        btnSalir.setBackground(new Color(51,51,255));
+        btnSalir.setBackground(new Color(51, 51, 255));
     }//GEN-LAST:event_jLabel21MouseExited
 
     private void jLabel21MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel21MousePressed
@@ -438,16 +432,16 @@ public class JFrameMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel5MouseEntered
 
     private void jLabel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseExited
-        btnCrearPlanilla.setBackground(new Color(51,51,255));
+        btnCrearPlanilla.setBackground(new Color(51, 51, 255));
     }//GEN-LAST:event_jLabel5MouseExited
 
     private void jLabel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MousePressed
         Pag3 p3 = new Pag3();
         p3.setSize(1210, 830);
-        p3.setLocation(0,0);
+        p3.setLocation(0, 0);
 
         JpContenido3.removeAll();
-        JpContenido3.add(p3,BorderLayout.CENTER);
+        JpContenido3.add(p3, BorderLayout.CENTER);
         JpContenido3.revalidate();;
         JpContenido3.repaint();
     }//GEN-LAST:event_jLabel5MousePressed
@@ -457,7 +451,7 @@ public class JFrameMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4MouseEntered
 
     private void jLabel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseExited
-        btnCerrar.setBackground(new Color(221,221,221));
+        btnCerrar.setBackground(new Color(221, 221, 221));
     }//GEN-LAST:event_jLabel4MouseExited
 
     private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed

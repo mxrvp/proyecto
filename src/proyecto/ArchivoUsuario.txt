@@ -1,4 +1,0 @@
-8-824-972|ebatista|MTIzNDU=|Efraín|Batista|La Chorrera
-8-824-972|abatista|MTIzNDU=|Augusto|Batista|El West
-1-123-123|jbatista|MTIzNDU=|Jorge|Batista|Panamá
-1-123-145|xbatista|MTIzNDU=|Xfrain|Xatista|panama

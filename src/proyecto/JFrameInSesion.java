@@ -1,38 +1,33 @@
-
 package proyecto;
 
 import java.awt.Color;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 
 public class JFrameInSesion extends javax.swing.JFrame {
+
     int Xmouse, Ymouse;
 
     public JFrameInSesion() {
         initComponents();
-       
+
     }
 
-   
-    
-public void limpiar(){
-    txtUsuario.setText("");
-    txtPasword.setText("");
-}
+    public void limpiar() {
+        txtUsuario.setText("");
+        txtPasword.setText("");
+    }
 
-public void FocoEnUsuario(){
-      
-        if(txtUsuario.getText().equals("Ingrese su nombre de usuario"))
-        {   
+    public void FocoEnUsuario() {
+
+        if (txtUsuario.getText().equals("Ingrese su nombre de usuario")) {
             txtUsuario.setText("");
             txtUsuario.setForeground(Color.black);
         }
-        if(String.valueOf(txtPasword.getPassword()).isEmpty())
-        {
+        if (String.valueOf(txtPasword.getPassword()).isEmpty()) {
             txtPasword.setText("1234567890");
             txtPasword.setForeground(Color.gray);
         }
-}
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -347,7 +342,7 @@ public void FocoEnUsuario(){
     private void JPanelBarra2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPanelBarra2MouseDragged
         int X = evt.getXOnScreen();
         int Y = evt.getYOnScreen();
-        this.setLocation( X - Xmouse, Y - Ymouse);
+        this.setLocation(X - Xmouse, Y - Ymouse);
     }//GEN-LAST:event_JPanelBarra2MouseDragged
 
     private void JPanelBarra2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JPanelBarra2MousePressed
@@ -356,27 +351,23 @@ public void FocoEnUsuario(){
     }//GEN-LAST:event_JPanelBarra2MousePressed
 
     private void txtPaswordMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPaswordMousePressed
-        if(String.valueOf(txtPasword.getPassword()).equals("1234567890"))
-        {
+        if (String.valueOf(txtPasword.getPassword()).equals("1234567890")) {
             txtPasword.setText("");
             txtPasword.setForeground(Color.black);
         }
-        if(txtUsuario.getText().isEmpty())
-        {   
+        if (txtUsuario.getText().isEmpty()) {
             txtUsuario.setForeground(Color.gray);
             txtUsuario.setText("Ingrese su nombre de usuario");
         }
     }//GEN-LAST:event_txtPaswordMousePressed
 
     private void txtUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUsuarioMousePressed
-        
-        if(txtUsuario.getText().equals("Ingrese su nombre de usuario"))
-        {   
+
+        if (txtUsuario.getText().equals("Ingrese su nombre de usuario")) {
             txtUsuario.setText("");
             txtUsuario.setForeground(Color.black);
         }
-        if(String.valueOf(txtPasword.getPassword()).isEmpty())
-        {
+        if (String.valueOf(txtPasword.getPassword()).isEmpty()) {
             txtPasword.setText("1234567890");
             txtPasword.setForeground(Color.gray);
         }
@@ -389,30 +380,28 @@ public void FocoEnUsuario(){
     }//GEN-LAST:event_jLabel1MousePressed
 
     private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
-          
+
         Usuario obj = new Usuario();
-        
+
         txtUsuario.setText(txtUsuario.getText().trim());
         txtPasword.setText(txtPasword.getText().trim());
-        
+
         obj.setUserId(txtUsuario.getText());
         obj.setContrasena(txtPasword.getText());
-        
-        if( obj.ValidarUsuario() ){
-        
+
+        if (obj.ValidarUsuario()) {
+
             JFrameMenu obj_frm = new JFrameMenu();
             obj_frm.setVisible(true);
             this.setVisible(false);
-           
-        }
-        else
-        {
+
+        } else {
             JOptionPane.showMessageDialog(rootPane, "Usuario o contraseña Incorrecto");
             txtUsuario.requestFocus();
             limpiar();
             FocoEnUsuario();
         }
-                                       
+
     }//GEN-LAST:event_jLabel4MousePressed
 
     private void jLabel10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MousePressed
@@ -428,14 +417,13 @@ public void FocoEnUsuario(){
     }//GEN-LAST:event_jLabel4MouseEntered
 
     private void jLabel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseExited
-        btnEntrar.setBackground(new Color(255,255,255));
+        btnEntrar.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_jLabel4MouseExited
 
     private void jLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseExited
-        btnRegistrarme.setBackground(new Color(255,255,255));
+        btnRegistrarme.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_jLabel1MouseExited
 
-    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

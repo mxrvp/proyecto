@@ -1,15 +1,17 @@
-
 package proyecto;
 
 import java.awt.Color;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import javax.swing.JOptionPane;
 
 public class Pag1 extends javax.swing.JPanel {
 
-
     public Pag1() {
         initComponents();
+        String timeStamp = new SimpleDateFormat("yyyy/MMMM/dd").format(Calendar.getInstance().getTime());
+        jLabel1.setText(timeStamp);
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -373,7 +375,7 @@ public class Pag1 extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel2MouseEntered
 
     private void jLabel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseExited
-        btnCerrar.setBackground(new Color(221,221,221));
+        btnCerrar.setBackground(new Color(221, 221, 221));
     }//GEN-LAST:event_jLabel2MouseExited
 
     private void jLabel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MousePressed
@@ -381,7 +383,48 @@ public class Pag1 extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel2MousePressed
 
     private void txtUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUsuarioMousePressed
-        if(txtUsuario.getText().equals("Ingrese su nombre de usuario"))
+        if (txtUsuario.getText().equals("Ingrese su nombre de usuario")) {
+            txtUsuario.setText("");
+            txtUsuario.setForeground(Color.black);
+        }
+        if (String.valueOf(txtPasword.getPassword()).isEmpty()) {
+            txtPasword.setText("1234567890");
+            txtPasword.setForeground(Color.gray);
+        }
+        if (txtNombre.getText().equals("")) {
+            txtNombre.setText("Ingrese su nombre");
+            txtNombre.setForeground(Color.gray);
+        }
+        if (txtApellido.getText().equals("")) {
+            txtApellido.setText("Ingrese su apellido");
+            txtApellido.setForeground(Color.gray);
+        }
+        if (txtCedula.getText().equals("")) {
+            txtCedula.setText("Ingrese su cedula");
+            txtCedula.setForeground(Color.gray);
+        }
+        if (txtDriccion.getText().equals("")) {
+            txtDriccion.setText("Ingrese su direccion");
+            txtDriccion.setForeground(Color.gray);
+        }
+        if (String.valueOf(txtPaswordConfirmada.getPassword()).isEmpty()) {
+            txtPaswordConfirmada.setText("1234567890");
+            txtPaswordConfirmada.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_txtUsuarioMousePressed
+
+    public void Limpiar(){ // Limpiar el formulario de registro
+        txtUsuario.setText("");
+        txtPasword.setText("");
+        txtNombre.setText("");
+        txtApellido.setText("");
+        txtCedula.setText("");
+        txtDriccion.setText("");
+        txtPaswordConfirmada.setText("");
+    }
+    
+    public void FocoUsuario(){
+         if(txtUsuario.getText().equals("Ingrese su nombre de usuario"))
         {
             txtUsuario.setText("");
             txtUsuario.setForeground(Color.black);
@@ -411,19 +454,40 @@ public class Pag1 extends javax.swing.JPanel {
             txtDriccion.setText("Ingrese su direccion");
             txtDriccion.setForeground(Color.gray);
         }
-        if(String.valueOf(txtPaswordConfirmada.getPassword()).isEmpty())
-        {
+        if (String.valueOf(txtPaswordConfirmada.getPassword()).isEmpty()) {
             txtPaswordConfirmada.setText("1234567890");
             txtPaswordConfirmada.setForeground(Color.gray);
         }
-    }//GEN-LAST:event_txtUsuarioMousePressed
-
+    }
+    
     private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
-        // codigo de archivo
+        Usuario objUsuario = new Usuario(); 
+        objUsuario.setUserId(txtUsuario.getText());
+        objUsuario.setContrasena(txtPasword.getText());
+        objUsuario.setNombre(txtNombre.getText());
+        objUsuario.setApellido(txtApellido.getText());
+        objUsuario.setCedula(txtCedula.getText());
+        objUsuario.setDireccion(txtDriccion.getText());
+        
+        
+        if(!objUsuario.UsuarioRepetido(txtUsuario.getText())){ //Se verifica nombre de usuario
+            if(objUsuario.Insertar()){
+                JOptionPane.showMessageDialog(null,"El usuario se creó con éxito");
+                Limpiar();
+                txtUsuario.requestFocus();
+                FocoUsuario();
+            }
+            else
+                JOptionPane.showMessageDialog(null,"No se creo el usuario");
+        }else{
+                JOptionPane.showMessageDialog(null,"El usuario digitado ya se encuentra en el sistema \n\n"
+                                            + "Verifique los datos del usuario");
+        }
     }//GEN-LAST:event_jLabel4MousePressed
 
+    
     private void jLabel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseExited
-        btnnCrear.setBackground(new Color(255,255,255));
+        btnnCrear.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_jLabel4MouseExited
 
     private void jLabel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseEntered
@@ -431,240 +495,197 @@ public class Pag1 extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel4MouseEntered
 
     private void txtDriccionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDriccionMousePressed
-        if(txtDriccion.getText().equals("Ingrese su direccion"))
-        {
+        if (txtDriccion.getText().equals("Ingrese su direccion")) {
             txtDriccion.setText("");
             txtDriccion.setForeground(Color.black);
         }
-        if(txtCedula.getText().equals(""))
-        {
+        if (txtCedula.getText().equals("")) {
             txtCedula.setText("Ingrese su cedula");
             txtCedula.setForeground(Color.gray);
         }
-        if(txtUsuario.getText().equals(""))
-        {
+        if (txtUsuario.getText().equals("")) {
             txtUsuario.setText("Ingrese su nombre de usuario");
             txtUsuario.setForeground(Color.gray);
         }
-        if(String.valueOf(txtPasword.getPassword()).isEmpty())
-        {
+        if (String.valueOf(txtPasword.getPassword()).isEmpty()) {
             txtPasword.setText("1234567890");
             txtPasword.setForeground(Color.gray);
         }
-        if(txtNombre.getText().equals(""))
-        {
+        if (txtNombre.getText().equals("")) {
             txtNombre.setText("Ingrese su nombre");
             txtNombre.setForeground(Color.gray);
         }
-        if(txtApellido.getText().equals(""))
-        {
+        if (txtApellido.getText().equals("")) {
             txtApellido.setText("Ingrese su apellido");
             txtApellido.setForeground(Color.gray);
         }
-        if(String.valueOf(txtPaswordConfirmada.getPassword()).isEmpty())
-        {
+        if (String.valueOf(txtPaswordConfirmada.getPassword()).isEmpty()) {
             txtPaswordConfirmada.setText("1234567890");
             txtPaswordConfirmada.setForeground(Color.gray);
         }
     }//GEN-LAST:event_txtDriccionMousePressed
 
     private void txtCedulaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCedulaMousePressed
-        if(txtCedula.getText().equals("Ingrese su cedula"))
-        {
+        if (txtCedula.getText().equals("Ingrese su cedula")) {
             txtCedula.setText("");
             txtCedula.setForeground(Color.black);
         }
-        if(txtUsuario.getText().equals(""))
-        {
+        if (txtUsuario.getText().equals("")) {
             txtUsuario.setText("Ingrese su nombre de usuario");
             txtUsuario.setForeground(Color.gray);
         }
-        if(String.valueOf(txtPasword.getPassword()).isEmpty())
-        {
+        if (String.valueOf(txtPasword.getPassword()).isEmpty()) {
             txtPasword.setText("1234567890");
             txtPasword.setForeground(Color.gray);
         }
-        if(txtNombre.getText().equals(""))
-        {
+        if (txtNombre.getText().equals("")) {
             txtNombre.setText("Ingrese su nombre");
             txtNombre.setForeground(Color.gray);
         }
-        if(txtApellido.getText().equals(""))
-        {
+        if (txtApellido.getText().equals("")) {
             txtApellido.setText("Ingrese su apellido");
             txtApellido.setForeground(Color.gray);
         }
-        if(txtDriccion.getText().equals(""))
-        {
+        if (txtDriccion.getText().equals("")) {
             txtDriccion.setText("Ingrese su direccion");
             txtDriccion.setForeground(Color.gray);
         }
-        if(String.valueOf(txtPaswordConfirmada.getPassword()).isEmpty())
-        {
+        if (String.valueOf(txtPaswordConfirmada.getPassword()).isEmpty()) {
             txtPaswordConfirmada.setText("1234567890");
             txtPaswordConfirmada.setForeground(Color.gray);
         }
     }//GEN-LAST:event_txtCedulaMousePressed
 
     private void txtPaswordMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPaswordMousePressed
-        if(String.valueOf(txtPasword.getPassword()).equals("1234567890"))
-        {
+        if (String.valueOf(txtPasword.getPassword()).equals("1234567890")) {
             txtPasword.setText("");
             txtPasword.setForeground(Color.black);
         }
 
-        if(txtUsuario.getText().isEmpty())
-        {
+        if (txtUsuario.getText().isEmpty()) {
             txtUsuario.setForeground(Color.gray);
             txtUsuario.setText("Ingrese su nombre de usuario");
         }
-        if(txtNombre.getText().equals(""))
-        {
+        if (txtNombre.getText().equals("")) {
             txtNombre.setText("Ingrese su nombre");
             txtNombre.setForeground(Color.gray);
         }
-        if(txtApellido.getText().equals(""))
-        {
+        if (txtApellido.getText().equals("")) {
             txtApellido.setText("Ingrese su apellido");
             txtApellido.setForeground(Color.gray);
         }
-        if(txtCedula.getText().equals(""))
-        {
+        if (txtCedula.getText().equals("")) {
             txtCedula.setText("Ingrese su cedula");
             txtCedula.setForeground(Color.gray);
         }
-        if(txtDriccion.getText().equals(""))
-        {
+        if (txtDriccion.getText().equals("")) {
             txtDriccion.setText("Ingrese su direccion");
             txtDriccion.setForeground(Color.gray);
         }
-        if(String.valueOf(txtPaswordConfirmada.getPassword()).isEmpty())
-        {
+        if (String.valueOf(txtPaswordConfirmada.getPassword()).isEmpty()) {
             txtPaswordConfirmada.setText("1234567890");
             txtPaswordConfirmada.setForeground(Color.gray);
         }
     }//GEN-LAST:event_txtPaswordMousePressed
 
     private void txtNombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreMousePressed
-        //JOptionPane.show
-        if(txtNombre.getText().equals("Ingrese su nombre"))
-        {
+
+        if (txtNombre.getText().equals("Ingrese su nombre")) {
             txtNombre.setText("");
             txtNombre.setForeground(Color.black);
         }
-        if(String.valueOf(txtPasword.getPassword()).isEmpty())
-        {
+        if (String.valueOf(txtPasword.getPassword()).isEmpty()) {
             txtPasword.setText("1234567890");
             txtPasword.setForeground(Color.gray);
         }
-        if(txtApellido.getText().equals("Ingrese su apellido"))
-        {
+        if (txtApellido.getText().equals("Ingrese su apellido")) {
             txtApellido.setText("");
             txtApellido.setForeground(Color.black);
         }
-        if(txtUsuario.getText().equals(""))
-        {
+        if (txtUsuario.getText().equals("")) {
             txtUsuario.setText("Ingrese su nombre de usuario");
             txtUsuario.setForeground(Color.gray);
         }
-        if(txtApellido.getText().equals(""))
-        {
+        if (txtApellido.getText().equals("")) {
             txtApellido.setText("Ingrese su apellido");
             txtApellido.setForeground(Color.gray);
         }
-        if(txtCedula.getText().equals(""))
-        {
+        if (txtCedula.getText().equals("")) {
             txtCedula.setText("Ingrese su cedula");
             txtCedula.setForeground(Color.gray);
         }
-        if(txtDriccion.getText().equals(""))
-        {
+        if (txtDriccion.getText().equals("")) {
             txtDriccion.setText("Ingrese su direccion");
             txtDriccion.setForeground(Color.gray);
         }
-        if(String.valueOf(txtPaswordConfirmada.getPassword()).isEmpty())
-        {
+        if (String.valueOf(txtPaswordConfirmada.getPassword()).isEmpty()) {
             txtPaswordConfirmada.setText("1234567890");
             txtPaswordConfirmada.setForeground(Color.gray);
         }
     }//GEN-LAST:event_txtNombreMousePressed
 
     private void txtApellidoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtApellidoMousePressed
-        if(txtApellido.getText().equals("Ingrese su apellido"))
-        {
+        if (txtApellido.getText().equals("Ingrese su apellido")) {
             txtApellido.setText("");
             txtApellido.setForeground(Color.black);
         }
-        if(String.valueOf(txtPasword.getPassword()).isEmpty())
-        {
+        if (String.valueOf(txtPasword.getPassword()).isEmpty()) {
             txtPasword.setText("1234567890");
             txtPasword.setForeground(Color.gray);
         }
-        if(txtNombre.getText().equals(""))
-        {
+        if (txtNombre.getText().equals("")) {
             txtNombre.setText("Ingrese su nombre");
             txtNombre.setForeground(Color.gray);
         }
-        if(txtUsuario.getText().equals(""))
-        {
+        if (txtUsuario.getText().equals("")) {
             txtUsuario.setText("Ingrese su nombre de usuario");
             txtUsuario.setForeground(Color.gray);
         }
-        if(txtCedula.getText().equals(""))
-        {
+        if (txtCedula.getText().equals("")) {
             txtCedula.setText("Ingrese su cedula");
             txtCedula.setForeground(Color.gray);
         }
-        if(txtDriccion.getText().equals(""))
-        {
+        if (txtDriccion.getText().equals("")) {
             txtDriccion.setText("Ingrese su direccion");
             txtDriccion.setForeground(Color.gray);
         }
-        if(String.valueOf(txtPaswordConfirmada.getPassword()).isEmpty())
-        {
+        if (String.valueOf(txtPaswordConfirmada.getPassword()).isEmpty()) {
             txtPaswordConfirmada.setText("1234567890");
             txtPaswordConfirmada.setForeground(Color.gray);
         }
-        
+
     }//GEN-LAST:event_txtApellidoMousePressed
 
     private void txtPaswordConfirmadaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPaswordConfirmadaMousePressed
-        if(String.valueOf(txtPaswordConfirmada.getPassword()).equals("1234567890"))
-        {
+        if (String.valueOf(txtPaswordConfirmada.getPassword()).equals("1234567890")) {
             txtPaswordConfirmada.setText("");
             txtPaswordConfirmada.setForeground(Color.black);
         }
-        if(txtApellido.getText().equals(""))
-        {
+        if (txtApellido.getText().equals("")) {
             txtApellido.setText("Ingrese su apellido");
             txtApellido.setForeground(Color.gray);
         }
-        if(txtNombre.getText().equals(""))
-        {
+        if (txtNombre.getText().equals("")) {
             txtNombre.setText("Ingrese su nombre");
             txtNombre.setForeground(Color.gray);
         }
-        if(txtUsuario.getText().equals(""))
-        {
+        if (txtUsuario.getText().equals("")) {
             txtUsuario.setText("Ingrese su nombre de usuario");
             txtUsuario.setForeground(Color.gray);
         }
-        if(txtCedula.getText().equals(""))
-        {
+        if (txtCedula.getText().equals("")) {
             txtCedula.setText("Ingrese su cedula");
             txtCedula.setForeground(Color.gray);
         }
-        if(txtDriccion.getText().equals(""))
-        {
+        if (txtDriccion.getText().equals("")) {
             txtDriccion.setText("Ingrese su direccion");
             txtDriccion.setForeground(Color.gray);
         }
-        if(String.valueOf(txtPasword.getPassword()).isEmpty())
-        {
+        if (String.valueOf(txtPasword.getPassword()).isEmpty()) {
             txtPasword.setText("1234567890");
             txtPasword.setForeground(Color.gray);
         }
-        
+
     }//GEN-LAST:event_txtPaswordConfirmadaMousePressed
 
 

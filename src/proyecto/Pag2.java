@@ -1,21 +1,21 @@
-
 package proyecto;
 
 import empleados.Empleado;
 import empleados.EmpleadosModel;
-import java.awt.BorderLayout;
 import java.awt.Color;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
-import javax.swing.JOptionPane;
 import utilmax.Utilitario;
-
 
 public class Pag2 extends javax.swing.JPanel {
 
-  EmpleadosModel emMod=new EmpleadosModel();
+    EmpleadosModel emMod = new EmpleadosModel();
+
     public Pag2() {
         initComponents();
-        
+        String timeStamp = new SimpleDateFormat("yyyy/MMMM/dd").format(Calendar.getInstance().getTime());
+        jLabel1.setText(timeStamp);
     }
 
     @SuppressWarnings("unchecked")
@@ -179,6 +179,11 @@ public class Pag2 extends javax.swing.JPanel {
         txtPrimerNombre.setForeground(new java.awt.Color(153, 153, 153));
         txtPrimerNombre.setBorder(null);
         txtPrimerNombre.setEnabled(false);
+        txtPrimerNombre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtPrimerNombreMousePressed(evt);
+            }
+        });
 
         jSeparator7.setBackground(new java.awt.Color(133, 133, 201));
         jSeparator7.setForeground(new java.awt.Color(133, 133, 201));
@@ -194,6 +199,11 @@ public class Pag2 extends javax.swing.JPanel {
         txtCedula.setForeground(new java.awt.Color(153, 153, 153));
         txtCedula.setBorder(null);
         txtCedula.setEnabled(false);
+        txtCedula.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtCedulaMousePressed(evt);
+            }
+        });
 
         jLabel17.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(51, 51, 51));
@@ -210,6 +220,11 @@ public class Pag2 extends javax.swing.JPanel {
         txtPrimerApellido.setForeground(new java.awt.Color(153, 153, 153));
         txtPrimerApellido.setBorder(null);
         txtPrimerApellido.setEnabled(false);
+        txtPrimerApellido.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtPrimerApellidoMousePressed(evt);
+            }
+        });
 
         jSeparator13.setBackground(new java.awt.Color(133, 133, 201));
         jSeparator13.setForeground(new java.awt.Color(133, 133, 201));
@@ -222,6 +237,11 @@ public class Pag2 extends javax.swing.JPanel {
         txtSegundoApellido.setForeground(new java.awt.Color(153, 153, 153));
         txtSegundoApellido.setBorder(null);
         txtSegundoApellido.setEnabled(false);
+        txtSegundoApellido.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtSegundoApellidoMousePressed(evt);
+            }
+        });
 
         jSeparator14.setBackground(new java.awt.Color(133, 133, 201));
         jSeparator14.setForeground(new java.awt.Color(133, 133, 201));
@@ -238,6 +258,11 @@ public class Pag2 extends javax.swing.JPanel {
         txtDireccion.setForeground(new java.awt.Color(153, 153, 153));
         txtDireccion.setBorder(null);
         txtDireccion.setEnabled(false);
+        txtDireccion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtDireccionMousePressed(evt);
+            }
+        });
 
         jSeparator15.setBackground(new java.awt.Color(133, 133, 201));
         jSeparator15.setForeground(new java.awt.Color(133, 133, 201));
@@ -250,6 +275,11 @@ public class Pag2 extends javax.swing.JPanel {
         txtTelefono.setForeground(new java.awt.Color(153, 153, 153));
         txtTelefono.setBorder(null);
         txtTelefono.setEnabled(false);
+        txtTelefono.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtTelefonoMousePressed(evt);
+            }
+        });
 
         jSeparator16.setBackground(new java.awt.Color(133, 133, 201));
         jSeparator16.setForeground(new java.awt.Color(133, 133, 201));
@@ -327,6 +357,11 @@ public class Pag2 extends javax.swing.JPanel {
         txtSegundoNombre.setForeground(new java.awt.Color(153, 153, 153));
         txtSegundoNombre.setBorder(null);
         txtSegundoNombre.setEnabled(false);
+        txtSegundoNombre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtSegundoNombreMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -386,7 +421,7 @@ public class Pag2 extends javax.swing.JPanel {
                             .addComponent(txtBuscarCedula, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 326, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 458, Short.MAX_VALUE)
                 .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -465,24 +500,18 @@ public class Pag2 extends javax.swing.JPanel {
                 .addComponent(txtSegundoApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator14, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 66, Short.MAX_VALUE))
+                .addGap(0, 78, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(126, 126, 126)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -491,7 +520,7 @@ public class Pag2 extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel2MouseEntered
 
     private void jLabel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseExited
-        btnCerrar.setBackground(new Color(221,221,221));
+        btnCerrar.setBackground(new Color(221, 221, 221));
     }//GEN-LAST:event_jLabel2MouseExited
 
     private void jLabel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MousePressed
@@ -499,15 +528,14 @@ public class Pag2 extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel2MousePressed
 
     private void txtBuscarCedulaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtBuscarCedulaMousePressed
-        if(txtBuscarCedula.getText().equals("Ingrese la cedula"))
-        {
+        if (txtBuscarCedula.getText().equals("Ingrese la cedula")) {
             txtBuscarCedula.setText("");
             txtBuscarCedula.setForeground(Color.black);
         }
-    }                                      
+    }
 
-    private void txtSegundoNombreMousePressed(java.awt.event.MouseEvent evt) {                                              
-        
+    private void txtSegundoNombreMousePressedddd(java.awt.event.MouseEvent evt) {
+
         // No se usa pero no me deja borrarlo como que se bugueo xd
     }//GEN-LAST:event_txtBuscarCedulaMousePressed
 
@@ -516,49 +544,49 @@ public class Pag2 extends javax.swing.JPanel {
     }//GEN-LAST:event_btnFindMouseEntered
 
     private void btnFindMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFindMouseExited
-        btnBuscar.setBackground(new Color(244,244,244));
+        btnBuscar.setBackground(new Color(244, 244, 244));
     }//GEN-LAST:event_btnFindMouseExited
 
     private void btnFindMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFindMousePressed
-         //primero limpiar todos los inputs
-         limpiarForm();
-            String c=txtBuscarCedula.getText();
-           Empleado resBus=emMod.buscarCedula(c);
-        if(Utilitario.estaVacia(c) || resBus==null ){
-           JFrameAviso1 obj = new JFrameAviso1();
+        //primero limpiar todos los inputs
+        limpiarForm();
+        String c = txtBuscarCedula.getText();
+        Empleado resBus = emMod.buscarCedula(c);
+        if (Utilitario.estaVacia(c) || resBus == null) {
+            JFrameAviso1 obj = new JFrameAviso1();
             obj.setVisible(true);
             enableTxt();
-             onBtnIns();
+            placeholder();
+            onBtnIns();
             offBtnSave();
-            
+
             //set del queryType para estar lista para el insertt
             emMod.setQueryType(1);
-           
-        }else{
-          
-          
-           String arr[]=new String[7];
-           arr[0]=resBus.getCedula();
-           arr[1]=resBus.getNombre();
-           arr[2]=resBus.getNombre2();
-           arr[3]=resBus.getApellido();
-           arr[4]=resBus.getApellido2();
-           arr[5]=resBus.getDireccion();
-           arr[6]=resBus.getTelefono();
-           
+
+        } else {
+
+            String arr[] = new String[7];
+            arr[0] = resBus.getCedula();
+            arr[1] = resBus.getNombre();
+            arr[2] = resBus.getNombre2();
+            arr[3] = resBus.getApellido();
+            arr[4] = resBus.getApellido2();
+            arr[5] = resBus.getDireccion();
+            arr[6] = resBus.getTelefono();
+
             enableTxt();
-           //ajustes especiales de fecha y cedula
-           selectorFechaVec.setDate(resBus.getFechaNacimiento());
-           
+            //ajustes especiales de fecha y cedula
+            selectorFechaVec.setDate(resBus.getFechaNacimiento());
+
             this.offCedula();
-           //ajustes del form
-           cargarForm(arr);
-             offBtnIns();
+            //ajustes del form
+            cargarForm(arr);
+            offBtnIns();
             onBtnSave();
-             //set del queryType para estar lista para el update
-             emMod.setQueryType(2);
+            //set del queryType para estar lista para el update
+            emMod.setQueryType(2);
         }
-            
+
     }//GEN-LAST:event_btnFindMousePressed
 
     private void btnInsertMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInsertMouseEntered
@@ -566,30 +594,28 @@ public class Pag2 extends javax.swing.JPanel {
     }//GEN-LAST:event_btnInsertMouseEntered
 
     private void btnInsertMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInsertMouseExited
-        btnInsertar.setBackground(new Color(255,255,255));
+        btnInsertar.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_btnInsertMouseExited
 
     private void btnInsertMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInsertMousePressed
         //insertar en archivs empleado
-        
-         if(emMod.getQueryType()==1){
-             
-             String errors=verificarTodos();
-          
-         if(errors.length()>0){   
-             String msg="Se han encontrado los siguientes errores:\n";
-             msg+=errors;
-             Utilitario.erro(msg,null);
-         }
-         else{
-             Empleado em=new Empleado(txtCedula.getText(),txtPrimerNombre.getText(),txtSegundoNombre.getText(),txtPrimerApellido.getText(),txtSegundoApellido.getText(),selectorFechaVec.getDate(),txtDireccion.getText(),txtTelefono.getText());
-            emMod.insertar(em);
-              Utilitario.exi("registrado con exito",null);
-             
-               
-          }
-         }
-        
+
+        if (emMod.getQueryType() == 1) {
+
+            String errors = verificarTodos();
+
+            if (errors.length() > 0) {
+                String msg = "Se han encontrado los siguientes errores:\n";
+                msg += errors;
+                Utilitario.erro(msg, null);
+            } else {
+                Empleado em = new Empleado(txtCedula.getText(), txtPrimerNombre.getText(), txtSegundoNombre.getText(), txtPrimerApellido.getText(), txtSegundoApellido.getText(), selectorFechaVec.getDate(), txtDireccion.getText(), txtTelefono.getText());
+                emMod.insertar(em);
+                Utilitario.exi("registrado con exito", null);
+
+            }
+        }
+
     }//GEN-LAST:event_btnInsertMousePressed
 
     private void btnSaveMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSaveMouseEntered
@@ -597,280 +623,546 @@ public class Pag2 extends javax.swing.JPanel {
     }//GEN-LAST:event_btnSaveMouseEntered
 
     private void btnSaveMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSaveMouseExited
-        btnGuardar.setBackground(new Color(255,255,255));
+        btnGuardar.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_btnSaveMouseExited
 
     private void btnSaveMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSaveMousePressed
         //modifca sus datos 
-        
-        if(emMod.getQueryType()==2){
-               String errors=verificarTodos();
-          
-         if(errors.length()>0){   
-             String msg="Se han encontrado los siguientes errores:\n";
-             msg+=errors;
-             Utilitario.erro(msg,null);
-         }
-         else{
-             Empleado em=emMod.buscarCedula(txtCedula.getText());
-             int index=emMod.mostrar_todos().indexOf(em);
-             
-             
-              emMod.modificar(index,txtPrimerNombre.getText(),txtSegundoNombre.getText(),txtPrimerApellido.getText(),txtSegundoApellido.getText(),selectorFechaVec.getDate(),txtDireccion.getText(),txtTelefono.getText());
-              Utilitario.exi("Actualizado con éxito",null);
-             
-          }
-        
+
+        if (emMod.getQueryType() == 2) {
+            String errors = verificarTodos();
+
+            if (errors.length() > 0) {
+                String msg = "Se han encontrado los siguientes errores:\n";
+                msg += errors;
+                Utilitario.erro(msg, null);
+            } else {
+                Empleado em = emMod.buscarCedula(txtCedula.getText());
+                int index = emMod.mostrar_todos().indexOf(em);
+
+                emMod.modificar(index, txtPrimerNombre.getText(), txtSegundoNombre.getText(), txtPrimerApellido.getText(), txtSegundoApellido.getText(), selectorFechaVec.getDate(), txtDireccion.getText(), txtTelefono.getText());
+                Utilitario.exi("Actualizado con éxito", null);
+
+            }
+
         }
-      
+
     }//GEN-LAST:event_btnSaveMousePressed
 
-    
-    //utilidades 
-    public String verificarTodos(){
-         String err="";
-          String ced=txtCedula.getText();
-          String pN=txtPrimerNombre.getText();
-          String sN=txtSegundoNombre.getText();
-          String pA=txtPrimerApellido.getText();
-          String sA=txtSegundoApellido.getText();
-          String dir=txtDireccion.getText();
-          String tel=txtTelefono.getText();
-          Date fV=selectorFechaVec.getDate();
-          
-          String ar[]={
-             ced,
-             pN,
-             sN,
-             pA,
-             sA,
-             dir,
-             tel
-          };
-          
-          String def[]={
-             "el campo cedula esta vacio",
-              "el campo primer Nombre esta vacio",
-               "el campo segundo Nombre esta vacio",
-                "el campo primer Apellido esta vacio",
-                 "el campo segundo Apellido esta vacio",
-                  "el campo direccion esta vacio",
-                   "el campo telefono esta vacio"
-                 
-          };
-        
-        switch(emMod.getQueryType()){
+    private void txtCedulaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCedulaMousePressed
+        if (txtCedula.isEnabled()) {
+            if (txtCedula.getText().equals("Ingrese la cedula")) {
+                txtCedula.setText("");
+                txtCedula.setForeground(Color.black);
+            }
+            if (txtPrimerNombre.getText().equals("")) {
+                txtPrimerNombre.setText("Ingrese el primer nombre");
+                txtPrimerNombre.setForeground(Color.gray);
+            }
+            if (txtSegundoNombre.getText().equals("")) {
+                txtSegundoNombre.setText("Ingrese el segundo nombre");
+                txtSegundoNombre.setForeground(Color.gray);
+            }
+            if (txtPrimerApellido.getText().equals("")) {
+                txtPrimerApellido.setText("Ingrese el primer apellido");
+                txtPrimerApellido.setForeground(Color.gray);
+            }
+            if (txtSegundoApellido.getText().equals("")) {
+                txtSegundoApellido.setText("Ingrese el segundo apellido");
+                txtSegundoApellido.setForeground(Color.gray);
+            }
+            if (txtDireccion.getText().equals("")) {
+                txtDireccion.setText("Ingrese la direccion");
+                txtDireccion.setForeground(Color.gray);
+            }
+            if (txtTelefono.getText().equals("")) {
+                txtTelefono.setText("Ingrese el numero de telefono");
+                txtTelefono.setForeground(Color.gray);
+            }
+        }
+    }//GEN-LAST:event_txtCedulaMousePressed
+
+    private void txtPrimerNombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPrimerNombreMousePressed
+
+        if (txtPrimerNombre.isEnabled()) {
+            if (txtPrimerNombre.getText().equals("Ingrese el primer nombre")) {
+                txtPrimerNombre.setText("");
+                txtPrimerNombre.setForeground(Color.black);
+            }
+            if (txtCedula.getText().equals("")) {
+                txtCedula.setText("Ingrese la cedula");
+                txtCedula.setForeground(Color.gray);
+            }
+            if (txtSegundoNombre.getText().equals("")) {
+                txtSegundoNombre.setText("Ingrese el segundo nombre");
+                txtSegundoNombre.setForeground(Color.gray);
+            }
+            if (txtPrimerApellido.getText().equals("")) {
+                txtPrimerApellido.setText("Ingrese el primer apellido");
+                txtPrimerApellido.setForeground(Color.gray);
+            }
+            if (txtSegundoApellido.getText().equals("")) {
+                txtSegundoApellido.setText("Ingrese el segundo apellido");
+                txtSegundoApellido.setForeground(Color.gray);
+            }
+            if (txtDireccion.getText().equals("")) {
+                txtDireccion.setText("Ingrese la direccion");
+                txtDireccion.setForeground(Color.gray);
+            }
+            if (txtTelefono.getText().equals("")) {
+                txtTelefono.setText("Ingrese el numero de telefono");
+                txtTelefono.setForeground(Color.gray);
+            }
+        }
+    }//GEN-LAST:event_txtPrimerNombreMousePressed
+
+    private void txtSegundoNombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSegundoNombreMousePressed
+        if (txtSegundoNombre.isEnabled()) {
+            if (txtSegundoNombre.getText().equals("Ingrese el segundo nombre")) {
+                txtSegundoNombre.setText("");
+                txtSegundoNombre.setForeground(Color.black);
+            }
+            if (txtPrimerNombre.getText().equals("")) {
+                txtPrimerNombre.setText("Ingrese el primer nombre");
+                txtPrimerNombre.setForeground(Color.gray);
+            }
+            if (txtCedula.getText().equals("")) {
+                txtCedula.setText("Ingrese la cedula");
+                txtCedula.setForeground(Color.gray);
+            }
+            if (txtPrimerApellido.getText().equals("")) {
+                txtPrimerApellido.setText("Ingrese el primer apellido");
+                txtPrimerApellido.setForeground(Color.gray);
+            }
+            if (txtSegundoApellido.getText().equals("")) {
+                txtSegundoApellido.setText("Ingrese el segundo apellido");
+                txtSegundoApellido.setForeground(Color.gray);
+            }
+            if (txtDireccion.getText().equals("")) {
+                txtDireccion.setText("Ingrese la direccion");
+                txtDireccion.setForeground(Color.gray);
+            }
+            if (txtTelefono.getText().equals("")) {
+                txtTelefono.setText("Ingrese el numero de telefono");
+                txtTelefono.setForeground(Color.gray);
+            }
+        }
+    }//GEN-LAST:event_txtSegundoNombreMousePressed
+
+    private void txtPrimerApellidoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPrimerApellidoMousePressed
+        if (txtPrimerApellido.isEnabled()) {
+            if (txtPrimerApellido.getText().equals("Ingrese el primer apellido")) {
+                txtPrimerApellido.setText("");
+                txtPrimerApellido.setForeground(Color.black);
+            }
+
+            if (txtSegundoNombre.getText().equals("")) {
+                txtSegundoNombre.setText("Ingrese el segundo nombre");
+                txtSegundoNombre.setForeground(Color.gray);
+            }
+            if (txtPrimerNombre.getText().equals("")) {
+                txtPrimerNombre.setText("Ingrese el primer nombre");
+                txtPrimerNombre.setForeground(Color.gray);
+            }
+            if (txtCedula.getText().equals("")) {
+                txtCedula.setText("Ingrese la cedula");
+                txtCedula.setForeground(Color.gray);
+            }
+
+            if (txtSegundoApellido.getText().equals("")) {
+                txtSegundoApellido.setText("Ingrese el segundo apellido");
+                txtSegundoApellido.setForeground(Color.gray);
+            }
+            if (txtDireccion.getText().equals("")) {
+                txtDireccion.setText("Ingrese la direccion");
+                txtDireccion.setForeground(Color.gray);
+            }
+            if (txtTelefono.getText().equals("")) {
+                txtTelefono.setText("Ingrese el numero de telefono");
+                txtTelefono.setForeground(Color.gray);
+            }
+        }
+    }//GEN-LAST:event_txtPrimerApellidoMousePressed
+
+    private void txtSegundoApellidoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSegundoApellidoMousePressed
+        if (txtSegundoApellido.isEnabled())
+        {
+            if (txtSegundoApellido.getText().equals("Ingrese el segundo apellido")) {
+                txtSegundoApellido.setText("");
+                txtSegundoApellido.setForeground(Color.black);
+            }
+
+            if (txtSegundoNombre.getText().equals("")) {
+                txtSegundoNombre.setText("Ingrese el segundo nombre");
+                txtSegundoNombre.setForeground(Color.gray);
+            }
+            if (txtPrimerNombre.getText().equals("")) {
+                txtPrimerNombre.setText("Ingrese el primer nombre");
+                txtPrimerNombre.setForeground(Color.gray);
+            }
+            if (txtCedula.getText().equals("")) {
+                txtCedula.setText("Ingrese la cedula");
+                txtCedula.setForeground(Color.gray);
+            }
+            if (txtPrimerApellido.getText().equals("")) {
+                txtPrimerApellido.setText("Ingrese el primer apellido");
+                txtPrimerApellido.setForeground(Color.gray);
+            }
+            if (txtDireccion.getText().equals("")) {
+                txtDireccion.setText("Ingrese la direccion");
+                txtDireccion.setForeground(Color.gray);
+            }
+            if (txtTelefono.getText().equals("")) {
+                txtTelefono.setText("Ingrese el numero de telefono");
+                txtTelefono.setForeground(Color.gray);
+            }
             
+        }
+    }//GEN-LAST:event_txtSegundoApellidoMousePressed
+
+    private void txtDireccionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDireccionMousePressed
+        if (txtDireccion.isEnabled())
+        {
+            if (txtDireccion.getText().equals("Ingrese la direccion")) {
+                txtDireccion.setText("");
+                txtDireccion.setForeground(Color.black);
+            }
+
+            if (txtSegundoNombre.getText().equals("")) {
+                txtSegundoNombre.setText("Ingrese el segundo nombre");
+                txtSegundoNombre.setForeground(Color.gray);
+            }
+            if (txtPrimerNombre.getText().equals("")) {
+                txtPrimerNombre.setText("Ingrese el primer nombre");
+                txtPrimerNombre.setForeground(Color.gray);
+            }
+            if (txtCedula.getText().equals("")) {
+                txtCedula.setText("Ingrese la cedula");
+                txtCedula.setForeground(Color.gray);
+            }
+            if (txtPrimerApellido.getText().equals("")) {
+                txtPrimerApellido.setText("Ingrese el primer apellido");
+                txtPrimerApellido.setForeground(Color.gray);
+            }
+            if (txtTelefono.getText().equals("")) {
+                txtTelefono.setText("Ingrese el numero de telefono");
+                txtTelefono.setForeground(Color.gray);
+            }
+            if (txtSegundoApellido.getText().equals("")) {
+                txtSegundoApellido.setText("Ingrese el segundo apellido");
+                txtSegundoApellido.setForeground(Color.gray);
+            }
+        }
+    }//GEN-LAST:event_txtDireccionMousePressed
+
+    private void txtTelefonoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTelefonoMousePressed
+        if (txtTelefono.isEnabled())
+        {
+            if (txtTelefono.getText().equals("Ingrese el numero de telefono")) {
+                txtTelefono.setText("");
+                txtTelefono.setForeground(Color.black);
+            }
+
+            if (txtSegundoNombre.getText().equals("")) {
+                txtSegundoNombre.setText("Ingrese el segundo nombre");
+                txtSegundoNombre.setForeground(Color.gray);
+            }
+            if (txtPrimerNombre.getText().equals("")) {
+                txtPrimerNombre.setText("Ingrese el primer nombre");
+                txtPrimerNombre.setForeground(Color.gray);
+            }
+            if (txtCedula.getText().equals("")) {
+                txtCedula.setText("Ingrese la cedula");
+                txtCedula.setForeground(Color.gray);
+            }
+            if (txtPrimerApellido.getText().equals("")) {
+                txtPrimerApellido.setText("Ingrese el primer apellido");
+                txtPrimerApellido.setForeground(Color.gray);
+            }
+            if (txtDireccion.getText().equals("")) {
+                txtDireccion.setText("Ingrese la direccion");
+                txtDireccion.setForeground(Color.gray);
+            }
+            if (txtSegundoApellido.getText().equals("")) {
+                txtSegundoApellido.setText("Ingrese el segundo apellido");
+                txtSegundoApellido.setForeground(Color.gray);
+            }
+            
+        }
+    }//GEN-LAST:event_txtTelefonoMousePressed
+    
+
+    //utilidades 
+    public String verificarTodos() {
+        String err = "";
+        String ced = txtCedula.getText();
+        String pN = txtPrimerNombre.getText();
+        String sN = txtSegundoNombre.getText();
+        String pA = txtPrimerApellido.getText();
+        String sA = txtSegundoApellido.getText();
+        String dir = txtDireccion.getText();
+        String tel = txtTelefono.getText();
+        Date fV = selectorFechaVec.getDate();
+
+        String ar[] = {
+            ced,
+            pN,
+            sN,
+            pA,
+            sA,
+            dir,
+            tel
+        };
+
+        String def[] = {
+            "el campo cedula esta vacio",
+            "el campo primer Nombre esta vacio",
+            "el campo segundo Nombre esta vacio",
+            "el campo primer Apellido esta vacio",
+            "el campo segundo Apellido esta vacio",
+            "el campo direccion esta vacio",
+            "el campo telefono esta vacio"
+
+        };
+
+        switch (emMod.getQueryType()) {
+
             //chequeo general
             case 1:
-        
-           for(int i=0;i<=ar.length-1;i++){
-                   if(Utilitario.estaVacia(ar[i])){
-                       
-                           err+=def[i];
-                           err+="\n";
-                          
-                     }
-                }
-        
-            if(fV==null){
-                err+="La fecha no ha sido seleccionada";
-                     err+="\n";
-              }
-            if(!emMod.cedulaUnica(ced)){
-                    err+="La cedula ya existe";
-                      err+="\n";
-                    }
-            
-            //campos numerios
-            if(pN.matches(".*[0-9].*")){
-                 err+="el primer Nombre no puede ser numérico";
-                      err+="\n";
-            }
-            
-            if(sN.matches(".*[0-9].*")){
-                 err+="el segundo Nombre no puede ser numérico";
-                      err+="\n";
-            }
-            
-              if(pA.matches(".*[0-9].*")){
-                 err+="el primer Apellido no puede ser numérico";
-                      err+="\n";
-            }
-             if(sA.matches(".*[0-9].*")){
-                 err+="el segundo Apellido no puede ser numérico";
-                      err+="\n";
-            }
-             
-             if(dir.matches(".*[0-9].*")){
-                 err+="el primer Apellido no puede ser numérico";
-                      err+="\n";
-            }
-           
-            
-           break;
-         
-         
-          case 2:
-        
-           for(int i=0;i<=ar.length-1;i++){
-                   if(Utilitario.estaVacia(ar[i])){
-                       
-                           err+=def[i];
-                           err+="\n";
-                          
-                     }
-                }
-        
-            if(fV==null){
-                err+="La fecha no ha sido seleccionada";
-                     err+="\n";
-              }
-         
 
-            //campos numerios
-            if(pN.matches(".*[0-9].*")){
-                 err+="el primer Nombre no puede ser numérico";
-                      err+="\n";
-            }
-            
-            if(sN.matches(".*[0-9].*")){
-                 err+="el segundo Nombre no puede ser numérico";
-                      err+="\n";
-            }
-            
-              if(pA.matches(".*[0-9].*")){
-                 err+="el primer Apellido no puede ser numérico";
-                      err+="\n";
-            }
-             if(sA.matches(".*[0-9].*")){
-                 err+="el segundo Apellido no puede ser numérico";
-                      err+="\n";
-            }
-             
-             if(dir.matches(".*[0-9].*")){
-                 err+="el primer Apellido no puede ser numérico";
-                      err+="\n";
-            }
-           
-            
-         break;
+                for (int i = 0; i <= ar.length - 1; i++) {
+                    if (Utilitario.estaVacia(ar[i])) {
+
+                        err += def[i];
+                        err += "\n";
+
+                    }
+                }
+
+                if (fV == null) {
+                    err += "La fecha no ha sido seleccionada";
+                    err += "\n";
+                }
+                if (!emMod.cedulaUnica(ced)) {
+                    err += "La cedula ya existe";
+                    err += "\n";
+                }
+
+                //campos numerios
+                if (pN.matches(".*[0-9].*")) {
+                    err += "el primer Nombre no puede ser numérico";
+                    err += "\n";
+                }
+
+                if (sN.matches(".*[0-9].*")) {
+                    err += "el segundo Nombre no puede ser numérico";
+                    err += "\n";
+                }
+
+                if (pA.matches(".*[0-9].*")) {
+                    err += "el primer Apellido no puede ser numérico";
+                    err += "\n";
+                }
+                if (sA.matches(".*[0-9].*")) {
+                    err += "el segundo Apellido no puede ser numérico";
+                    err += "\n";
+                }
+
+                if (dir.matches(".*[0-9].*")) {
+                    err += "el primer Apellido no puede ser numérico";
+                    err += "\n";
+                }
+
+                break;
+
+            case 2:
+
+                for (int i = 0; i <= ar.length - 1; i++) {
+                    if (Utilitario.estaVacia(ar[i])) {
+
+                        err += def[i];
+                        err += "\n";
+
+                    }
+                }
+
+                if (fV == null) {
+                    err += "La fecha no ha sido seleccionada";
+                    err += "\n";
+                }
+
+                //campos numerios
+                if (pN.matches(".*[0-9].*")) {
+                    err += "el primer Nombre no puede ser numérico";
+                    err += "\n";
+                }
+
+                if (sN.matches(".*[0-9].*")) {
+                    err += "el segundo Nombre no puede ser numérico";
+                    err += "\n";
+                }
+
+                if (pA.matches(".*[0-9].*")) {
+                    err += "el primer Apellido no puede ser numérico";
+                    err += "\n";
+                }
+                if (sA.matches(".*[0-9].*")) {
+                    err += "el segundo Apellido no puede ser numérico";
+                    err += "\n";
+                }
+
+                if (dir.matches(".*[0-9].*")) {
+                    err += "el primer Apellido no puede ser numérico";
+                    err += "\n";
+                }
+
+                break;
         }
-        
-        
+
         return err;
-    
+
     }
-    
-    public void cargarForm(String vals[]){
-        
-          txtCedula.setText(vals[0]);
-          txtPrimerNombre.setText(vals[1]);
-          txtSegundoNombre.setText(vals[2]);
-          txtPrimerApellido.setText(vals[3]);
-          txtSegundoApellido.setText(vals[4]);
-          txtDireccion.setText(vals[5]);
-          txtTelefono.setText(vals[6]);
+
+    public void cargarForm(String vals[]) {
+
+        txtCedula.setText(vals[0]);
+        txtPrimerNombre.setText(vals[1]);
+        txtSegundoNombre.setText(vals[2]);
+        txtPrimerApellido.setText(vals[3]);
+        txtSegundoApellido.setText(vals[4]);
+        txtDireccion.setText(vals[5]);
+        txtTelefono.setText(vals[6]);
     }
-    
-    
-    public void limpiarForm(){
-        
-          txtCedula.setText("");
-          txtPrimerNombre.setText("");
-          txtSegundoNombre.setText("");
-          txtPrimerApellido.setText("");
-          txtSegundoApellido.setText("");
-          txtDireccion.setText("");
-          txtTelefono.setText("");
+
+    public void limpiarForm() {
+
+        txtCedula.setText("");
+        txtPrimerNombre.setText("");
+        txtSegundoNombre.setText("");
+        txtPrimerApellido.setText("");
+        txtSegundoApellido.setText("");
+        txtDireccion.setText("");
+        txtTelefono.setText("");
     }
-    
-    public void onCedula(){
+
+    public void placeholder() {
+        if (txtCedula.isEnabled()) {
+            txtCedula.setText("Ingrese la cedula");
+            txtCedula.setForeground(new Color(153, 153, 153));
+        }
+        if (txtPrimerNombre.isEnabled()) {
+            txtPrimerNombre.setText("Ingrese el primer nombre");
+            txtPrimerNombre.setForeground(new Color(153, 153, 153));
+        }
+        if (txtSegundoNombre.isEnabled()) {
+            txtSegundoNombre.setText("Ingrese el segundo nombre");
+            txtSegundoNombre.setForeground(new Color(153, 153, 153));
+        }
+        if (txtPrimerApellido.isEnabled()) {
+            txtPrimerApellido.setText("Ingrese el primer apellido");
+            txtPrimerApellido.setForeground(new Color(153, 153, 153));
+        }
+        if (txtSegundoApellido.isEnabled()) {
+            txtSegundoApellido.setText("Ingrese el segundo apellido");
+            txtSegundoApellido.setForeground(new Color(153, 153, 153));
+        }
+        if (txtDireccion.isEnabled()) {
+            txtDireccion.setText("Ingrese la direccion");
+            txtDireccion.setForeground(new Color(153, 153, 153));
+        }
+        if (txtTelefono.isEnabled()) {
+            txtTelefono.setText("Ingrese el numero de telefono");
+            txtTelefono.setForeground(new Color(153, 153, 153));
+        }
+    }
+
+    public void onCedula() {
         txtCedula.setEnabled(true);
     }
-    
-      public void offCedula(){
+
+    public void offCedula() {
         txtCedula.setEnabled(false);
     }
 
-      public void onPn(){
+    public void onPn() {
         txtPrimerNombre.setEnabled(true);
     }
-      
-        public void offPn(){
+
+    public void offPn() {
         txtPrimerNombre.setEnabled(false);
     }
 
-        public void onSn(){
+    public void onSn() {
         txtSegundoNombre.setEnabled(true);
     }
-      
-        public void offSn(){
+
+    public void offSn() {
         txtSegundoNombre.setEnabled(false);
     }
-        
-        public void onPa(){
+
+    public void onPa() {
         txtPrimerApellido.setEnabled(true);
     }
-      
-        public void offPa(){
+
+    public void offPa() {
         txtPrimerApellido.setEnabled(false);
     }
-        
-        public void onSa(){
+
+    public void onSa() {
         txtSegundoApellido.setEnabled(true);
     }
-      
-        public void offSa(){
+
+    public void offSa() {
         txtSegundoApellido.setEnabled(false);
     }
-        
-          public void onDir(){
+
+    public void onDir() {
         txtDireccion.setEnabled(true);
     }
-      
-        public void offDir(){
-         txtDireccion.setEnabled(false);
+
+    public void offDir() {
+        txtDireccion.setEnabled(false);
     }
-        //btn insertar
-        public void onBtnIns(){
+    //btn insertar
+
+    public void onBtnIns() {
         btnInsert.setEnabled(true);
     }
-       
-        public void offBtnIns(){
-           btnInsert.setEnabled(false);
+
+    public void offBtnIns() {
+        btnInsert.setEnabled(false);
     }
-        //btn guardar
-           public void onBtnSave(){
+    //btn guardar
+
+    public void onBtnSave() {
         btnSave.setEnabled(true);
     }
-      
-        public void offBtnSave(){
-           btnSave.setEnabled(false);
+
+    public void offBtnSave() {
+        btnSave.setEnabled(false);
     }
-        
-        
-        public void enableTxt(){
-             txtCedula.setEnabled(true);
-              txtPrimerNombre.setEnabled(true);
-                txtSegundoNombre.setEnabled(true);
-                 txtPrimerApellido.setEnabled(true);
-                  txtSegundoApellido.setEnabled(true);
-                  txtDireccion.setEnabled(true);
-                   txtTelefono.setEnabled(true);
-                   selectorFechaVec.setEnabled(true);
-        }
-        
-          public void disableTxt(){
-             txtCedula.setEnabled(false);
-              txtPrimerNombre.setEnabled(false);
-                txtSegundoNombre.setEnabled(false);
-                 txtPrimerApellido.setEnabled(false);
-                  txtSegundoApellido.setEnabled(false);
-                   txtDireccion.setEnabled(false);
-                    txtTelefono.setEnabled(false);
-                    selectorFechaVec.setEnabled(false);
-        }
+
+    public void enableTxt() {
+        txtCedula.setEnabled(true);
+        txtPrimerNombre.setEnabled(true);
+        txtSegundoNombre.setEnabled(true);
+        txtPrimerApellido.setEnabled(true);
+        txtSegundoApellido.setEnabled(true);
+        txtDireccion.setEnabled(true);
+        txtTelefono.setEnabled(true);
+        selectorFechaVec.setEnabled(true);
+    }
+
+    public void disableTxt() {
+        txtCedula.setEnabled(false);
+        txtPrimerNombre.setEnabled(false);
+        txtSegundoNombre.setEnabled(false);
+        txtPrimerApellido.setEnabled(false);
+        txtSegundoApellido.setEnabled(false);
+        txtDireccion.setEnabled(false);
+        txtTelefono.setEnabled(false);
+        selectorFechaVec.setEnabled(false);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btnBuscar;

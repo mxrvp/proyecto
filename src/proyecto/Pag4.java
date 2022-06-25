@@ -1,4 +1,3 @@
-
 package proyecto;
 
 import empleados.Empleado;
@@ -6,21 +5,22 @@ import empleados.EmpleadosModel;
 import planilla.PlanillaModel;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.util.Date;
-import javax.swing.table.DefaultTableModel;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import planilla.EmpPlanilla;
 import utilmax.Utilitario;
 
-
 public class Pag4 extends javax.swing.JPanel {
-     
-  EmpleadosModel emMod=new EmpleadosModel();
-  Empleado emSel;
- PlanillaModel pMod=new PlanillaModel();
+
+    EmpleadosModel emMod = new EmpleadosModel();
+    Empleado emSel;
+    PlanillaModel pMod = new PlanillaModel();
+
     public Pag4() {
         initComponents();
+        String timeStamp = new SimpleDateFormat("yyyy/MMMM/dd").format(Calendar.getInstance().getTime());
+        jLabel1.setText(timeStamp);
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -460,7 +460,7 @@ public class Pag4 extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel2MouseEntered
 
     private void jLabel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseExited
-        btnCerrar.setBackground(new Color(221,221,221));
+        btnCerrar.setBackground(new Color(221, 221, 221));
     }//GEN-LAST:event_jLabel2MouseExited
 
     private void jLabel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MousePressed
@@ -468,18 +468,15 @@ public class Pag4 extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel2MousePressed
 
     private void txtBuscarCedulaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtBuscarCedulaMousePressed
-        if(txtBuscarCedula.getText().equals("Ingrese la cedula"))
-        {
+        if (txtBuscarCedula.getText().equals("Ingrese la cedula")) {
             txtBuscarCedula.setText("");
             txtBuscarCedula.setForeground(Color.black);
         }
-        if(txtSalxHora.getText().equals(""))
-        {
+        if (txtSalxHora.getText().equals("")) {
             txtSalxHora.setText("Ingrese el salario por hora");
             txtSalxHora.setForeground(Color.gray);
         }
-        if(txtHrsTrabajadas.getText().equals(""))
-        {
+        if (txtHrsTrabajadas.getText().equals("")) {
             txtHrsTrabajadas.setText("Ingrese las horas trabajadas");
             txtHrsTrabajadas.setForeground(Color.gray);
         }
@@ -490,78 +487,67 @@ public class Pag4 extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBuscarCedulaMouseEntered
 
     private void btnBuscarCedulaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarCedulaMouseExited
-        btnBuscar.setBackground(new Color(244,244,244));
+        btnBuscar.setBackground(new Color(244, 244, 244));
     }//GEN-LAST:event_btnBuscarCedulaMouseExited
 
     private void btnBuscarCedulaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarCedulaMousePressed
-           
-             limpiarForm();
-            String c=txtBuscarCedula.getText();
-           Empleado resBus=emMod.buscarCedula(c);
-        if(Utilitario.estaVacia(c) || resBus==null ){
-           JFrameAviso1 obj = new JFrameAviso1();
+
+        limpiarForm();
+        String c = txtBuscarCedula.getText();
+        Empleado resBus = emMod.buscarCedula(c);
+        if (Utilitario.estaVacia(c) || resBus == null) {
+            JFrameAviso1 obj = new JFrameAviso1();
             obj.setVisible(true);
-      
-            
-       
-        }else{
-          
-          
-           String arr[]=new String[7];
-           arr[0]=resBus.getCedula();
-           arr[1]=resBus.getNombre();
-           arr[2]=resBus.getNombre2();
-           arr[3]=resBus.getApellido();
-           arr[4]=resBus.getApellido2();
-           arr[5]=String.valueOf(resBus.getHorasTrabajadas());
-           arr[6]=String.valueOf(resBus.getSalarioHora());
-           
-        
-           
+
+        } else {
+
+            String arr[] = new String[7];
+            arr[0] = resBus.getCedula();
+            arr[1] = resBus.getNombre();
+            arr[2] = resBus.getNombre2();
+            arr[3] = resBus.getApellido();
+            arr[4] = resBus.getApellido2();
+            arr[5] = String.valueOf(resBus.getHorasTrabajadas());
+            arr[6] = String.valueOf(resBus.getSalarioHora());
+
             disableTxt();
-          
-           //ajustes del form
-           //se encuentra el empleado
-           emSel=resBus;
-           //se carga la data
-           cargarForm(arr);
-            
-             //set del queryType para estar lista para el update
-             emMod.setQueryType(1);
+
+            //ajustes del form
+            //se encuentra el empleado
+            emSel = resBus;
+            //se carga la data
+            cargarForm(arr);
+
+            //set del queryType para estar lista para el update
+            emMod.setQueryType(1);
         }
     }//GEN-LAST:event_btnBuscarCedulaMousePressed
 
     private void txtHrsTrabajadasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtHrsTrabajadasMousePressed
-        if(txtHrsTrabajadas.getText().equals("Ingrese las horas trabajadas"))
-        {
+        if (txtHrsTrabajadas.getText().equals("Ingrese las horas trabajadas")) {
             txtHrsTrabajadas.setText("");
             txtHrsTrabajadas.setForeground(Color.black);
         }
-        if(txtSalxHora.getText().equals(""))
-        {
+        if (txtSalxHora.getText().equals("")) {
             txtSalxHora.setText("Ingrese el salario por hora");
             txtSalxHora.setForeground(Color.gray);
         }
-        if(txtBuscarCedula.getText().equals(""))
-        {
+        if (txtBuscarCedula.getText().equals("")) {
             txtBuscarCedula.setText("Ingrese la cedula");
             txtBuscarCedula.setForeground(Color.gray);
         }
     }//GEN-LAST:event_txtHrsTrabajadasMousePressed
 
     private void txtSalxHoraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSalxHoraMousePressed
-        if(txtSalxHora.getText().equals("Ingrese el salario por hora"))
-        {
+        if (txtSalxHora.getText().equals("Ingrese el salario por hora")) {
             txtSalxHora.setText("");
             txtSalxHora.setForeground(Color.black);
         }
-        if(txtHrsTrabajadas.getText().equals(""))
-        {
+        if (txtHrsTrabajadas.getText().equals("")) {
             txtHrsTrabajadas.setText("Ingrese las horas trabajadas");
             txtHrsTrabajadas.setForeground(Color.gray);
         }
-        if(txtBuscarCedula.getText().equals(""))
-        {
+        if (txtBuscarCedula.getText().equals("")) {
             txtBuscarCedula.setText("Ingrese la cedula");
             txtBuscarCedula.setForeground(Color.gray);
         }
@@ -572,16 +558,16 @@ public class Pag4 extends javax.swing.JPanel {
     }//GEN-LAST:event_btnRegresarMouseEntered
 
     private void btnRegresarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMouseExited
-        btnInsertar.setBackground(new Color(255,255,255));
+        btnInsertar.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_btnRegresarMouseExited
 
     private void btnRegresarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegresarMousePressed
         Pag3 p3 = new Pag3();
         p3.setSize(1210, 830);
-        p3.setLocation(0,0);
-        
+        p3.setLocation(0, 0);
+
         JpBase.removeAll();
-        JpBase.add(p3,BorderLayout.CENTER);
+        JpBase.add(p3, BorderLayout.CENTER);
         JpBase.revalidate();;
         JpBase.repaint();
     }//GEN-LAST:event_btnRegresarMousePressed
@@ -591,290 +577,270 @@ public class Pag4 extends javax.swing.JPanel {
     }//GEN-LAST:event_btnAddMouseEntered
 
     private void btnAddMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMouseExited
-        btnGuardar.setBackground(new Color(255,255,255));
+        btnGuardar.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_btnAddMouseExited
 
     private void btnAddMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMousePressed
         //modifca sus datos
-         emMod.setQueryType(1);
-         
-        
-           if(emMod.getQueryType()==1){
-             
-             String errors=verificarTodos();
-          
-         if(errors.length()>0){   
-             String msg="Se han encontrado los siguientes errores:\n";
-             msg+=errors;
-             Utilitario.erro(msg,null);
-         }
-         else{
-            
-             EmpPlanilla emp=new EmpPlanilla(emSel);
+        emMod.setQueryType(1);
+
+        if (emMod.getQueryType() == 1) {
+
+            String errors = verificarTodos();
+
+            if (errors.length() > 0) {
+                String msg = "Se han encontrado los siguientes errores:\n";
+                msg += errors;
+                Utilitario.erro(msg, null);
+            } else {
+
+                EmpPlanilla emp = new EmpPlanilla(emSel);
                 //System.out.println(emSel.getCedula());
-             emp.calcularSalarioBruto();
-             emp.calcularSS();
-             emp.calcularSE();
-             emp.calcularSalarioNeto();
-             
-            pMod.insertar(emp);
-              Utilitario.exi("registrado con exito",null);
-             
-               
-          }
-         }
-        
+                emp.calcularSalarioBruto();
+                emp.calcularSS();
+                emp.calcularSE();
+                emp.calcularSalarioNeto();
+
+                pMod.insertar(emp);
+                Utilitario.exi("registrado con exito", null);
+
+            }
+        }
+
     }//GEN-LAST:event_btnAddMousePressed
 //utilidades
-     public String verificarTodos(){
-         String err="";
-          String pN=txtPrimerNombre.getText();
-          String sN=txtSegundoNombre.getText();
-          String pA=txtPrimerApellido.getText();
-          String sA=txtSegundoApellido.getText();
-          String hT=txtHrsTrabajadas.getText();
-        String sH=txtSalxHora.getText();
-          String ar[]={
-           
-             pN,
-             sN,
-             pA,
-             sA,
-             hT,
-             sH
-            
-          };
-          
-          String def[]={
-              "el campo primer Nombre esta vacio",
-               "el campo segundo Nombre esta vacio",
-                "el campo primer Apellido esta vacio",
-                 "el campo segundo Apellido esta vacio",
-                  "el campo horasTrabajadas esta vacio",
-                   "el campo salario por hora esta vacio"
-                 
-          };
-        
-        switch(emMod.getQueryType()){
-            
+
+    public String verificarTodos() {
+        String err = "";
+        String pN = txtPrimerNombre.getText();
+        String sN = txtSegundoNombre.getText();
+        String pA = txtPrimerApellido.getText();
+        String sA = txtSegundoApellido.getText();
+        String hT = txtHrsTrabajadas.getText();
+        String sH = txtSalxHora.getText();
+        String ar[] = {
+            pN,
+            sN,
+            pA,
+            sA,
+            hT,
+            sH
+
+        };
+
+        String def[] = {
+            "el campo primer Nombre esta vacio",
+            "el campo segundo Nombre esta vacio",
+            "el campo primer Apellido esta vacio",
+            "el campo segundo Apellido esta vacio",
+            "el campo horasTrabajadas esta vacio",
+            "el campo salario por hora esta vacio"
+
+        };
+
+        switch (emMod.getQueryType()) {
+
             //chequeo general
             case 1:
-        
-           for(int i=0;i<=ar.length-1;i++){
-                   if(Utilitario.estaVacia(ar[i])){
-                       
-                           err+=def[i];
-                           err+="\n";
-                          
-                     }
+
+                for (int i = 0; i <= ar.length - 1; i++) {
+                    if (Utilitario.estaVacia(ar[i])) {
+
+                        err += def[i];
+                        err += "\n";
+
+                    }
                 }
-        
-            if(!pMod.cedulaUnica(emSel.getCedula())){
-                 err+="El empleado ya se ha añadido al sistema de planilla";
-                      err+="\n";
-            }
-            //campos numerios
-            if(pN.matches(".*[0-9].*")){
-                 err+="el primer Nombre no puede ser numérico";
-                      err+="\n";
-            }
-            
-            if(sN.matches(".*[0-9].*")){
-                 err+="el segundo Nombre no puede ser numérico";
-                      err+="\n";
-            }
-            
-              if(pA.matches(".*[0-9].*")){
-                 err+="el primer Apellido no puede ser numérico";
-                      err+="\n";
-            }
-             if(sA.matches(".*[0-9].*")){
-                 err+="el segundo Apellido no puede ser numérico";
-                      err+="\n";
-            }
-             //necesito sabersi el salario hora y horas trabajadas están correctas para modificar el file
-           int hs=0;
-          if(!Utilitario.esNumero(hT)){
-               err+="las horas trabajadas debe ser de tipo numérico";
-                      err+="\n";
-               
-          }else{
-              
-              System.out.println(getEmpIndex());
-              
-              Empleado empleadoSel=emMod.buscarEmpleado(getEmpIndex());
-            empleadoSel.setHorasTrabajadas(Double.parseDouble(hT));
-           
-              if(!emSel.evalHoras()){
-                    err+="las horas trabajadas no pueden ser menos de 4 ni \n" +
-                   "mayor a 12";
-                      err+="\n";
-              
-              }
-            
-          }
-           if(!Utilitario.esNumero(sH)){
-               err+="El salario por hora debe ser de tipo numérico";
-                      err+="\n";
-          }
-           else{
-                Empleado empleadoSel=emMod.buscarEmpleado(getEmpIndex());
-                 empleadoSel.setSalarioHora(Double.parseDouble(sH));
-             if(!emSel.evalSalario()){
-                    err+="el salario por hora no sea menor de 5.00 ni mayor \n" +
-                   "a 20.00";
-                      err+="\n";
-                  
-              }
-           }
-           
-              if(Utilitario.esNumero(hT) && Utilitario.esNumero(sH)){
-                  emMod.modificar(getEmpIndex(), Double.parseDouble(hT), Double.parseDouble(sH));
-              }
-         
-           
-          break;
-         
-         
-          case 2:
-        
-           for(int i=0;i<=ar.length-1;i++){
-                   if(Utilitario.estaVacia(ar[i])){
-                       
-                           err+=def[i];
-                           err+="\n";
-                          
-                     }
+
+                if (!pMod.cedulaUnica(emSel.getCedula())) {
+                    err += "El empleado ya se ha añadido al sistema de planilla";
+                    err += "\n";
                 }
-        
-        
-            //campos numerios
-            if(pN.matches(".*[0-9].*")){
-                 err+="el primer Nombre no puede ser numérico";
-                      err+="\n";
-            }
-            
-            if(sN.matches(".*[0-9].*")){
-                 err+="el segundo Nombre no puede ser numérico";
-                      err+="\n";
-            }
-            
-              if(pA.matches(".*[0-9].*")){
-                 err+="el primer Apellido no puede ser numérico";
-                      err+="\n";
-            }
-             if(sA.matches(".*[0-9].*")){
-                 err+="el segundo Apellido no puede ser numérico";
-                      err+="\n";
-            }
-             
-            
-           
-            
-         break;
+                //campos numerios
+                if (pN.matches(".*[0-9].*")) {
+                    err += "el primer Nombre no puede ser numérico";
+                    err += "\n";
+                }
+
+                if (sN.matches(".*[0-9].*")) {
+                    err += "el segundo Nombre no puede ser numérico";
+                    err += "\n";
+                }
+
+                if (pA.matches(".*[0-9].*")) {
+                    err += "el primer Apellido no puede ser numérico";
+                    err += "\n";
+                }
+                if (sA.matches(".*[0-9].*")) {
+                    err += "el segundo Apellido no puede ser numérico";
+                    err += "\n";
+                }
+                //necesito sabersi el salario hora y horas trabajadas están correctas para modificar el file
+                int hs = 0;
+                if (!Utilitario.esNumero(hT)) {
+                    err += "las horas trabajadas debe ser de tipo numérico";
+                    err += "\n";
+
+                } else {
+
+                    System.out.println(getEmpIndex());
+
+                    Empleado empleadoSel = emMod.buscarEmpleado(getEmpIndex());
+                    empleadoSel.setHorasTrabajadas(Double.parseDouble(hT));
+
+                    if (!emSel.evalHoras()) {
+                        err += "las horas trabajadas no pueden ser menos de 4 ni \n"
+                                + "mayor a 12";
+                        err += "\n";
+
+                    }
+
+                }
+                if (!Utilitario.esNumero(sH)) {
+                    err += "El salario por hora debe ser de tipo numérico";
+                    err += "\n";
+                } else {
+                    Empleado empleadoSel = emMod.buscarEmpleado(getEmpIndex());
+                    empleadoSel.setSalarioHora(Double.parseDouble(sH));
+                    if (!emSel.evalSalario()) {
+                        err += "el salario por hora no sea menor de 5.00 ni mayor \n"
+                                + "a 20.00";
+                        err += "\n";
+
+                    }
+                }
+
+                if (Utilitario.esNumero(hT) && Utilitario.esNumero(sH)) {
+                    emMod.modificar(getEmpIndex(), Double.parseDouble(hT), Double.parseDouble(sH));
+                }
+
+                break;
+
+            case 2:
+
+                for (int i = 0; i <= ar.length - 1; i++) {
+                    if (Utilitario.estaVacia(ar[i])) {
+
+                        err += def[i];
+                        err += "\n";
+
+                    }
+                }
+
+                //campos numerios
+                if (pN.matches(".*[0-9].*")) {
+                    err += "el primer Nombre no puede ser numérico";
+                    err += "\n";
+                }
+
+                if (sN.matches(".*[0-9].*")) {
+                    err += "el segundo Nombre no puede ser numérico";
+                    err += "\n";
+                }
+
+                if (pA.matches(".*[0-9].*")) {
+                    err += "el primer Apellido no puede ser numérico";
+                    err += "\n";
+                }
+                if (sA.matches(".*[0-9].*")) {
+                    err += "el segundo Apellido no puede ser numérico";
+                    err += "\n";
+                }
+
+                break;
         }
-        
-        
+
         return err;
-    
-    }
-    
-    public void cargarForm(String vals[]){
-        
-        
-          txtPrimerNombre.setText(vals[1]);
-          txtSegundoNombre.setText(vals[2]);
-          txtPrimerApellido.setText(vals[3]);
-          txtSegundoApellido.setText(vals[4]);
-          txtHrsTrabajadas.setText(vals[5]);
-           txtSalxHora.setText(vals[6]);
-    }
-    
-    
-    public void limpiarForm(){
-        
-          txtPrimerNombre.setText("");
-          txtSegundoNombre.setText("");
-          txtPrimerApellido.setText("");
-          txtSegundoApellido.setText("");
-          txtHrsTrabajadas.setText("");
-           txtSalxHora.setText("");
-    }
-    
 
-    
-    
+    }
 
-      public void onPn(){
+    public void cargarForm(String vals[]) {
+
+        txtPrimerNombre.setText(vals[1]);
+        txtSegundoNombre.setText(vals[2]);
+        txtPrimerApellido.setText(vals[3]);
+        txtSegundoApellido.setText(vals[4]);
+        txtHrsTrabajadas.setText(vals[5]);
+        txtSalxHora.setText(vals[6]);
+    }
+
+    public void limpiarForm() {
+
+        txtPrimerNombre.setText("");
+        txtSegundoNombre.setText("");
+        txtPrimerApellido.setText("");
+        txtSegundoApellido.setText("");
+        txtHrsTrabajadas.setText("");
+        txtSalxHora.setText("");
+    }
+
+    public void onPn() {
         txtPrimerNombre.setEnabled(true);
     }
-      
-        public void offPn(){
+
+    public void offPn() {
         txtPrimerNombre.setEnabled(false);
     }
 
-        public void onSn(){
+    public void onSn() {
         txtSegundoNombre.setEnabled(true);
     }
-      
-        public void offSn(){
+
+    public void offSn() {
         txtSegundoNombre.setEnabled(false);
     }
-        
-        public void onPa(){
+
+    public void onPa() {
         txtPrimerApellido.setEnabled(true);
     }
-      
-        public void offPa(){
+
+    public void offPa() {
         txtPrimerApellido.setEnabled(false);
     }
-        
-        public void onSa(){
+
+    public void onSa() {
         txtSegundoApellido.setEnabled(true);
     }
-      
-        public void offSa(){
+
+    public void offSa() {
         txtSegundoApellido.setEnabled(false);
     }
-        
-        
-        //btn insertar
-        public void onBtnAdd(){
+
+    //btn insertar
+    public void onBtnAdd() {
         btnAdd.setEnabled(true);
     }
-       
-        public void offBtnIns(){
-            btnAdd.setEnabled(false);
+
+    public void offBtnIns() {
+        btnAdd.setEnabled(false);
     }
-      
-        
-        public void enableTxt(){
-           
-              txtPrimerNombre.setEnabled(true);
-                txtSegundoNombre.setEnabled(true);
-                 txtPrimerApellido.setEnabled(true);
-                  txtSegundoApellido.setEnabled(true);
-                  txtHrsTrabajadas.setEnabled(true);
-                   txtSalxHora.setEnabled(true);
-                 
-        }
-        
-          public void disableTxt(){
-           
-              txtPrimerNombre.setEnabled(false);
-                txtSegundoNombre.setEnabled(false);
-                 txtPrimerApellido.setEnabled(false);
-                  txtSegundoApellido.setEnabled(false);
-                      
-        }
-          
-          
-   //retorna el indice del objeto seleccionado el empleado
-          public int getEmpIndex(){
-            
-             int index=emMod.mostrar_todos().indexOf(emSel);
-             return index;
-          }
+
+    public void enableTxt() {
+
+        txtPrimerNombre.setEnabled(true);
+        txtSegundoNombre.setEnabled(true);
+        txtPrimerApellido.setEnabled(true);
+        txtSegundoApellido.setEnabled(true);
+        txtHrsTrabajadas.setEnabled(true);
+        txtSalxHora.setEnabled(true);
+
+    }
+
+    public void disableTxt() {
+
+        txtPrimerNombre.setEnabled(false);
+        txtSegundoNombre.setEnabled(false);
+        txtPrimerApellido.setEnabled(false);
+        txtSegundoApellido.setEnabled(false);
+
+    }
+
+    //retorna el indice del objeto seleccionado el empleado
+    public int getEmpIndex() {
+
+        int index = emMod.mostrar_todos().indexOf(emSel);
+        return index;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JpBase;

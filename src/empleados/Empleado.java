@@ -1,33 +1,24 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package empleados;
 
 import java.util.Date;
 
-/**
- *
- * @author admin
- */
 public class Empleado {
-      
-        private String cedula;
-        private String nombre;
-        private String nombre2;
-        private String apellido;
-        private String apellido2;
-        //la fecha debe estar en formato año/mes/dia
-        private Date fechaNacimiento;
-        private String direccion;
-        private String telefono;
-        private double horasTrabajadas;
-        private double salarioHora;
+
+    private String cedula;
+    private String nombre;
+    private String nombre2;
+    private String apellido;
+    private String apellido2;
+    //la fecha debe estar en formato año/mes/dia
+    private Date fechaNacimiento;
+    private String direccion;
+    private String telefono;
+    private double horasTrabajadas;
+    private double salarioHora;
 
     public Empleado() {
     }
 
-        
     public Empleado(String cedula, String nombre, String nombre2, String apellido, String apellido2, Date vencimiento, String direccion, String telefono) {
         this.cedula = cedula;
         this.nombre = nombre;
@@ -37,12 +28,10 @@ public class Empleado {
         this.fechaNacimiento = vencimiento;
         this.direccion = direccion;
         this.telefono = telefono;
-     
-        
+
     }
-    
-            
-    public Empleado(String cedula, String nombre, String nombre2, String apellido, String apellido2, Date vencimiento, String direccion, String telefono,double hT,double sH) {
+
+    public Empleado(String cedula, String nombre, String nombre2, String apellido, String apellido2, Date vencimiento, String direccion, String telefono, double hT, double sH) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.nombre2 = nombre2;
@@ -51,9 +40,9 @@ public class Empleado {
         this.fechaNacimiento = vencimiento;
         this.direccion = direccion;
         this.telefono = telefono;
-        this.horasTrabajadas=hT;
-        this.salarioHora=sH;
-        
+        this.horasTrabajadas = hT;
+        this.salarioHora = sH;
+
     }
 
     public String getCedula() {
@@ -100,7 +89,7 @@ public class Empleado {
         return this.fechaNacimiento;
     }
 
-    public void  setFechaNacimiento(Date fNac) {
+    public void setFechaNacimiento(Date fNac) {
         this.fechaNacimiento = fNac;
     }
 
@@ -135,22 +124,21 @@ public class Empleado {
     public void setSalarioHora(double salarioHora) {
         this.salarioHora = salarioHora;
     }
-        
-    public boolean evalHoras(){
-    
-       if(this.horasTrabajadas<4 || this.horasTrabajadas>12){
-           return false;
-       }
-       return true;
+
+    public boolean evalHoras() {
+
+        if (this.horasTrabajadas < 4 || this.horasTrabajadas > 12) {
+            return false;
+        }
+        return true;
     }
-    
-     public boolean evalSalario(){
-    
-       if(this.salarioHora<5.00 || this.salarioHora>20.00){
-           return false;
-       }
-       return true;
+
+    public boolean evalSalario() {
+
+        if (this.salarioHora < 5.00 || this.salarioHora > 20.00) {
+            return false;
+        }
+        return true;
     }
-     
-     
+
 }
