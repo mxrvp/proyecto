@@ -1,26 +1,24 @@
+
 package proyecto;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import planilla.EmpPlanilla;
 import planilla.PlanillaModel;
 
+
 public class Pag3 extends javax.swing.JPanel {
-
-    public DefaultTableModel tableModel;
-    PlanillaModel pMod = new PlanillaModel();
-
+     public  DefaultTableModel tableModel;
+   PlanillaModel pMod=new PlanillaModel();
     public Pag3() {
+       
         initComponents();
         genTablePlanilla();
-        String timeStamp = new SimpleDateFormat("yyyy/MMMM/dd").format(Calendar.getInstance().getTime());
-        jLabel1.setText(timeStamp);
     }
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -178,7 +176,7 @@ public class Pag3 extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel2MouseEntered
 
     private void jLabel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseExited
-        btnCerrar.setBackground(new Color(221, 221, 221));
+        btnCerrar.setBackground(new Color(221,221,221));
     }//GEN-LAST:event_jLabel2MouseExited
 
     private void jLabel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MousePressed
@@ -188,58 +186,65 @@ public class Pag3 extends javax.swing.JPanel {
     private void jLabel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MousePressed
         Pag4 p4 = new Pag4();
         p4.setSize(1210, 830);
-        p4.setLocation(0, 0);
+        p4.setLocation(0,0);
 
         JpBase.removeAll();
-        JpBase.add(p4, BorderLayout.CENTER);
+        JpBase.add(p4,BorderLayout.CENTER);
         JpBase.revalidate();;
         JpBase.repaint();
     }//GEN-LAST:event_jLabel5MousePressed
 
     private void btnEliminarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMousePressed
-        String options[] = {"Si", "No"};
-        int response = JOptionPane.showOptionDialog(
-                null,
-                "¿Está seguro que desea eliminar este registro?",
-                "confirmacion",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.QUESTION_MESSAGE,
-                null, //no custom icon
-                options, //button titles
-                options[0] //default button
-        );
-        if (response == JOptionPane.YES_OPTION) {
-            int selected = tablePlanilla.getSelectedRow();
-            if (selected >= 0) {
-                pMod.eliminar(selected);
+      String options[]={"Si","No"};
+        int response= JOptionPane.showOptionDialog(
+               null,
+               "¿Está seguro que desea eliminar este registro?", 
+               "confirmacion",            
+               JOptionPane.YES_NO_OPTION,
+               JOptionPane.QUESTION_MESSAGE,
+               null,     //no custom icon
+             options,  //button titles
+               options[0] //default button
+            );
+            if(response == JOptionPane.YES_OPTION){
+             int selected=tablePlanilla.getSelectedRow();
+            if(selected>=0){
+             pMod.eliminar(selected);
+                }
             }
-        }
-        genTablePlanilla();
-
-
+       genTablePlanilla();
+        
+       
     }//GEN-LAST:event_btnEliminarMousePressed
 
+    
     //manejo de la tabla
-    public void genTablePlanilla() {
+       public void  genTablePlanilla(){
         destroyPlanilla();
-        tableModel = (DefaultTableModel) tablePlanilla.getModel();
+     tableModel=(DefaultTableModel)tablePlanilla.getModel();
 
-        ArrayList<EmpPlanilla> registros = pMod.mostrar_todos();
-
-        for (int i = 0; i <= registros.size() - 1; i++) {
-            EmpPlanilla registro = registros.get(i);
-
-            String cols[] = {String.valueOf(registro.getEmp().getCedula()), registro.getEmp().getNombre(), registro.getEmp().getNombre2(), registro.getEmp().getApellido(), registro.getEmp().getApellido2(), String.valueOf(registro.getEmp().getHorasTrabajadas()), String.valueOf(registro.getEmp().getSalarioHora()), String.valueOf(registro.calcularSalarioBruto()), String.valueOf(registro.calcularSS()), String.valueOf(registro.calcularSE()), String.valueOf(registro.calcularSalarioNeto())};
-            tableModel.addRow(cols);
-        }
-
+     
+  
+    
+    ArrayList<EmpPlanilla>registros=pMod.mostrar_todos();
+    
+ 
+       
+      for(int i=0;i<=registros.size()-1;i++){
+          EmpPlanilla registro=registros.get(i);
+        
+      
+       String cols[]={String.valueOf(registro.getEmp().getCedula()),registro.getEmp().getNombre(),registro.getEmp().getNombre2(),registro.getEmp().getApellido(),registro.getEmp().getApellido2(),String.valueOf(registro.getEmp().getHorasTrabajadas()),String.valueOf(registro.getEmp().getSalarioHora()),String.valueOf(registro.calcularSalarioBruto()),String.valueOf(registro.calcularSS()),String.valueOf(registro.calcularSE()),String.valueOf(registro.calcularSalarioNeto())};
+       tableModel.addRow(cols);
+      }
+      
     }
-
-    public void destroyPlanilla() {
-        tableModel = (DefaultTableModel) tablePlanilla.getModel();
-        int c = tableModel.getRowCount();
-        for (int i = 0; i <= c - 1; i++) {
-            tableModel.removeRow(0);
+    
+    public void destroyPlanilla(){
+        tableModel=(DefaultTableModel)tablePlanilla.getModel();
+       int c= tableModel.getRowCount();
+        for(int i=0;i<=c-1;i++){
+         tableModel.removeRow(0);
         }
     }
 
