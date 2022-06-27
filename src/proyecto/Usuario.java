@@ -210,11 +210,14 @@ public class Usuario {
         String arrD[] = new String[6];
         try {
             Scanner scanner = new Scanner(fFile);
-            while (scanner.hasNextLine()) {
+            if(scanner.hasNext()){
+            
+              while (scanner.hasNextLine()) {
 
                 String linea = scanner.nextLine();
                 arr = linea.split("\\|");
-
+             
+               System.out.println(arr.length);
                 Usuario obj = new Usuario();
                 obj.setCedula(arr[0]);
                 obj.setUserId(arr[1]);
@@ -222,13 +225,15 @@ public class Usuario {
                 obj.setNombre(arr[3]);
                 obj.setApellido(arr[4]);
                 obj.setDireccion(arr[5]);
-                if (arr[1].equals(usuario)) {
+            if (arr[1].equals(usuario)) {
                     confirmacion = true;
                 }
-            }//fin del while
+                
+            }//fin del while}
+            }
             scanner.close();
         } catch (FileNotFoundException e) {
-
+              e.getMessage();
         }
         return confirmacion;
     }// fin metodo usuario repetido
@@ -243,7 +248,8 @@ public class Usuario {
 
         try {
             Scanner scanner = new Scanner(fFile);
-            while (scanner.hasNextLine()) {
+            if(scanner.hasNext()){
+                  while (scanner.hasNextLine()) {
                 String[] linea = scanner.nextLine().split("\\|");
                 if (linea[1].equals(this.userId) && (linea[2].equals(utilmax.Util_Encrypt.cifrar(this.contrasena)))) {
                     usuarioInicio = linea[3].concat(" ").concat(linea[4]);
@@ -251,6 +257,8 @@ public class Usuario {
 
                     return true;
                 }
+            }
+          
             }
             scanner.close();
 

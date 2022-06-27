@@ -77,7 +77,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                                   <Component id="jLabel18" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
-                                  <Component id="txtDriccion" alignment="0" min="-2" pref="410" max="-2" attributes="0"/>
+                                  <Component id="txtDireccion" alignment="0" min="-2" pref="410" max="-2" attributes="0"/>
                                   <Component id="jSeparator10" alignment="0" min="-2" pref="420" max="-2" attributes="0"/>
                                   <Component id="jLabel17" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
                                   <Component id="jSeparator9" alignment="0" min="-2" pref="420" max="-2" attributes="0"/>
@@ -140,7 +140,7 @@
                           <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                           <Component id="jLabel18" min="-2" pref="20" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                          <Component id="txtDriccion" min="-2" pref="24" max="-2" attributes="0"/>
+                          <Component id="txtDireccion" min="-2" pref="24" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jSeparator10" min="-2" pref="10" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="291" max="-2" attributes="0"/>
@@ -267,7 +267,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="99" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ingrese su nombre de usuario"/>
+            <Property name="toolTipText" type="java.lang.String" value="Ingrese su nombre de usuario"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -305,7 +305,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="99" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="1234567890"/>
+            <Property name="toolTipText" type="java.lang.String" value="su contrase&#xf1;a segura"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -333,7 +333,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="99" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ingrese su nombre"/>
+            <Property name="toolTipText" type="java.lang.String" value="Ingrese su nombre"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -371,7 +371,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="99" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ingrese su apellido"/>
+            <Property name="toolTipText" type="java.lang.String" value="Ingrese su apellido"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -398,7 +398,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="99" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ingrese su cedula"/>
+            <Property name="toolTipText" type="java.lang.String" value="Ingrese su cedula"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -439,7 +439,7 @@
             <Property name="text" type="java.lang.String" value="Direccion"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtDriccion">
+        <Component class="javax.swing.JTextField" name="txtDireccion">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="f4" green="f4" red="f4" type="rgb"/>
@@ -447,13 +447,13 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="99" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ingrese su direccion"/>
+            <Property name="toolTipText" type="java.lang.String" value="Ingrese su direccion"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtDriccionMousePressed"/>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtDireccionMousePressed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator10">
@@ -534,7 +534,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="99" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="1234567890"/>
+            <Property name="toolTipText" type="java.lang.String" value="confirme su contrase&#xf1;a"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
