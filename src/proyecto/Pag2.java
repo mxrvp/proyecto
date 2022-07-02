@@ -177,6 +177,7 @@ public class Pag2 extends javax.swing.JPanel {
 
         txtPrimerNombre.setBackground(new java.awt.Color(244, 244, 244));
         txtPrimerNombre.setForeground(new java.awt.Color(153, 153, 153));
+        txtPrimerNombre.setToolTipText("Ingrese el primer nombre");
         txtPrimerNombre.setBorder(null);
         txtPrimerNombre.setEnabled(false);
 
@@ -192,6 +193,7 @@ public class Pag2 extends javax.swing.JPanel {
 
         txtCedula.setBackground(new java.awt.Color(244, 244, 244));
         txtCedula.setForeground(new java.awt.Color(153, 153, 153));
+        txtCedula.setToolTipText("Ingrese la cedula");
         txtCedula.setBorder(null);
         txtCedula.setEnabled(false);
 
@@ -208,6 +210,7 @@ public class Pag2 extends javax.swing.JPanel {
 
         txtPrimerApellido.setBackground(new java.awt.Color(244, 244, 244));
         txtPrimerApellido.setForeground(new java.awt.Color(153, 153, 153));
+        txtPrimerApellido.setToolTipText("Ingrese el primer apellido");
         txtPrimerApellido.setBorder(null);
         txtPrimerApellido.setEnabled(false);
 
@@ -220,6 +223,7 @@ public class Pag2 extends javax.swing.JPanel {
 
         txtSegundoApellido.setBackground(new java.awt.Color(244, 244, 244));
         txtSegundoApellido.setForeground(new java.awt.Color(153, 153, 153));
+        txtSegundoApellido.setToolTipText("Ingrese el segundo apellido");
         txtSegundoApellido.setBorder(null);
         txtSegundoApellido.setEnabled(false);
 
@@ -236,6 +240,7 @@ public class Pag2 extends javax.swing.JPanel {
 
         txtDireccion.setBackground(new java.awt.Color(244, 244, 244));
         txtDireccion.setForeground(new java.awt.Color(153, 153, 153));
+        txtDireccion.setToolTipText("Ingrese la direccion");
         txtDireccion.setBorder(null);
         txtDireccion.setEnabled(false);
 
@@ -248,6 +253,7 @@ public class Pag2 extends javax.swing.JPanel {
 
         txtTelefono.setBackground(new java.awt.Color(244, 244, 244));
         txtTelefono.setForeground(new java.awt.Color(153, 153, 153));
+        txtTelefono.setToolTipText("Ingrese el telefono");
         txtTelefono.setBorder(null);
         txtTelefono.setEnabled(false);
 
@@ -325,6 +331,7 @@ public class Pag2 extends javax.swing.JPanel {
 
         txtSegundoNombre.setBackground(new java.awt.Color(244, 244, 244));
         txtSegundoNombre.setForeground(new java.awt.Color(153, 153, 153));
+        txtSegundoNombre.setToolTipText("Ingrese el segundo nombre");
         txtSegundoNombre.setBorder(null);
         txtSegundoNombre.setEnabled(false);
 
@@ -343,7 +350,7 @@ public class Pag2 extends javax.swing.JPanel {
                             .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jSeparator14, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(849, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -386,7 +393,7 @@ public class Pag2 extends javax.swing.JPanel {
                             .addComponent(txtBuscarCedula, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 326, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 462, Short.MAX_VALUE)
                 .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -465,24 +472,18 @@ public class Pag2 extends javax.swing.JPanel {
                 .addComponent(txtSegundoApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator14, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 66, Short.MAX_VALUE))
+                .addGap(0, 78, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(126, 126, 126)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

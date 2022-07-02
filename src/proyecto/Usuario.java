@@ -26,8 +26,6 @@ public class Usuario {
     public Usuario() {
     }
 
-    ;
-
     public Usuario(String cedula, String userId, String contrasena, String nombre, String apellido, String direccion, int tipo) {
         this.cedula = cedula;
         this.userId = userId;
@@ -207,7 +205,6 @@ public class Usuario {
         boolean confirmacion = false;
         File fFile = new File(Carpeta + ArchivoUsuario);
         String arr[] = new String[6];
-        String arrD[] = new String[6];
         try {
             Scanner scanner = new Scanner(fFile);
             if(scanner.hasNext()){
